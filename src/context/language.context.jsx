@@ -13,7 +13,7 @@ function LanguageProviderWrapper(props) {
     }
   };
   return (
-    <LanguageContext.Provider value={{language, toggleLanguage}}>
+    <LanguageContext.Provider value={{ language, toggleLanguage }}>
       {props.children}
     </LanguageContext.Provider>
   );
