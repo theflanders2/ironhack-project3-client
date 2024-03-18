@@ -1,4 +1,3 @@
-// Deconstructing props object directly in the parentheses of the function
 function CommentCard(props) {
   return (
     <div className="CommentCard card">
