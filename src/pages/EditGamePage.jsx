@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-const API_URL = import.meta.env.REACT_APP_DEPLOYMENT_SERVER_URL;
+const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
 
 function EditGamePage() {
   const [name, setName] = useState("");

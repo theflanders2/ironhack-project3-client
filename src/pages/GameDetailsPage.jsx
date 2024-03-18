@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import AddComment from "../components/AddComment";
 import CommentCard from "../components/CommentCard";
 
-const API_URL = import.meta.env.REACT_APP_DEPLOYMENT_SERVER_URL;
+const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
 
 function GameDetailsPage() {
   const [game, setGame] = useState(null);

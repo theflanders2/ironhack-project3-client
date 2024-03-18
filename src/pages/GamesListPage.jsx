@@ -3,7 +3,7 @@ import axios from "axios";
 import AddGame from "../components/AddGame";
 import GameCard from "../components/GameCard";
 
-const API_URL = import.meta.env.REACT_APP_DEPLOYMENT_SERVER_URL;
+const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
 
 function GamesListPage() {
   const [games, setGames] = useState([]);

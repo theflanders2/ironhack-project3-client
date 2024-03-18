@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = import.meta.env.REACT_APP_DEPLOYMENT_SERVER_URL;
+const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
 
 function AddGame(props) {
   const [name, setName] = useState("");
