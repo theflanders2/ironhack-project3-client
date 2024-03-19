@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 function CommentCard(props) {
   return (
     <div className="CommentCard card">
-      <h4>{props.author}</h4>
-      <p>{props.content}</p>
+      <Link to={`/profile/${props.author._id}`} ><h4>User: {props.author.username}</h4></Link>
+      <p>Comment: {props.content}</p>
     </div>
   );
 }
