@@ -4,9 +4,10 @@ import axios from "axios";
 const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
 
 function AddComment(props) {
-//   const [game, setGame] = useState("");
-//   const [author, setAuthor] = useState("");
+  //   const [game, setGame] = useState("");
+  //   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
+  const storedToken = localStorage.getItem("authToken");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,15 +19,17 @@ function AddComment(props) {
     const requestBody = { content, gameId };
 
     axios
-      .post(`${API_URL}/api/comments`, requestBody)
+      .post(`${API_URL}/api/comments`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` }
+      })
       .then((newComment) => {
         // Reset the state to clear the inputs
-        console.log('newComment', newComment);
+        console.log("newComment", newComment);
         setContent("");
-      
+
         // Invoke the callback function coming through the props
-        // from the ProjectDetailsPage, to refresh the project details
-        props.refreshProject();
+        // from the GameDetailsPage, to refresh the game details
+        props.refreshGame();
       })
       .catch((error) => console.log(error));
   };
@@ -36,22 +39,6 @@ function AddComment(props) {
       <h3>Add Comment</h3>
 
       <form onSubmit={handleSubmit}>
-        {/* <label>Game:</label>
-        <input
-          type="text"
-          name="game"
-          value={game}
-          onChange={(e) => setGame(e.target.value)}
-        />
-
-        <label>Author:</label>
-        <input
-          type="text"
-          name="author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        /> */}
-
         <label>Comment:</label>
         <textarea
           type="text"
@@ -60,7 +47,7 @@ function AddComment(props) {
           onChange={(e) => setContent(e.target.value)}
         />
 
-        <button type="submit">Add Task</button>
+        <button type="submit">Add Game</button>
       </form>
     </div>
   );

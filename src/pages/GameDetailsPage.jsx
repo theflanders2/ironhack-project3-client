@@ -9,10 +9,13 @@ const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
 function GameDetailsPage() {
   const [game, setGame] = useState(null);
   const { gameId } = useParams();
+  const storedToken = localStorage.getItem("authToken");
 
   const getGame = () => {
     axios
-      .get(`${API_URL}/api/games/${gameId}`)
+      .get(`${API_URL}/api/games/${gameId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` }
+      })
       .then((foundGame) => setGame(foundGame.data))
       .catch((error) => console.log(error));
   };

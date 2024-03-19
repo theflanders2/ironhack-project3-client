@@ -9,8 +9,14 @@ function GamesListPage() {
   const [games, setGames] = useState([]);
 
   const getAllGames = () => {
+    // Get the token from the localStorage
+    const storedToken = localStorage.getItem("authToken");
+    console.log("storedToken", storedToken)
+    // Send the token through the request "Authorization" Headers
     axios
-      .get(`${API_URL}/api/games`)
+      .get(`${API_URL}/api/games`, {
+        headers: { Authorization: `Bearer ${storedToken}` }
+      })
       .then((allFoundGames) => setGames(allFoundGames.data))
       .catch((error) => console.log(error));
   };
@@ -27,10 +33,7 @@ function GamesListPage() {
       <AddGame refreshGames={getAllGames} />
 
       {games.map((game) => {
-        <GameCard key={game._id} {...game} />
-        {
-          /* {...game} automatically generates a prop for each property */
-        }
+        return <GameCard key={game._id} {...game} />;
       })}
     </div>
   );
