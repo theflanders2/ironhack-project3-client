@@ -2,6 +2,9 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
  
 import Navbar from "./components/Navbar";
+import IsPrivate from "./components/IsPrivate";
+import IsAnon from "./components/IsAnon";
+
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -17,9 +20,9 @@ function App() {
  
       <Routes>      
         <Route path="/" element={ <HomePage /> } />
-        <Route path="/signup" element={ <SignupPage /> } />
-        <Route path="/login" element={ <LoginPage /> } />
-        <Route path="/profile" element={ <ProfilePage /> } />
+        <Route path="/signup" element={ <IsAnon><SignupPage /></IsAnon> } />
+        <Route path="/login" element={ <IsAnon><LoginPage /></IsAnon> } />
+        <Route path="/profile" element={ <IsPrivate><ProfilePage /></IsPrivate> } />
         <Route path="/games" element={ <GamesListPage /> } />
         <Route path="/games/:gameId" element={ <GameDetailsPage /> } />
         <Route path="/games/edit/:gameId" element={ <EditGamePage /> } />
