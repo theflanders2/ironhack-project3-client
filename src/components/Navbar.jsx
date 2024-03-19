@@ -10,7 +10,7 @@ import germanContent from "../de-DE.json";
 function Navbar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { language, toggleLanguage } = useContext(LanguageContext);
-  const { isLoggedIn, user } = useContext(AuthContext);
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
     <nav className={`Navbar ${theme}`}>
@@ -39,6 +39,8 @@ function Navbar() {
                 : germanContent.navBar[4]}
             </button>
           </NavLink>
+          {/* <span>Logged in as {user.username}</span> */}
+          <button onClick={logOutUser}>Log Out {user.username}</button>
         </>
       )}
 
