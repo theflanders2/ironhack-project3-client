@@ -1,9 +1,70 @@
-function LoginPage() {
+import { useState, useContext } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+
+const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
+
+function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState(undefined);
+
+    const { storeToken, authenticateUser } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const requestBody = { email, password };
+     
+        axios.post(`${API_URL}/auth/login`, requestBody)
+          .then((response) => {
+          // Request to the server's endpoint `/auth/login` returns a response
+          // with the JWT string ->  response.data.authToken
+            console.log('JWT token', response.data.authToken );
+            storeToken(response.data.authToken) // this will store the token in localStorage   
+          })
+          .then(()=> {
+            authenticateUser() // update the auth state variables accordingly
+            navigate('/games'); 
+          })
+          .catch((error) => {
+            const errorDescription = error.response.data.message;
+            setErrorMessage(errorDescription);
+          })
+      };
+
     return (
       <div>
-        <h1>Login Page</h1>
+        <h1>Login</h1>
+ 
+        <form onSubmit={handleSubmit}>
+            <label>Email:</label>
+            <input 
+                type="text"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <label>Password:</label>
+            <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <button type="submit">Log In</button>
+        </form>
+
+        { errorMessage && <p className="error-message">{errorMessage}</p> }
+
+        <p>If you do not have an account yet, you</p>
+        <p>can create your account <Link to={"/signup"}>here</Link></p>
       </div>
     );
   }
    
-  export default LoginPage;
+  export default Login;
