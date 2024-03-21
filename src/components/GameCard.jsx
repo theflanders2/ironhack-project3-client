@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-function GameCard(props) {
+function GameCard({ _id, name, genre, platform, releaseYear }) {
   return (
     <div className="GameCard card">
-      <Link to={`/games/${props._id}`}>
-        <h3>{props.name}</h3>
+      <Link to={`/games/${_id}`}>
+        <h3>{name}</h3>
         <h4>
-          {props.genre}, {props.platform}, {props.releaseYear}
+          {genre}, {platform}, {releaseYear}
         </h4>
       </Link>
     </div>

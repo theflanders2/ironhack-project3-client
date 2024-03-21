@@ -1,29 +1,21 @@
 import { useState } from "react";
 import commentsService from "../services/comments.service";
 
-function AddComment(props) {
-  //   const [game, setGame] = useState("");
-  //   const [author, setAuthor] = useState("");
+function AddComment({ gameId, refreshGame}) {
   const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Game id is needed when creating a new comment
-    const { gameId } = props;
-    // Create an object representing the body of the POST request
-    // Author will be retrieved from payload
+    // Comment's author will be retrieved from payload on back end
     const requestBody = { content, gameId };
 
     commentsService.createComment(requestBody)
-      .then((newComment) => {
+      .then(() => {
         // Reset the state to clear the inputs
-        console.log("newComment", newComment);
         setContent("");
-
-        // Invoke the callback function coming through the props
-        // from the GameDetailsPage, to refresh the game details
-        props.refreshGame();
+        
+        refreshGame();
       })
       .catch((error) => console.log(error));
   };
@@ -41,7 +33,7 @@ function AddComment(props) {
           onChange={(e) => setContent(e.target.value)}
         />
 
-        <button type="submit">Add Game</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

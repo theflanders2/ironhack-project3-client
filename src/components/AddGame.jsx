@@ -1,7 +1,7 @@
 import { useState } from "react";
 import gamesService from "../services/games.service";
 
-function AddGame(props) {
+function AddGame({ refreshGames }) {
   const [name, setName] = useState("");
   const [releaseYear, setReleaseYear] = useState(0);
   const [genre, setGenre] = useState("");
@@ -24,7 +24,7 @@ function AddGame(props) {
         setGenre("");
         setPlatform("");
 
-        props.refreshGames(); // Refresh the GamesListPage
+        refreshGames();
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import gamesService from "../services/games.service";
-
-const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
 
 function EditGamePage() {
   const [name, setName] = useState("");
