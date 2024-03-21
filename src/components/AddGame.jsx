@@ -1,7 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
-
-const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
+import gamesService from "../services/games.service";
 
 function AddGame(props) {
   const [name, setName] = useState("");
@@ -14,16 +12,11 @@ function AddGame(props) {
     e.preventDefault();
     // Create an object representing the request body
     const requestBody = { name, releaseYear, genre, platform };
-    // Get the token from the localStorage
-    const storedToken = localStorage.getItem("authToken");
 
     // Make an axios request to the API
     // If the POST request is successful, refresh the states and GamesListPage
     // If the request resolves with an error, set the error message in the state
-    axios
-      .post(`${API_URL}/api/games`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` }
-      })
+    gamesService.addGame(requestBody)
       .then(() => {
         // Refresh the state
         setName("");

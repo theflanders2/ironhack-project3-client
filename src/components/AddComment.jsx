@@ -1,13 +1,10 @@
 import { useState } from "react";
-import axios from "axios";
-
-const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
+import commentsService from "../services/comments.service";
 
 function AddComment(props) {
   //   const [game, setGame] = useState("");
   //   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
-  const storedToken = localStorage.getItem("authToken");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,10 +15,7 @@ function AddComment(props) {
     // Author will be retrieved from payload
     const requestBody = { content, gameId };
 
-    axios
-      .post(`${API_URL}/api/comments`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` }
-      })
+    commentsService.createComment(requestBody)
       .then((newComment) => {
         // Reset the state to clear the inputs
         console.log("newComment", newComment);

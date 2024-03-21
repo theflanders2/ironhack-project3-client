@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import gamesService from "../services/games.service";
 
 const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
 
@@ -14,15 +15,14 @@ function EditGamePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get(`${API_URL}/api/games/${gameId}`)
+    gamesService.getGame(gameId)
       .then((foundGame) => {
         // Update the state with the game data coming from the response.
         // This way the inputs show the actual current details of the game
-        setName(foundGame.name);
-        setReleaseYear(foundGame.releaseYear);
-        setGenre(foundGame.genre);
-        setPlatform(foundGame.platform);
+        setName(foundGame.data.name);
+        setReleaseYear(foundGame.data.releaseYear);
+        setGenre(foundGame.data.genre);
+        setPlatform(foundGame.data.platform);
       })
       .catch((error) => console.log(error));
   }, [gameId]);
@@ -33,8 +33,7 @@ function EditGamePage() {
     const requestBody = { name, releaseYear, genre, platform };
 
     // Make an axios PUT request to the API to update game
-    axios
-      .put(`${API_URL}/api/games/${gameId}`, requestBody)
+    gamesService.updateGame(gameId, requestBody)
       .then(() => navigate(`/games/${gameId}`));
     // Once the request is resolved successfully and the game's details
     // are updated, navigate back to the details page
@@ -42,8 +41,7 @@ function EditGamePage() {
 
   const deleteGame = () => {
     // Make an axios DELETE request to delete the game
-    axios
-      .delete(`${API_URL}/api/games/${gameId}`)
+    gamesService.deleteGame(gameId)
       .then(() => navigate("/games"))
       // Once the delete request is resolved successfully
       // navigate back to the list of games.
@@ -93,7 +91,7 @@ function EditGamePage() {
           <option>PS5</option>
         </select>
 
-        <input type="submit" value="Accept Changes" />
+        <input type="submit" value="Confirm Changes" />
       </form>
 
       <button onClick={deleteGame}>Delete Game</button>

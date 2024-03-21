@@ -1,22 +1,13 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import AddGame from "../components/AddGame";
 import GameCard from "../components/GameCard";
-
-const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
+import gamesService from "../services/games.service";
 
 function GamesListPage() {
   const [games, setGames] = useState([]);
 
   const getAllGames = () => {
-    // Get the token from the localStorage
-    const storedToken = localStorage.getItem("authToken");
-    console.log("storedToken", storedToken)
-    // Send the token through the request "Authorization" Headers
-    axios
-      .get(`${API_URL}/api/games`, {
-        headers: { Authorization: `Bearer ${storedToken}` }
-      })
+    gamesService.getAllGames()
       .then((allFoundGames) => setGames(allFoundGames.data))
       .catch((error) => console.log(error));
   };

@@ -1,21 +1,15 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import AddComment from "../components/AddComment";
 import CommentCard from "../components/CommentCard";
-
-const API_URL = import.meta.env.VITE_DEPLOYMENT_SERVER_URL;
+import gamesService from "../services/games.service";
 
 function GameDetailsPage() {
   const [game, setGame] = useState(null);
   const { gameId } = useParams();
-  const storedToken = localStorage.getItem("authToken");
 
   const getGame = () => {
-    axios
-      .get(`${API_URL}/api/games/${gameId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` }
-      })
+    gamesService.getGame(gameId)
       .then((foundGame) => setGame(foundGame.data))
       .catch((error) => console.log(error));
   };
@@ -31,7 +25,7 @@ function GameDetailsPage() {
           <img src={game.coverArt} />
           <h1>{game.name}</h1>
           <ul>
-            <li>Release Year: {game.releasYear}</li>
+            <li>Release Year: {game.releaseYear}</li>
             <li>Genre: {game.genre}</li>
             <li>Platform: {game.platform}</li>
             <li>Contributed by User: {game.contributedByUser}</li>
@@ -39,6 +33,7 @@ function GameDetailsPage() {
         </>
       )}
       <AddComment refreshGame={getGame} gameId={gameId} />
+      <h2>Comments</h2>
       {game &&
         game.comments.map((comment) => (
           <CommentCard key={comment._id} {...comment} />

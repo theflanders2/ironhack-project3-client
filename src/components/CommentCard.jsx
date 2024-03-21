@@ -4,7 +4,7 @@ function CommentCard(props) {
   return (
     <div className="CommentCard card">
       <Link to={`/profile/${props.author._id}`} ><h4>User: {props.author.username}</h4></Link>
-      <p>Comment: {props.content}</p>
+      <p>{props.content}</p>
     </div>
   );
 }
