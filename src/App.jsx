@@ -9,6 +9,8 @@ import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
+import EditProfilePage from "./pages/EditProfilePage";
+import UserDetailsPage from "./pages/UserDetailsPage";
 import GamesListPage from "./pages/GamesListPage";
 import GameDetailsPage from "./pages/GameDetailsPage";
 import EditGamePage from "./pages/EditGamePage";
@@ -22,10 +24,12 @@ function App() {
         <Route path="/" element={ <HomePage /> } />
         <Route path="/signup" element={ <IsAnon><SignupPage /></IsAnon> } />
         <Route path="/login" element={ <IsAnon><LoginPage /></IsAnon> } />
-        <Route path="/profile" element={ <IsPrivate><ProfilePage /></IsPrivate> } />
-        <Route path="/games" element={ <GamesListPage /> } />
-        <Route path="/games/:gameId" element={ <GameDetailsPage /> } />
-        <Route path="/games/edit/:gameId" element={ <EditGamePage /> } />
+        <Route path="/profile/:userId" element={ <IsPrivate><ProfilePage /></IsPrivate> } />
+        <Route path="/profile/edit/:userId" element={ <IsPrivate><EditProfilePage /></IsPrivate> } />
+        <Route path="/users/:userId" element={ <IsPrivate><UserDetailsPage /></IsPrivate> } />
+        <Route path="/games" element={ <IsPrivate><GamesListPage /></IsPrivate> } />
+        <Route path="/games/:gameId" element={ <IsPrivate><GameDetailsPage /></IsPrivate> } />
+        <Route path="/games/edit/:gameId" element={ <IsPrivate><EditGamePage /></IsPrivate> } />
       </Routes>
       
     </div>
