@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import usersService from "../services/users.service";
 import UserCommentCard from "../components/UserCommentCard";
 import GameCard from "../components/GameCard";
@@ -22,6 +22,9 @@ function ProfilePage() {
   return (
     <div className="UserProfile">
       <h1>Profile Page</h1>
+      <Link to={`/profile/edit/${userId}`}>
+        <button>Edit Profile</button>
+      </Link>
       {user && (
         <>
           <img src={user.user.avatarUrl} />
