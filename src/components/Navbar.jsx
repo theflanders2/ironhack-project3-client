@@ -24,7 +24,7 @@ function Navbar() {
 
       {isLoggedIn && (
         <>
-          <NavLink to="/profile">
+          <NavLink to={`/profile/${user._id}`}>
             <button>
               {language === "en-US"
                 ? englishContent.navBar[3]

@@ -1,0 +1,15 @@
+import { Link } from "react-router-dom";
+
+function UserCommentCard({ game, content, createdAt }) {
+  return (
+    <div className="UserCommentCard card">
+      <Link to={`/games/${game._id}`}>
+        <h4>{game.name}</h4>
+      </Link>
+      <p>{content}</p>
+      <p>{createdAt}</p>
+    </div>
+  );
+}
+
+export default UserCommentCard;
