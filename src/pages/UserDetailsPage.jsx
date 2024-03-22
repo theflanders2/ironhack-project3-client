@@ -4,7 +4,7 @@ import usersService from "../services/users.service";
 import UserCommentCard from "../components/UserCommentCard";
 import GameCard from "../components/GameCard";
 
-function ProfilePage() {
+function UserDetailsPage() {
   const [user, setUser] = useState(null);
   const { userId } = useParams();
 
@@ -61,4 +61,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default UserDetailsPage;
