@@ -40,7 +40,12 @@ function Navbar() {
             </button>
           </NavLink>
           {/* <span>Logged in as {user.username}</span> */}
-          <button onClick={logOutUser}>Log Out {user.username}</button>
+          <button onClick={logOutUser}>
+            {language === "en-US"
+              ? englishContent.navBar[5]
+              : germanContent.navBar[5]}{" "}
+            {user.username}
+          </button>
         </>
       )}
 

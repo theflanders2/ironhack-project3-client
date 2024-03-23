@@ -1,5 +1,5 @@
 {
-    "navBar": ["Home", "Sign Up", "Log In", "Profile", "Games"],
+    "navBar": ["Home", "Sign Up", "Log In", "Profile", "Games", "Log Out"],
     "homePageTitle": "Welcome to...",
     "gamesPageTitle": "Games"
 }

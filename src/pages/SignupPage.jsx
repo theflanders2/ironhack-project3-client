@@ -60,7 +60,7 @@ function SignupPage() {
         <button type="submit">Sign Up</button>
       </form>
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {errorMessage && <p style={{ color: 'red' }} className="error-message">{errorMessage}</p>}
 
       <p>Already have account?</p>
       <Link to={"/login"}> Login</Link>
