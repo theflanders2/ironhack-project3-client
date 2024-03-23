@@ -1,14 +1,20 @@
 import { useState, useEffect } from "react";
+import Search from "../components/Search";
 import AddGame from "../components/AddGame";
 import GameCard from "../components/GameCard";
 import gamesService from "../services/games.service";
 
 function GamesListPage() {
   const [games, setGames] = useState([]);
+  const [isFormShowing, setIsFormShowing] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
 
   const getAllGames = () => {
     gamesService.getAllGames()
-      .then((allFoundGames) => setGames(allFoundGames.data))
+      .then((response) => {
+        const allGames = response.data;
+        setGames(allGames);
+      })
       .catch((error) => console.log(error));
   };
 
@@ -18,13 +24,19 @@ function GamesListPage() {
     getAllGames();
   }, []);
 
+  let searchedContent = games.filter((game) =>
+    game.name.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
   return (
     <div className="GamesListPage">
       <h1>Games</h1>
-      <AddGame refreshGames={getAllGames} />
+      <Search searchInput={searchInput} setSearchInput={setSearchInput} />
+      <button onClick={() => {setIsFormShowing(!isFormShowing)} }>{isFormShowing ? "Hide Add Game Form" : "Show Add Game Form"}</button>
+      {isFormShowing && <AddGame refreshGames={getAllGames} />}
 
-      {games.map((game) => {
-        return <GameCard key={game._id} {...game} />;
+      {searchedContent.map((game) => {
+        return <GameCard key={game._id} {...game} />
       })}
     </div>
   );
