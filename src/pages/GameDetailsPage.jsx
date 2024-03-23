@@ -22,7 +22,7 @@ function GameDetailsPage() {
     <div className="GameDetails">
       {game && (
         <>
-          <img src={game.coverArt} />
+          <img src={game.coverArtUrl} />
           <h1>{game.name}</h1>
           <ul>
             <li>Release Year: {game.releaseYear}</li>

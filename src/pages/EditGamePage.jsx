@@ -7,19 +7,38 @@ function EditGamePage() {
   const [releaseYear, setReleaseYear] = useState(0);
   const [genre, setGenre] = useState("");
   const [platform, setPlatform] = useState("");
+  const [coverArtUrl, setCoverArtUrl] = useState("");
 
   const { gameId } = useParams();
   const navigate = useNavigate();
 
+  const handleFileUpload = (e) => {
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+    const uploadedCoverArt = new FormData();
+
+    // coverArtUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new game in '/api/games' POST route
+    uploadedCoverArt.append("coverArtUrl", e.target.files[0]);
+
+    gamesService.uploadCoverArt(uploadedCoverArt)
+      .then((response) => {
+        console.log("response is: ", response);
+        // response carries "coverArtUrl" which we can use to update the state
+        setCoverArtUrl(response.data.coverArtUrl);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
+  
   useEffect(() => {
     gamesService.getGame(gameId)
-      .then((foundGame) => {
+      .then((response) => {
         // Update the state with the game data coming from the response.
         // This way the inputs show the actual current details of the game
-        setName(foundGame.data.name);
-        setReleaseYear(foundGame.data.releaseYear);
-        setGenre(foundGame.data.genre);
-        setPlatform(foundGame.data.platform);
+        setName(response.data.name);
+        setReleaseYear(response.data.releaseYear);
+        setGenre(response.data.genre);
+        setPlatform(response.data.platform);
+        setCoverArtUrl(response.data.coverArtUrl);
       })
       .catch((error) => console.log(error));
   }, [gameId]);
@@ -27,7 +46,7 @@ function EditGamePage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { name, releaseYear, genre, platform };
+    const requestBody = { name, releaseYear, genre, platform, coverArtUrl };
 
     // Make an axios PUT request to the API to update game
     gamesService.updateGame(gameId, requestBody)
@@ -87,6 +106,9 @@ function EditGamePage() {
           <option>PS4</option>
           <option>PS5</option>
         </select>
+
+        <label>Cover Art:</label>
+        <input type="file" onChange={(e) => handleFileUpload(e)} />
 
         <input type="submit" value="Confirm Changes" />
       </form>

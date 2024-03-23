@@ -20,6 +20,12 @@ class GamesService {
     });
   }
 
+  /*-----UPLOAD COVER ART-----*/
+  // POST /api/games/upload  -  Uploads cover art for game
+  uploadCoverArt = (file) => {
+    return this.api.post("/api/games/upload", file);
+  };
+
   /*-----ADD NEW GAME-----*/
   // POST /api/games  -  Adds a new game
   addGame = (requestBody) => {

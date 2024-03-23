@@ -6,12 +6,30 @@ function AddGame({ refreshGames }) {
   const [releaseYear, setReleaseYear] = useState(0);
   const [genre, setGenre] = useState("");
   const [platform, setPlatform] = useState("");
+  const [coverArtUrl, setCoverArtUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+
+  const handleFileUpload = (e) => {
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+    const uploadedCoverArt = new FormData();
+
+    // coverArtUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new game in '/api/games' POST route
+    uploadedCoverArt.append("coverArtUrl", e.target.files[0]);
+
+    gamesService.uploadCoverArt(uploadedCoverArt)
+      .then((response) => {
+        console.log("response is: ", response);
+        // response carries "coverArtUrl" which we can use to update the state
+        setCoverArtUrl(response.data.coverArtUrl);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { name, releaseYear, genre, platform };
+    const requestBody = { name, releaseYear, genre, platform, coverArtUrl };
 
     // Make an axios request to the API
     // If the POST request is successful, refresh the states and GamesListPage
@@ -23,6 +41,7 @@ function AddGame({ refreshGames }) {
         setReleaseYear(0);
         setGenre("");
         setPlatform("");
+        setCoverArtUrl("");
 
         refreshGames();
       })
@@ -74,6 +93,9 @@ function AddGame({ refreshGames }) {
           <option>PS4</option>
           <option>PS5</option>
         </select>
+
+        <label>Cover Art:</label>
+        <input type="file" onChange={(e) => handleFileUpload(e)} />
 
         <button type="submit">Add Game</button>
       </form>
