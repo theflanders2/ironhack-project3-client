@@ -56,7 +56,7 @@ function Login() {
         <button type="submit">Log In</button>
       </form>
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {errorMessage && <p style={{ color: 'red' }} className="error-message">{errorMessage}</p>}
 
       <p>If you do not have an account yet, you</p>
       <p>
