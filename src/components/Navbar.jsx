@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { ThemeContext } from "../context/theme.context";
 import { LanguageContext } from "../context/language.context";
 import { AuthContext } from "../context/auth.context";
 
@@ -8,12 +7,11 @@ import englishContent from "../en-US.json";
 import germanContent from "../de-DE.json";
 
 function Navbar() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
   const { language, toggleLanguage } = useContext(LanguageContext);
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav className={`Navbar ${theme}`}>
+    <nav className="Navbar">
       <NavLink to="/">
         <button>
           {language === "en-US"
@@ -69,9 +67,6 @@ function Navbar() {
         </>
       )}
 
-      <button className="theme-btn" onClick={toggleTheme}>
-        {theme === "light" ? "dark " : "light "}
-      </button>
       <select name="" id="" onChange={toggleLanguage}>
         <option value="en-US">English</option>
         <option value="de-DE">Deutsch</option>
