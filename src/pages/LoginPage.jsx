@@ -37,19 +37,23 @@ function Login() {
       <h1>Login</h1>
 
       <form onSubmit={handleSubmit}>
-        <label>Email:</label>
+        <label htmlFor="email">Email:</label>
         <input
-          type="text"
+          type="email"
           name="email"
+          id="email"
           value={email}
+          required
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label>Password:</label>
+        <label htmlFor="password">Password:</label>
         <input
           type="password"
           name="password"
+          id="password"
           value={password}
+          required
           onChange={(e) => setPassword(e.target.value)}
         />
 
