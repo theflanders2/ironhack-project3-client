@@ -56,33 +56,41 @@ function AddGame({ refreshGames }) {
       <h3>Add Game</h3>
 
       <form onSubmit={handleSubmit}>
-        <label>Name:</label>
+        <label htmlFor="name">Name:</label>
         <input
           type="text"
           name="name"
           value={name}
+          id="name"
+          placeholder="Apex Legends"
           onChange={(e) => setName(e.target.value)}
         />
 
-        <label>Release Year:</label>
+        <label htmlFor="releaseYear">Release Year:</label>
         <input
           type="number"
           name="releaseYear"
           value={releaseYear}
+          id="releaseYear"
+          min={1995}
+          max={2030}
           onChange={(e) => setReleaseYear(e.target.value)}
         />
 
-        <label>Genre:</label>
+        <label htmlFor="genre">Genre:</label>
         <input
           type="text"
           name="genre"
+          id="genre"
           value={genre}
+          placeholder="First-person shooter, Battle royal"
           onChange={(e) => setGenre(e.target.value)}
         />
 
-        <label>Platform:</label>
+        <label htmlFor="platform">Platform:</label>
         <select
           name="platform"
+          id="platform"
           value={platform}
           onChange={(e) => setPlatform(e.target.value)}
         >
@@ -94,8 +102,8 @@ function AddGame({ refreshGames }) {
           <option>PS5</option>
         </select>
 
-        <label>Cover Art:</label>
-        <input type="file" onChange={(e) => handleFileUpload(e)} />
+        <label htmlFor="coverArt">Cover Art:</label>
+        <input type="file" name="coverArt" id="coverArt" onChange={(e) => handleFileUpload(e)} />
 
         <button type="submit">Add Game</button>
       </form>
