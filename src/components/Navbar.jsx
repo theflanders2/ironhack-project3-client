@@ -1,3 +1,4 @@
+import "./Navbar.css"
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { LanguageContext } from "../context/language.context";
@@ -12,14 +13,11 @@ function Navbar() {
 
   return (
     <nav className="Navbar">
-      <NavLink to="/">
-        <button>
-          {language === "en-US"
-            ? englishContent.navBar[0]
-            : germanContent.navBar[0]}
-        </button>
-      </NavLink>
+      <div>
+        <NavLink className="nav-title" to="/">Gameodex</NavLink>
+      </div>
 
+      <div className="nav-menu">
       {isLoggedIn && (
         <>
           <NavLink to={`/profile/${user._id}`}>
@@ -71,6 +69,7 @@ function Navbar() {
         <option value="en-US">English</option>
         <option value="de-DE">Deutsch</option>
       </select>
+      </div>
     </nav>
   );
 }

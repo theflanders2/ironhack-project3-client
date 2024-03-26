@@ -2,6 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
  
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 
@@ -31,7 +32,8 @@ function App() {
         <Route path="/games/:gameId" element={ <IsPrivate><GameDetailsPage /></IsPrivate> } />
         <Route path="/games/edit/:gameId" element={ <IsPrivate><EditGamePage /></IsPrivate> } />
       </Routes>
-      
+
+      <Footer />
     </div>
   );
 }

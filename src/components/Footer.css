@@ -1,0 +1,29 @@
+.Footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    text-decoration: none;
+}
+
+.Footer {
+    width: 100%;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    /* position: fixed;
+    left: 0;
+    bottom: 0; */
+    background-image: linear-gradient(to left, #acacac, white);
+}
+
+
+.svgrepo-link a,
+.svgrepo-link {
+    color: #ffc52f
+}
+
+.theflanders-link a,
+.theflanders-link {
+    color: white;
+}

@@ -35,9 +35,13 @@ function GamesListPage() {
       <button onClick={() => {setIsFormShowing(!isFormShowing)} }>{isFormShowing ? "Hide Add Game Form" : "Show Add Game Form"}</button>
       {isFormShowing && <AddGame refreshGames={getAllGames} />}
 
-      {searchedContent.map((game) => {
-        return <GameCard key={game._id} {...game} />
-      })}
+      <ul>
+        <li>
+          {searchedContent.map((game) => {
+            return <GameCard key={game._id} {...game} />
+          })}
+        </li>
+      </ul>
     </div>
   );
 }

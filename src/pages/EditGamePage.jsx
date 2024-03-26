@@ -110,7 +110,7 @@ function EditGamePage() {
         <label>Cover Art:</label>
         <input type="file" onChange={(e) => handleFileUpload(e)} />
 
-        <input type="submit" value="Confirm Changes" />
+        <button type="submit">Confirm Changes</button>
       </form>
 
       <button onClick={deleteGame}>Delete Game</button>

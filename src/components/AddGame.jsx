@@ -19,7 +19,7 @@ function AddGame({ refreshGames }) {
 
     gamesService.uploadCoverArt(uploadedCoverArt)
       .then((response) => {
-        console.log("response is: ", response);
+        console.log("response.data.coverArtUrl is: ", response.data.coverArtUrl);
         // response carries "coverArtUrl" which we can use to update the state
         setCoverArtUrl(response.data.coverArtUrl);
       })
@@ -62,7 +62,7 @@ function AddGame({ refreshGames }) {
           name="name"
           value={name}
           id="name"
-          placeholder="Apex Legends"
+          placeholder="ex. Mortal Kombat, Apex Legends"
           onChange={(e) => setName(e.target.value)}
         />
 
@@ -83,7 +83,7 @@ function AddGame({ refreshGames }) {
           name="genre"
           id="genre"
           value={genre}
-          placeholder="First-person shooter, Battle royal"
+          placeholder="ex. First-person shooter, Action-Adventure"
           onChange={(e) => setGenre(e.target.value)}
         />
 
@@ -102,8 +102,8 @@ function AddGame({ refreshGames }) {
           <option>PS5</option>
         </select>
 
-        <label htmlFor="coverArt">Cover Art:</label>
-        <input type="file" name="coverArt" id="coverArt" onChange={(e) => handleFileUpload(e)} />
+        <label htmlFor="coverArtUrl">Cover Art:</label>
+        <input type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
 
         <button type="submit">Add Game</button>
       </form>
