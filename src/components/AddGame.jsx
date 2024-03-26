@@ -103,7 +103,7 @@ function AddGame({ refreshGames }) {
         </select>
 
         <label htmlFor="coverArtUrl">Cover Art:</label>
-        <input type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
+        <input className="coverArtUrl" type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
 
         <button type="submit">Add Game</button>
       </form>

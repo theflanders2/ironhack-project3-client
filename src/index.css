@@ -28,7 +28,7 @@ button {
 label {
   width: 200px;
   display: block;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 input,
@@ -37,6 +37,16 @@ textarea {
   padding: 10px;
   display: inline-block;
   margin: 10px;
+  /* border: 1px solid black; */
+  /* border-radius: 8px; */
+}
+
+input {
+  height: 1px;
+}
+
+.coverArtUrl {
+  padding-bottom: 40px;
 }
 
 /* .Navbar {
@@ -60,8 +70,8 @@ textarea {
   width: 325px;
   padding: 10px;
   box-shadow: 0px 2px 3px #ffc52f;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  margin: 20px auto;
+  /* margin-bottom: 20px; */
   background: #94a7c8;
   border-radius: 4px;
   background-image: linear-gradient(to top, #ffc52f, white );

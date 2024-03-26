@@ -39,6 +39,7 @@ function SignupPage() {
           name="username"
           id="username"
           value={username}
+          placeholder="Username"
           required
           onChange={(e) => setUsername(e.target.value)}
         />
@@ -49,6 +50,7 @@ function SignupPage() {
           name="email"
           id="email"
           value={email}
+          placeholder="Email"
           required
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -59,6 +61,7 @@ function SignupPage() {
           name="password"
           id="password"
           value={password}
+          placeholder="Password"
           required
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -66,10 +69,10 @@ function SignupPage() {
         <button type="submit">Sign Up</button>
       </form>
 
-      {errorMessage && <p style={{ color: 'red' }} className="error-message">{errorMessage}</p>}
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have an account?</p>
-      <Link to={"/login"}> Login</Link>
+      <Link to={"/login"}>Login</Link>
     </div>
   );
 }

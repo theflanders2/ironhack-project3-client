@@ -43,6 +43,7 @@ function Login() {
           name="email"
           id="email"
           value={email}
+          placeholder="Email"
           required
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -53,6 +54,7 @@ function Login() {
           name="password"
           id="password"
           value={password}
+          placeholder="Password"
           required
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -60,7 +62,7 @@ function Login() {
         <button type="submit">Log In</button>
       </form>
 
-      {errorMessage && <p style={{ color: 'red' }} className="error-message">{errorMessage}</p>}
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>If you do not have an account yet, you</p>
       <p>

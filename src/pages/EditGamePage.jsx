@@ -107,8 +107,8 @@ function EditGamePage() {
           <option>PS5</option>
         </select>
 
-        <label>Cover Art:</label>
-        <input type="file" onChange={(e) => handleFileUpload(e)} />
+        <label htmlFor="coverArtUrl">Cover Art:</label>
+        <input className="coverArtUrl" type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
 
         <button type="submit">Confirm Changes</button>
       </form>
