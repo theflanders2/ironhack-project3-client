@@ -8,8 +8,9 @@ function AddGame({ refreshGames }) {
   const [platform, setPlatform] = useState("");
   const [coverArtUrl, setCoverArtUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [isUploadingPic, setIsUploadingPic] = useState(false)
 
-  const handleFileUpload = (e) => {
+  const handleFileUpload = async (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
     const uploadedCoverArt = new FormData();
 
@@ -17,14 +18,20 @@ function AddGame({ refreshGames }) {
     // req.body to .create() method when creating a new game in '/api/games' POST route
     uploadedCoverArt.append("coverArtUrl", e.target.files[0]);
 
-    gamesService.uploadCoverArt(uploadedCoverArt)
-      .then( async (response) => {
-        console.log("response.data.coverArtUrl is: ", response.data.coverArtUrl);
-        // response carries "coverArtUrl" which we can use to update the state
-        const url = await response.data.coverArtUrl;
-        setCoverArtUrl(url);
-      })
-      .catch((err) => console.log("Error while uploading the file: ", err));
+    try {
+      setIsUploadingPic(true)
+      const response = await gamesService.uploadCoverArt(uploadedCoverArt)
+      setCoverArtUrl(response.data.coverArtUrl);
+      setIsUploadingPic(false)
+    } catch (error) {
+      console.log("Error while uploading the file: ", error)
+    }
+      // .then((response) => {
+      //   console.log("response.data.coverArtUrl is: ", response.data.coverArtUrl);
+      //   // response carries "coverArtUrl" which we can use to update the state
+      //   setCoverArtUrl(response.data.coverArtUrl);
+      // })
+      // .catch((err) => console.log("Error while uploading the file: ", err));
   };
 
   const handleSubmit = (e) => {
@@ -106,7 +113,8 @@ function AddGame({ refreshGames }) {
         <label htmlFor="coverArtUrl">Cover Art:</label>
         <input className="coverArtUrl" type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
 
-        <button type="submit">Add Game</button>
+        {!isUploadingPic && <button type="submit">Add Game</button>}
+        
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
