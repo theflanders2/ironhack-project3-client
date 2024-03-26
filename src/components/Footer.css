@@ -11,16 +11,16 @@
     color: white;
     font-size: 12px;
     font-weight: bold;
-    /* position: fixed;
+    position: fixed;
     left: 0;
-    bottom: 0; */
-    background-image: linear-gradient(to left, #acacac, white);
+    bottom: 0;
+    background-image: linear-gradient(to left, #4800ff, white);
 }
 
 
 .svgrepo-link a,
 .svgrepo-link {
-    color: #ffc52f
+    color: red;
 }
 
 .theflanders-link a,

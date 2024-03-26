@@ -18,10 +18,11 @@ function AddGame({ refreshGames }) {
     uploadedCoverArt.append("coverArtUrl", e.target.files[0]);
 
     gamesService.uploadCoverArt(uploadedCoverArt)
-      .then((response) => {
+      .then( async (response) => {
         console.log("response.data.coverArtUrl is: ", response.data.coverArtUrl);
         // response carries "coverArtUrl" which we can use to update the state
-        setCoverArtUrl(response.data.coverArtUrl);
+        const url = await response.data.coverArtUrl;
+        setCoverArtUrl(url);
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
   };

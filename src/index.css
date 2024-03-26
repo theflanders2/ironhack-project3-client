@@ -20,9 +20,31 @@ button {
   border-radius: 8px;
   color: white;
   font-weight: bold;
-  background: #ffc52f;
+  background: silver;
   border-color: white;
   height: 25px;
+}
+
+button:hover {
+  background-color: gray;
+}
+
+.Navbar button {
+  padding: 3px 10px;
+  min-width: 50px;
+  margin: 5px;
+  font-size: 14px;
+  border-radius: 8px;
+  color: silver;
+  background: white;
+  border-color: lightgray;
+  height: 25px;
+}
+
+.Navbar button:hover {
+  position: relative;
+  top: -4px;
+  color: red;
 }
 
 label {
@@ -67,15 +89,21 @@ input {
 } */
 
 .card {
-  width: 325px;
+  /* width: 325px;
   padding: 10px;
   box-shadow: 0px 2px 3px #ffc52f;
   margin: 20px auto;
-  /* margin-bottom: 20px; */
   background: #94a7c8;
   border-radius: 4px;
   background-image: linear-gradient(to top, #ffc52f, white );
-  text-decoration: none;
+  text-decoration: none; */
+  background-image: linear-gradient(to top, #4800ff, white);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: 300px;
 }
 
 .GamesListPage ul li {
@@ -96,16 +124,16 @@ input {
   text-decoration: none;
 }
 
- .card:hover {
-    background-image: linear-gradient(to bottom, #ffc52f, white );
-    position: relative;
-    top: -4px;
-  }
+.card:hover {
+  background-image: linear-gradient(to bottom, red, white);
+  position: relative;
+  top: -4px;
+}
 
 .EditGamePage,
 .AddGame,
 .AddComment {
-  background-image: linear-gradient(to bottom, #ffc52f, white);
+  background-image: linear-gradient(to top, #4800ff, white);
   box-shadow: 0px 2px 3px white;
   width: 400px;
   text-align: center;
@@ -114,10 +142,6 @@ input {
   padding: 10px;
   border-radius: 4px;
 }
-
-/* .EditGamePage {
-  background-color: rgb(239, 196, 88);
-} */
 
 .EditGamePage form,
 .AddComment form,
