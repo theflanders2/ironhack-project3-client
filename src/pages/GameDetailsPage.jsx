@@ -4,8 +4,8 @@ import AddComment from "../components/AddComment";
 import CommentCard from "../components/CommentCard";
 import ToggleGamesPlayed from "../components/ToggleGamesPlayed";
 import ToggleGamesCurrentlyPlaying from "../components/ToggleGamesCurrentlyPlaying";
-import gamesService from "../services/games.service";
 import ToggleWishlist from "../components/ToggleWishlist";
+import gamesService from "../services/games.service";
 
 function GameDetailsPage() {
   const [game, setGame] = useState(null);
