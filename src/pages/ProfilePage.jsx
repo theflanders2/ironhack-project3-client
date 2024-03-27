@@ -9,9 +9,8 @@ function ProfilePage() {
   const { userId } = useParams();
 
   const getUser = () => {
-    usersService
-      .getUser(userId)
-      .then((foundUser) => setUser(foundUser.data))
+    usersService.getUser(userId)
+      .then((response) => setUser(response.data))
       .catch((error) => console.log(error));
   };
 

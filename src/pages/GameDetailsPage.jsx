@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import AddComment from "../components/AddComment";
 import CommentCard from "../components/CommentCard";
+import ToggleGamesPlayed from "../components/ToggleGamesPlayed";
+import ToggleGamesCurrentlyPlaying from "../components/ToggleGamesCurrentlyPlaying";
 import gamesService from "../services/games.service";
+import ToggleWishlist from "../components/ToggleWishlist";
 
 function GameDetailsPage() {
   const [game, setGame] = useState(null);
@@ -20,6 +23,17 @@ function GameDetailsPage() {
 
   return (
     <div className="GameDetails">
+      <ul className="ToggleLists">
+        <li>
+          <ToggleGamesPlayed gameId={gameId} />
+        </li>
+        <li>
+          <ToggleGamesCurrentlyPlaying gameId={gameId} />
+        </li>
+        <li>
+          <ToggleWishlist gameId={gameId} />
+        </li>
+      </ul>
       {game && (
         <>
           <img src={game.coverArtUrl} />

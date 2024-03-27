@@ -8,11 +8,13 @@ function EditGamePage() {
   const [genre, setGenre] = useState("");
   const [platform, setPlatform] = useState("");
   const [coverArtUrl, setCoverArtUrl] = useState("");
+  const [isUploadingCoverArt, setIsUploadingCoverArt] = useState(false)
+
 
   const { gameId } = useParams();
   const navigate = useNavigate();
 
-  const handleFileUpload = (e) => {
+  const handleFileUpload = async (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
     const uploadedCoverArt = new FormData();
 
@@ -20,13 +22,20 @@ function EditGamePage() {
     // req.body to .create() method when creating a new game in '/api/games' POST route
     uploadedCoverArt.append("coverArtUrl", e.target.files[0]);
 
-    gamesService.uploadCoverArt(uploadedCoverArt)
-      .then((response) => {
-        console.log("response is: ", response);
-        // response carries "coverArtUrl" which we can use to update the state
-        setCoverArtUrl(response.data.coverArtUrl);
-      })
-      .catch((err) => console.log("Error while uploading the file: ", err));
+    try {
+      setIsUploadingCoverArt(true)
+      const response = await gamesService.uploadCoverArt(uploadedCoverArt)
+      setCoverArtUrl(response.data.coverArtUrl);
+      setIsUploadingCoverArt(false)
+    } catch (error) {
+      console.log("Error while uploading the file: ", error)
+    }
+      // .then((response) => {
+      //   console.log("response.data.coverArtUrl is: ", response.data.coverArtUrl);
+      //   // response carries "coverArtUrl" which we can use to update the state
+      //   setCoverArtUrl(response.data.coverArtUrl);
+      // })
+      // .catch((err) => console.log("Error while uploading the file: ", err));
   };
   
   useEffect(() => {
@@ -110,7 +119,8 @@ function EditGamePage() {
         <label htmlFor="coverArtUrl">Cover Art:</label>
         <input className="coverArtUrl" type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
 
-        <button type="submit">Confirm Changes</button>
+        {!isUploadingCoverArt ? <button type="submit">Confirm Changes</button> : <button type="submit" disabled>Uploading cover art...</button>}
+
       </form>
 
       <button onClick={deleteGame}>Delete Game</button>

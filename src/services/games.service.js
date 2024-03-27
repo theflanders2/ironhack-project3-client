@@ -48,7 +48,7 @@ class GamesService {
     return this.api.get(`/api/games/${id}`);
   };
 
-  /*-----EDIT EXISTING GAME-----*/
+  /*-----EDIT GAME-----*/
   // PUT /api/games/:gameId -  Updates a specific game by id
   updateGame = (id, requestBody) => {
     return this.api.put(`/api/games/${id}`, requestBody);
@@ -56,9 +56,52 @@ class GamesService {
 
   /*-----DELETE GAME FROM DATABASE AND REMOVE FROM USER'S GAMES CONTRIBUTED LIST-----*/
   // DELETE /api/games/:gameId  -  Deletes a specific game by id
-  deleteGame = (id) => {
-    return this.api.delete(`/api/games/${id}`);
+  // deleteGame = (id) => {
+  //   return this.api.delete(`/api/games/${id}`);
+  // };
+  
+  /*-----ADD GAME TO GAMES PLAYED LIST-----*/
+  // PUT /api/games/:gameId/add-to-games-played
+  // Adds a specific game to user's gamesPlayed list using game's id
+  addToGamesPlayedList = (id) => {
+    return this.api.put(`/api/games/${id}/add-to-games-played`);
   };
+
+  /*-----REMOVE GAME FROM GAMES PLAYED LIST-----*/
+  // PUT /api/games/:gameId/remove-from-games-played
+  // Removes a specific game from user's gamesPlayed list using game's id
+  removeFromGamesPlayedList = (id) => {
+    return this.api.put(`/api/games/${id}/remove-from-games-played`);
+  };
+
+  /*-----ADD GAME TO CURRENTLY PLAYING LIST-----*/
+  // PUT /api/games/:gameId/add-to-games-currently-playing
+  // Adds a specific game to user's currentlyPlaying list using game's id
+  addToGamesCurrentlyPlayingList = (id) => {
+    return this.api.put(`/api/games/${id}/add-to-games-currently-playing`);
+  };
+
+  /*-----REMOVE GAME FROM GAMES PLAYED LIST-----*/
+  // PUT /api/games/:gameId/remove-from-games-currently-playing
+  // Removes a specific game from user's currentlyPlaying list using game's id
+  removeFromGamesCurrentlyPlayingList = (id) => {
+    return this.api.put(`/api/games/${id}/remove-from-games-currently-playing`);
+  };
+
+  /*-----ADD GAME TO WISHLIST-----*/
+  // PUT /api/games/:gameId/add-to-wishlist
+  // Adds a specific game to user's wishlist using game's id
+  addToWishlist = (id) => {
+    return this.api.put(`/api/games/${id}/add-to-wishlist`);
+  };
+
+  /*-----REMOVE GAME FROM WISHLIST-----*/
+  // PUT /api/games/:gameId/remove-from-games-currently-playing
+  // Removes a specific game from user's wishlist using game's id
+  removeFromWishlist = (id) => {
+    return this.api.put(`/api/games/${id}/remove-from-wishlist`);
+  };
+
 }
 
 const gamesService = new GamesService();

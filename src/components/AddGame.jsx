@@ -8,7 +8,7 @@ function AddGame({ refreshGames }) {
   const [platform, setPlatform] = useState("");
   const [coverArtUrl, setCoverArtUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const [isUploadingPic, setIsUploadingPic] = useState(false)
+  const [isUploadingCoverArt, setIsUploadingCoverArt] = useState(false)
 
   const handleFileUpload = async (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -19,10 +19,10 @@ function AddGame({ refreshGames }) {
     uploadedCoverArt.append("coverArtUrl", e.target.files[0]);
 
     try {
-      setIsUploadingPic(true)
+      setIsUploadingCoverArt(true)
       const response = await gamesService.uploadCoverArt(uploadedCoverArt)
       setCoverArtUrl(response.data.coverArtUrl);
-      setIsUploadingPic(false)
+      setIsUploadingCoverArt(false)
     } catch (error) {
       console.log("Error while uploading the file: ", error)
     }
@@ -113,7 +113,7 @@ function AddGame({ refreshGames }) {
         <label htmlFor="coverArtUrl">Cover Art:</label>
         <input className="coverArtUrl" type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
 
-        {!isUploadingPic && <button type="submit">Add Game</button>}
+        {!isUploadingCoverArt ? <button type="submit">Add Game</button> : <button type="submit" disabled>Uploading cover art...</button>}
         
       </form>
 
