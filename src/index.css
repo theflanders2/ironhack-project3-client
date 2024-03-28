@@ -1,5 +1,45 @@
-body {
+html, body, ul, li, h1, h2, h3, h4, a {
   margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  list-style: none;
+}
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.Footer {
+  width: 100vw;
+  /* height: 2.5rem; */
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  /* left: 0; */
+  bottom: 0;
+  background-image: linear-gradient(to left, #4800ff, white);
+}
+
+.Footer ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  text-decoration: none;
+}
+
+.svgrepo-link a,
+.svgrepo-link {
+  color: red;
+}
+
+.theflanders-link a,
+.theflanders-link {
+  color: white;
 }
 
 .error-message {
@@ -13,7 +53,6 @@ body {
 }
 
 a {
-  list-style: none;
   color: black;
 }
 
@@ -105,7 +144,7 @@ input {
   background-image: linear-gradient(to top, #4800ff, white);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  /* padding: 10px; */
   margin-bottom: 20px;
   overflow: hidden;
   width: 300px;
@@ -121,19 +160,16 @@ input {
 .ToggleLists {
   display: flex;
   justify-content: space-between;
-  list-style: none;
   padding: 0px 20px 50px 20px;
 }
 
 .CommentCardList {
   display: flex;
   justify-content: space-between;
-  list-style: none;
 }
 
 .UserCommentCard ul li {
   display: inline-block;
-  list-style: none;
 }
 
 .UserActivity li {
@@ -205,6 +241,13 @@ input {
 .SignupPage,
 .EditCommentPage,
 .EditProfilePage,
-.HomePage {
-  padding: 100px 0;
+.HomePage,
+.AboutPage {
+  padding-top: 100px;
 }
+
+@media (max-width: 767px) {}
+
+@media (min-width: 768px) and (max-width: 1023px) {}
+
+@media (min-width: 1024px) and (max-width: 1439px) {}
