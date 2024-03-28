@@ -65,9 +65,7 @@ function Login() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>If you do not have an account yet, you</p>
-      <p>
-        can create your account <Link to={"/signup"}>here</Link>
-      </p>
+      <p>can create your account <Link to={"/signup"}>here</Link></p>
     </div>
   );
 }

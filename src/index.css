@@ -111,10 +111,29 @@ input {
   width: 300px;
 }
 
-.GamesListPage ul li {
+.GamesListPage ul li,
+.HomePage ul li {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.ToggleLists {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0px 20px 50px 20px;
+}
+
+.CommentCardList {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.UserCommentCard ul li {
+  display: inline-block;
+  list-style: none;
 }
 
 .UserActivity li {
@@ -152,7 +171,9 @@ input {
 .AddComment form,
 .AddGame form,
 .SignupPage form,
-.LoginPage form {
+.LoginPage form,
+.EditCommentPage form,
+.EditProfilePage form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -181,6 +202,9 @@ input {
 .GameDetails,
 .EditGamePage,
 .LoginPage,
-.SignupPage {
+.SignupPage,
+.EditCommentPage,
+.EditProfilePage,
+.HomePage {
   padding: 100px 0;
 }

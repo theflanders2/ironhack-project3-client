@@ -22,7 +22,7 @@ function ProfilePage() {
     <div className="UserProfile">
       <h1>Profile Page</h1>
       <Link to={`/profile/edit/${userId}`}>
-        <button>Edit Profile</button>
+        <button>Edit Email Address</button>
       </Link>
       {user && (
         <>
@@ -30,30 +30,36 @@ function ProfilePage() {
           <h1>{user.user.username}</h1>
           <ul>
             <li>Email: {user.user.email}</li>
-            <li>Prestige Level: {user.user.prestigeLevel}</li>
+            {/* <li>Prestige Level: {user.user.prestigeLevel}</li> */}
           </ul>
         </>
       )}
+      <br/>
+      <br/>
       <h2>Comments</h2>
       {user &&
         user.user.comments.map((comment) => (
           <UserCommentCard key={comment._id} {...comment} />
         ))}
+        <hr/>
       <h2>Games Contributed</h2>
       {user &&
         user.user.gamesContributed.map((game) => (
           <GameCard key={game._id} {...game} />
         ))}
+        <hr/>
       <h2>Games Played</h2>
       {user &&
         user.user.gamesPlayed.map((game) => (
           <GameCard key={game._id} {...game} />
         ))}
+        <hr/>
       <h2>Games Currently Playing</h2>
       {user &&
         user.user.gamesCurrentlyPlaying.map((game) => (
           <GameCard key={game._id} {...game} />
         ))}
+        <hr/>
       <h2>Wishlist</h2>
       {user &&
         user.user.wishlist.map((game) => (

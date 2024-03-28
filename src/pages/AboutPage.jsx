@@ -4,7 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import GameCard from "../components/GameCard";
 import gamesService from "../services/games.service";
 
-function HomePage() {
+function AboutPage() {
   const [games, setGames] = useState([]);
   
   const { isLoggedIn, user } = useContext(AuthContext);
@@ -23,7 +23,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="HomePage">
+    <div className="AboutPage">
       <h1 className="header">Welcome to Gameodex</h1>
 
       {isLoggedIn && (
@@ -49,4 +49,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default AboutPage;

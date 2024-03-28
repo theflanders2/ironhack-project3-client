@@ -1,5 +1,5 @@
 {
-    "navBar": ["Home", "Registrieren", "Anmelden", "Profil", "Spiele", "Abmelden"],
+    "navBar": ["Home", "Registrieren", "Anmelden", "Profil", "Spiele", "Abmelden", "Über uns"],
     "homePageTitle": "Welcome to...",
     "gamesPageTitle": "Spiele"
 }

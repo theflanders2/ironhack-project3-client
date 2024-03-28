@@ -7,6 +7,7 @@ import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
@@ -15,6 +16,7 @@ import UserDetailsPage from "./pages/UserDetailsPage";
 import GamesListPage from "./pages/GamesListPage";
 import GameDetailsPage from "./pages/GameDetailsPage";
 import EditGamePage from "./pages/EditGamePage";
+import EditCommentPage from "./pages/EditCommentPage";
  
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
  
       <Routes>      
         <Route path="/" element={ <HomePage /> } />
+        <Route path="/about" element={ <AboutPage /> } />
         <Route path="/signup" element={ <IsAnon><SignupPage /></IsAnon> } />
         <Route path="/login" element={ <IsAnon><LoginPage /></IsAnon> } />
         <Route path="/profile/:userId" element={ <IsPrivate><ProfilePage /></IsPrivate> } />
@@ -31,6 +34,7 @@ function App() {
         <Route path="/games" element={ <IsPrivate><GamesListPage /></IsPrivate> } />
         <Route path="/games/:gameId" element={ <IsPrivate><GameDetailsPage /></IsPrivate> } />
         <Route path="/games/edit/:gameId" element={ <IsPrivate><EditGamePage /></IsPrivate> } />
+        <Route path="/comments/edit/:commentId" element={ <IsPrivate><EditCommentPage /></IsPrivate> } />
       </Routes>
 
       <Footer />

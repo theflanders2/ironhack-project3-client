@@ -48,10 +48,13 @@ function GameDetailsPage() {
       )}
       <AddComment refreshGame={getGame} gameId={gameId} />
       <h2>Comments</h2>
-      {game &&
-        game.comments.map((comment) => (
-          <CommentCard key={comment._id} {...comment} />
-        ))}
+      <ul className="CommentCardList">
+        <li>
+          {game && game.comments.map((comment) => (
+            <CommentCard key={comment._id} {...comment} />
+          ))}
+        </li>
+      </ul>
 
       <Link to="/games">
         <button>Back to Games</button>

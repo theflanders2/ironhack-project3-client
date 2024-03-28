@@ -40,6 +40,12 @@ class GamesService {
     return this.api.get("/api/games");
   };
 
+  /*-----GET LATEST 10 GAMES ADDED-----*/
+  // GET /api/ -  Retrieves latest 10 games added to db
+  getLatestTenGamesAdded = () => {
+    return this.api.get("/");
+  };
+
   /*-----GET SINGLE GAME-----*/
   // GET /api/games/:gameId -  Retrieves a specific game by id
   getGame = (id) => {

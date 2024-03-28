@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import usersService from "../services/users.service";
 
 function EditProfilePage() {
@@ -32,7 +32,10 @@ function EditProfilePage() {
 
   return (
     <div className="EditProfilePage">
-      <h3>Edit Profile</h3>
+      <h3>Edit Email Address</h3>
+      <Link to={`/profile/${userId}`}>
+        <button>Back to Profile</button>
+      </Link>
 
       <form onSubmit={handleSubmit}>
         <label>Email:</label>
@@ -43,7 +46,7 @@ function EditProfilePage() {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <input type="submit" value="Confirm Changes" />
+        <button type="submit">Confirm Changes</button>
       </form>
     </div>
   );

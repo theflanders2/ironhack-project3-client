@@ -64,6 +64,9 @@ function Navbar() {
           </NavLink>
         </>
       )}
+      <NavLink to="/about">
+        <button>{language === "en-US" ? englishContent.navBar[6] : germanContent.navBar[6]}</button>
+      </NavLink>
 
       <select name="" id="" onChange={toggleLanguage}>
         <option value="en-US">English</option>

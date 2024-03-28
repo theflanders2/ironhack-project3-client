@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import gamesService from "../services/games.service";
 
 function EditGamePage() {
@@ -64,18 +64,19 @@ function EditGamePage() {
     // are updated, navigate back to the details page
   };
 
-  const deleteGame = () => {
-    // Make an axios DELETE request to delete the game
-    gamesService.deleteGame(gameId)
-      .then(() => navigate("/games"))
-      // Once the delete request is resolved successfully
-      // navigate back to the list of games.
-      .catch((err) => console.log(err));
-  };
+  // const deleteGame = () => {
+  //   // Make an axios DELETE request to delete the game
+  //   gamesService.deleteGame(gameId)
+  //     .then(() => navigate("/games"))
+  //     // Once the delete request is resolved successfully
+  //     // navigate back to the list of games.
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <div className="EditGamePage">
       <h3>Edit Game</h3>
+      <Link to={`/games/${gameId}`}><button>Back to game</button></Link>
 
       <form onSubmit={handleSubmit}>
         <label>Name:</label>
@@ -123,7 +124,7 @@ function EditGamePage() {
 
       </form>
 
-      <button onClick={deleteGame}>Delete Game</button>
+      {/* <button onClick={deleteGame}>Delete Game</button> */}
     </div>
   );
 }
