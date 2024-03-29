@@ -9,18 +9,18 @@ html, body, ul, li, h1, h2, h3, h4, a {
   margin: 0 auto;
   text-align: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 600px;
   position: relative;
 }
 
+/* -----FOOTER STYLING----- */
 .Footer {
   width: 100vw;
-  /* height: 2.5rem; */
   color: white;
   font-size: 12px;
   font-weight: bold;
   position: absolute;
-  /* left: 0; */
+  left: 0;
   bottom: 0;
   background-image: linear-gradient(to left, #4800ff, white);
 }
@@ -56,6 +56,7 @@ a {
   color: black;
 }
 
+/* -----BUTTON STYLING----- */
 button {
   padding: 3px 10px;
   min-width: 50px;
@@ -71,6 +72,51 @@ button {
 
 button:hover {
   background-color: gray;
+}
+
+.AddComment button,
+.AddGame button {
+  display: block;
+}
+
+/* -----NAVBAR STYLING----- */
+.Navbar {
+  background-image: linear-gradient(to right, red, white);
+  color: white;
+  box-shadow: 0px 1px 2px gray;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+
+.Navbar li {
+  list-style: none;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.nav-title {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 3px;
+  padding: 4px 10px;
+  margin-left: 30px;
+  display: inline-block;
+  border: 3px solid white;
+  border-radius: 15px;
+  font-size: 16px;
+  height: 15px;
+}
+
+.nav-menu {
+  padding-right: 10px;
 }
 
 .Navbar button {
@@ -91,6 +137,7 @@ button:hover {
   color: red;
 }
 
+/* -----INPUT, LABEL AND TEXTAREA STYLING----- */
 label {
   width: 200px;
   display: block;
@@ -103,77 +150,21 @@ textarea {
   padding: 10px;
   display: inline-block;
   margin: 10px;
-  /* border: 1px solid black; */
-  /* border-radius: 8px; */
 }
 
 input {
   height: 1px;
 }
 
-.coverArtUrl {
-  padding-bottom: 40px;
-}
-
-/* .Navbar {
-  background: #515f7d;
-  color: white;
-  padding: 0px 20px;
-  box-shadow: 0px 1px 2px gray;
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 5px;
-}
- 
-.Navbar li {
-  list-style: none;
-  color: white;
-  font-size: 24px;
-  font-weight: 600;
-} */
-
+/* -----CARD STYLING----- */
 .card {
-  /* width: 325px;
-  padding: 10px;
-  box-shadow: 0px 2px 3px #ffc52f;
-  margin: 20px auto;
-  background: #94a7c8;
-  border-radius: 4px;
-  background-image: linear-gradient(to top, #ffc52f, white );
-  text-decoration: none; */
   background-image: linear-gradient(to top, #4800ff, white);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   /* padding: 10px; */
-  margin-bottom: 20px;
+  margin: 0 10px 20px 0;
   overflow: hidden;
   width: 300px;
-}
-
-.GamesListPage ul li,
-.HomePage ul li {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.ToggleLists {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 20px 50px 20px;
-}
-
-.CommentCardList {
-  display: flex;
-  justify-content: space-between;
-}
-
-.UserCommentCard ul li {
-  display: inline-block;
-}
-
-.UserActivity li {
-  display: flex;
 }
 
 .card img {
@@ -190,6 +181,26 @@ input {
   top: -4px;
 }
 
+.Content-UserCommentCard {
+  padding: 0 5px;
+  text-align: left;
+}
+
+.GamesListPage ul li,
+.HomePage ul li,
+.CommentCard-GameDetailsPage,
+.AllUserStats-ProfilePage {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15px;
+}
+
+.ToggleLists-GameDetailsPage {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px 50px 20px;
+}
+
 .EditGamePage,
 .AddGame,
 .AddComment {
@@ -203,6 +214,7 @@ input {
   border-radius: 4px;
 }
 
+/* -----FORM AND UPLOAD BUTTON STYLING----- */
 .EditGamePage form,
 .AddComment form,
 .AddGame form,
@@ -217,6 +229,10 @@ input {
   font-size: 12px;
 }
 
+.coverArtUrl {
+  padding-bottom: 40px;
+}
+
 .SignupPage a,
 .LoginPage a,
 .SignupPage p,
@@ -224,18 +240,9 @@ input {
   font-size: 14px;
 }
 
-.AddComment button,
-.AddGame button {
-  display: block;
-}
-
-.CommentCard {
-  background-color: #dfeef9;
-}
-
 .GamesListPage,
-.UserProfile,
-.GameDetails,
+.ProfilePage,
+.GameDetailsPage,
 .EditGamePage,
 .LoginPage,
 .SignupPage,
@@ -243,11 +250,247 @@ input {
 .EditProfilePage,
 .HomePage,
 .AboutPage {
-  padding-top: 100px;
+  padding: 100px 0;
 }
 
-@media (max-width: 767px) {}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* -----FOOTER STYLING----- */
+  .Footer {
+    width: 100vw;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    /* position: absolute; */
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(to left, #4800ff, white);
+  }
 
-@media (min-width: 768px) and (max-width: 1023px) {}
+  .Footer ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    text-decoration: none;
+  }
 
-@media (min-width: 1024px) and (max-width: 1439px) {}
+  .svgrepo-link a,
+  .svgrepo-link {
+    color: red;
+  }
+
+  .theflanders-link a,
+  .theflanders-link {
+    color: white;
+  }
+
+  .error-message {
+    font-weight: bold;
+    color: red;
+  }
+
+  .success-message {
+    font-weight: bold;
+    color: green;
+  }
+
+  a {
+    color: black;
+  }
+
+  /* -----BUTTON STYLING----- */
+  button {
+    padding: 3px 10px;
+    min-width: 50px;
+    margin: 5px;
+    font-size: 14px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    background: silver;
+    border-color: white;
+    height: 25px;
+  }
+
+  button:hover {
+    background-color: gray;
+  }
+
+  .AddComment button,
+  .AddGame button {
+    display: block;
+  }
+
+  /* -----NAVBAR STYLING----- */
+  .Navbar {
+    background-image: linear-gradient(to right, red, white);
+    color: white;
+    box-shadow: 0px 1px 2px gray;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+  }
+
+  .Navbar li {
+    list-style: none;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .nav-title {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 3px;
+    padding: 4px 10px;
+    margin-left: 30px;
+    display: inline-block;
+    border: 3px solid white;
+    border-radius: 15px;
+    font-size: 16px;
+    height: 15px;
+  }
+
+  .nav-menu {
+    padding-right: 10px;
+  }
+
+  .Navbar button {
+    padding: 3px 10px;
+    min-width: 50px;
+    margin: 5px;
+    font-size: 14px;
+    border-radius: 8px;
+    color: silver;
+    background: white;
+    border-color: lightgray;
+    height: 25px;
+  }
+
+  .Navbar button:hover {
+    position: relative;
+    top: -4px;
+    color: red;
+  }
+
+  /* -----INPUT, LABEL AND TEXTAREA STYLING----- */
+  label {
+    width: 200px;
+    display: block;
+    font-size: 12px;
+  }
+
+  input,
+  textarea {
+    width: 250px;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  input {
+    height: 1px;
+  }
+
+  /* -----CARD STYLING----- */
+  .card {
+    background-image: linear-gradient(to top, #4800ff, white);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* padding: 10px; */
+    margin: 0 10px 20px 0;
+    overflow: hidden;
+    width: 300px;
+  }
+
+  .card img {
+    height: 300px;
+  }
+
+  .card a {
+    text-decoration: none;
+  }
+
+  .card:hover {
+    background-image: linear-gradient(to bottom, red, white);
+    position: relative;
+    top: -4px;
+  }
+
+  .Content-UserCommentCard {
+    padding: 0 5px;
+    text-align: left;
+  }
+
+  .GamesListPage ul li,
+  .HomePage ul li,
+  .CommentCard-GameDetailsPage,
+  .AllUserStats-ProfilePage {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 15px;
+  }
+
+  .ToggleLists-GameDetailsPage {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px 50px 20px;
+  }
+
+  .EditGamePage,
+  .AddGame,
+  .AddComment {
+    background-image: linear-gradient(to top, #4800ff, white);
+    box-shadow: 0px 2px 3px white;
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+  }
+
+  /* -----FORM AND UPLOAD BUTTON STYLING----- */
+  .EditGamePage form,
+  .AddComment form,
+  .AddGame form,
+  .SignupPage form,
+  .LoginPage form,
+  .EditCommentPage form,
+  .EditProfilePage form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 12px;
+  }
+
+  .coverArtUrl {
+    padding-bottom: 40px;
+  }
+
+  .SignupPage a,
+  .LoginPage a,
+  .SignupPage p,
+  .LoginPage p {
+    font-size: 14px;
+  }
+
+  .GamesListPage,
+  .ProfilePage,
+  .GameDetailsPage,
+  .EditGamePage,
+  .LoginPage,
+  .SignupPage,
+  .EditCommentPage,
+  .EditProfilePage,
+  .HomePage,
+  .AboutPage {
+    padding: 100px 0;
+  }
+}

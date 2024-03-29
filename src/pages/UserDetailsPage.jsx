@@ -20,7 +20,7 @@ function UserDetailsPage() {
   }, []);
 
   return (
-    <div className="UserProfile">
+    <div className="ProfilePage">
       <h1>Profile Page</h1>
       {user && (
         <>

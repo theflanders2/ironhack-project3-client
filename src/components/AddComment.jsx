@@ -22,8 +22,8 @@ function AddComment({ gameId, refreshGame}) {
 
   return (
     <div className="AddComment">
+      <br />
       <h3>Add Comment</h3>
-
       <form onSubmit={handleSubmit}>
         <label>Comment:</label>
         <textarea

@@ -1,0 +1,29 @@
+@media (max-width: 941px) {
+  .GamesListPage,
+  .ProfilePage,
+  .GameDetailsPage,
+  .EditGamePage,
+  .LoginPage,
+  .SignupPage,
+  .EditCommentPage,
+  .EditProfilePage,
+  .HomePage,
+  .AboutPage {
+    margin-left: 60px;
+  }
+}
+
+@media (min-width: 942px) {
+  .GamesListPage,
+  .ProfilePage,
+  .GameDetailsPage,
+  .EditGamePage,
+  .LoginPage,
+  .SignupPage,
+  .EditCommentPage,
+  .EditProfilePage,
+  .HomePage,
+  .AboutPage {
+    margin: 0 auto;
+  }
+}

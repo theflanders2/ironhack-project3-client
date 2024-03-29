@@ -37,7 +37,9 @@ function HomePage() {
           <p><Link to={"/login"}>Login</Link> to view the entire game catalog.</p>
           <p>If you do not have an account yet, you can create your account <Link to={"/signup"}>here</Link></p>
         </>
-        )}
+      )}
+      <br />
+      <br />
       <ul>
         <li>
           {games.map((game) => {

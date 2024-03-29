@@ -34,7 +34,8 @@ function GamesListPage() {
       <Search searchInput={searchInput} setSearchInput={setSearchInput} />
       <button onClick={() => {setIsFormShowing(!isFormShowing)} }>{isFormShowing ? "Hide Add Game Form" : "Show Add Game Form"}</button>
       {isFormShowing && <AddGame refreshGames={getAllGames} />}
-
+      <br />
+      <br />
       <ul>
         <li>
           {searchedContent.map((game) => {

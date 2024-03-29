@@ -6,10 +6,12 @@ function UserCommentCard({ _id, game, content, createdAt }) {
       <Link to={`/comments/edit/${_id}`}>
         <button>Edit Comment</button>
       </Link>
+      <br />
+      <br />
       <Link to={`/games/${game._id}`}>
         <h4>{game.name}</h4>
       </Link>
-      <p>{content}</p>
+      <p className="Content-UserCommentCard">{content}</p>
       <p>{createdAt}</p>
     </div>
   );

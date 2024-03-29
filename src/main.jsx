@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+import "./index.responsive-styles.css"
 import { BrowserRouter as Router } from "react-router-dom";
 import { LanguageProviderWrapper } from "./context/language.context.jsx";
 import { AuthProviderWrapper } from "./context/auth.context";

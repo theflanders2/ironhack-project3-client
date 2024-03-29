@@ -6,6 +6,11 @@ import GameCard from "../components/GameCard";
 
 function ProfilePage() {
   const [user, setUser] = useState(null);
+  const [areCommentsShowing, setAreCommentsShowing] = useState(false);
+  const [areGamesContributedShowing, setAreGamesContributedShowing] = useState(false);
+  const [areGamesPlayedShowing, setAreGamesPlayedShowing] = useState(false);
+  const [areGamesCurrentlyPlayingShowing, setAreGamesCurrentlyPlayingShowing] = useState(false);
+  const [isWishlistShowing, setIsWishlistShowing] = useState(false);
   const { userId } = useParams();
 
   const getUser = () => {
@@ -19,7 +24,7 @@ function ProfilePage() {
   }, []);
 
   return (
-    <div className="UserProfile">
+    <div className="ProfilePage">
       <h1>Profile Page</h1>
       <Link to={`/profile/edit/${userId}`}>
         <button>Edit Email Address</button>
@@ -36,35 +41,69 @@ function ProfilePage() {
       )}
       <br/>
       <br/>
-      <h2>Comments</h2>
-      {user &&
-        user.user.comments.map((comment) => (
-          <UserCommentCard key={comment._id} {...comment} />
-        ))}
-        <hr/>
-      <h2>Games Contributed</h2>
-      {user &&
-        user.user.gamesContributed.map((game) => (
-          <GameCard key={game._id} {...game} />
-        ))}
-        <hr/>
-      <h2>Games Played</h2>
-      {user &&
-        user.user.gamesPlayed.map((game) => (
-          <GameCard key={game._id} {...game} />
-        ))}
-        <hr/>
-      <h2>Games Currently Playing</h2>
-      {user &&
-        user.user.gamesCurrentlyPlaying.map((game) => (
-          <GameCard key={game._id} {...game} />
-        ))}
-        <hr/>
-      <h2>Wishlist</h2>
-      {user &&
-        user.user.wishlist.map((game) => (
-          <GameCard key={game._id} {...game} />
-        ))}
+      <button onClick={() => {setAreCommentsShowing(!areCommentsShowing)} }>{areCommentsShowing ? "Hide Comments" : "Show Comments"}</button>
+      <br />
+      <br />
+      <ul>
+        <li className="AllUserStats-ProfilePage">
+          {user && areCommentsShowing &&
+          user.user.comments.map((comment) => (
+            <UserCommentCard key={comment._id} {...comment} />
+          ))}
+        </li>
+      </ul>
+      <br />
+      <br />
+      <button onClick={() => {setAreGamesContributedShowing(!areGamesContributedShowing)} }>{areGamesContributedShowing ? "Hide Games Contributed" : "Show Games Contributed"}</button>
+      <br />
+      <br />
+      <ul>
+        <li className="AllUserStats-ProfilePage">
+          {user && areGamesContributedShowing &&
+          user.user.gamesContributed.map((game) => (
+            <GameCard key={game._id} {...game} />
+          ))}
+        </li>
+      </ul>
+      <br />
+      <br />
+      <button onClick={() => {setAreGamesPlayedShowing(!areGamesPlayedShowing)} }>{areGamesPlayedShowing ? "Hide Games Played" : "Show Games Played"}</button>
+      <br />
+      <br />
+      <ul>
+        <li className="AllUserStats-ProfilePage">
+          {user && areGamesPlayedShowing &&
+          user.user.gamesPlayed.map((game) => (
+            <GameCard key={game._id} {...game} />
+          ))}
+        </li>
+      </ul>
+      <br />
+      <br />
+      <button onClick={() => {setAreGamesCurrentlyPlayingShowing(!areGamesCurrentlyPlayingShowing)} }>{areGamesCurrentlyPlayingShowing ? "Hide Games Currently Playing" : "Show Games Currently Playing"}</button>
+      <br />
+      <br />
+      <ul>
+        <li className="AllUserStats-ProfilePage">
+          {user && areGamesCurrentlyPlayingShowing &&
+          user.user.gamesCurrentlyPlaying.map((game) => (
+            <GameCard key={game._id} {...game} />
+          ))}
+        </li>
+      </ul>
+      <br />
+      <br />
+      <button onClick={() => {setIsWishlistShowing(!isWishlistShowing)} }>{isWishlistShowing ? "Hide Wishlist" : "Show Wishlist"}</button>
+      <br />
+      <br />
+      <ul>
+        <li className="AllUserStats-ProfilePage">
+          {user && isWishlistShowing &&
+          user.user.wishlist.map((game) => (
+            <GameCard key={game._id} {...game} />
+          ))}
+        </li>
+      </ul>
     </div>
   );
 }

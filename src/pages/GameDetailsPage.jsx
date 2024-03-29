@@ -22,8 +22,8 @@ function GameDetailsPage() {
   }, []);
 
   return (
-    <div className="GameDetails">
-      <ul className="ToggleLists">
+    <div className="GameDetailsPage">
+      <ul className="ToggleLists-GameDetailsPage">
         <li>
           <ToggleGamesPlayed gameId={gameId} />
         </li>
@@ -48,7 +48,7 @@ function GameDetailsPage() {
       )}
       <AddComment refreshGame={getGame} gameId={gameId} />
       <h2>Comments</h2>
-      <ul className="CommentCardList">
+      <ul className="CommentCard-GameDetailsPage">
         <li>
           {game && game.comments.map((comment) => (
             <CommentCard key={comment._id} {...comment} />

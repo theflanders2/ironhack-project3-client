@@ -1,4 +1,3 @@
-import "./Navbar.css"
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { LanguageContext } from "../context/language.context";
