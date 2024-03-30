@@ -1,10 +1,13 @@
 import { useState } from "react";
 import gamesService from "../services/games.service";
+import { useContext } from "react";
+import { ThemeContext } from "../context/theme.context";
 
 function ToggleGamesCurrentlyPlaying({ gameId }) {
   const [isOnList, setIsOnList] = useState(false);
   const [successMessage, setSuccessMessage] = useState(undefined);
-  
+  const { theme } = useContext(ThemeContext);
+
   const addToGamesCurrentlyPlayingList = () => {
     // Make an axios PUT request to append (push) to gamesPlayed list
     gamesService.addToGamesCurrentlyPlayingList(gameId)
@@ -32,7 +35,7 @@ function ToggleGamesCurrentlyPlaying({ gameId }) {
 
   return (
     <div className="ToggleGamesCurrentlyPlaying">
-      {!isOnList ? <button onClick={addToGamesCurrentlyPlayingList}>Add to Games Currently Playing List</button> : <button onClick={removeFromGamesCurrentlyPlayingList}>Remove from Games Currently Playing List</button>}
+      {!isOnList ? <button className={`${theme}`} onClick={addToGamesCurrentlyPlayingList}>Add to Games Currently Playing List</button> : <button className={`${theme}`} onClick={removeFromGamesCurrentlyPlayingList}>Remove from Games Currently Playing List</button>}
       
       {successMessage && <p className="success-message">{successMessage}</p>}
     </div>

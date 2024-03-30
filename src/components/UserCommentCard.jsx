@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../context/theme.context";
 
 function UserCommentCard({ _id, game, content, createdAt }) {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="UserCommentCard card">
+    <div className={`UserCommentCard card ${theme}`}>
       <Link to={`/comments/edit/${_id}`}>
-        <button>Edit Comment</button>
+        <button className={`${theme}`}>Edit Comment</button>
       </Link>
       <br />
       <br />

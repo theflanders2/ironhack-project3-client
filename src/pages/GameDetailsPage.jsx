@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import AddComment from "../components/AddComment";
 import CommentCard from "../components/CommentCard";
@@ -6,10 +6,12 @@ import ToggleGamesPlayed from "../components/ToggleGamesPlayed";
 import ToggleGamesCurrentlyPlaying from "../components/ToggleGamesCurrentlyPlaying";
 import ToggleWishlist from "../components/ToggleWishlist";
 import gamesService from "../services/games.service";
+import { ThemeContext } from "../context/theme.context";
 
 function GameDetailsPage() {
   const [game, setGame] = useState(null);
   const { gameId } = useParams();
+  const { theme } = useContext(ThemeContext);
 
   const getGame = () => {
     gamesService.getGame(gameId)
@@ -57,11 +59,11 @@ function GameDetailsPage() {
       </ul>
 
       <Link to="/games">
-        <button>Back to Games</button>
+        <button className={`${theme}`}>Back to Games</button>
       </Link>
 
       <Link to={`/games/edit/${gameId}`}>
-        <button>Edit Game</button>
+        <button className={`${theme}`}>Edit Game</button>
       </Link>
     </div>
   );

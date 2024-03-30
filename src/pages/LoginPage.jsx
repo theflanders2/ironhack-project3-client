@@ -2,12 +2,13 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import authService from "../services/auth.service";
+import { ThemeContext } from "../context/theme.context";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-
+  const { theme } = useContext(ThemeContext);
   const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit">Log In</button>
+        <button className={`${theme}`} type="submit">Log In</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

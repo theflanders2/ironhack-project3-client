@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../services/auth.service";
+import { ThemeContext } from "../context/theme.context";
 
 function SignupPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const { theme } = useContext(ThemeContext);
 
   const navigate = useNavigate();
 
@@ -66,7 +68,7 @@ function SignupPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit">Sign Up</button>
+        <button className={`${theme}`} type="submit">Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

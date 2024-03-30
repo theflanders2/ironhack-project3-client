@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import commentsService from "../services/comments.service";
+import { ThemeContext } from "../context/theme.context";
 
 function EditCommentPage() {
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
+  const { theme } = useContext(ThemeContext);
 
   const { commentId } = useParams();
   const navigate = useNavigate();
@@ -46,7 +48,7 @@ function EditCommentPage() {
     <div className="EditCommentPage">
       <h3>Edit Comment</h3>
       <Link to={`/profile/${author}`}>
-        <button>Back to Profile</button>
+        <button className={`${theme}`}>Back to Profile</button>
       </Link>
 
       <form onSubmit={handleSubmit}>
@@ -58,8 +60,8 @@ function EditCommentPage() {
           onChange={(e) => setContent(e.target.value)}
         />
 
-        <button type="submit">Confirm Changes</button>
-        <button onClick={deleteComment}>Delete Comment</button>
+        <button className={`${theme}`} type="submit">Confirm Changes</button>
+        <button className={`${theme}`} onClick={deleteComment}>Delete Comment</button>
 
 
       </form>

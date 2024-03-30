@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import usersService from "../services/users.service";
 import UserCommentCard from "../components/UserCommentCard";
 import GameCard from "../components/GameCard";
+import { ThemeContext } from "../context/theme.context";
 
 function ProfilePage() {
   const [user, setUser] = useState(null);
@@ -12,6 +13,7 @@ function ProfilePage() {
   const [areGamesCurrentlyPlayingShowing, setAreGamesCurrentlyPlayingShowing] = useState(false);
   const [isWishlistShowing, setIsWishlistShowing] = useState(false);
   const { userId } = useParams();
+  const { theme } = useContext(ThemeContext);
 
   const getUser = () => {
     usersService.getUser(userId)
@@ -27,7 +29,7 @@ function ProfilePage() {
     <div className="ProfilePage">
       <h1>Profile Page</h1>
       <Link to={`/profile/edit/${userId}`}>
-        <button>Edit Email Address</button>
+        <button className={`${theme}`}>Edit Email Address</button>
       </Link>
       {user && (
         <>
@@ -41,7 +43,7 @@ function ProfilePage() {
       )}
       <br/>
       <br/>
-      <button onClick={() => {setAreCommentsShowing(!areCommentsShowing)} }>{areCommentsShowing ? "Hide Comments" : "Show Comments"}</button>
+      <button className={`${theme}`} onClick={() => {setAreCommentsShowing(!areCommentsShowing)} }>{areCommentsShowing ? "Hide Comments" : "Show Comments"}</button>
       <br />
       <br />
       <ul>
@@ -54,7 +56,7 @@ function ProfilePage() {
       </ul>
       <br />
       <br />
-      <button onClick={() => {setAreGamesContributedShowing(!areGamesContributedShowing)} }>{areGamesContributedShowing ? "Hide Games Contributed" : "Show Games Contributed"}</button>
+      <button className={`${theme}`} onClick={() => {setAreGamesContributedShowing(!areGamesContributedShowing)} }>{areGamesContributedShowing ? "Hide Games Contributed" : "Show Games Contributed"}</button>
       <br />
       <br />
       <ul>
@@ -67,7 +69,7 @@ function ProfilePage() {
       </ul>
       <br />
       <br />
-      <button onClick={() => {setAreGamesPlayedShowing(!areGamesPlayedShowing)} }>{areGamesPlayedShowing ? "Hide Games Played" : "Show Games Played"}</button>
+      <button className={`${theme}`} onClick={() => {setAreGamesPlayedShowing(!areGamesPlayedShowing)} }>{areGamesPlayedShowing ? "Hide Games Played" : "Show Games Played"}</button>
       <br />
       <br />
       <ul>
@@ -80,7 +82,7 @@ function ProfilePage() {
       </ul>
       <br />
       <br />
-      <button onClick={() => {setAreGamesCurrentlyPlayingShowing(!areGamesCurrentlyPlayingShowing)} }>{areGamesCurrentlyPlayingShowing ? "Hide Games Currently Playing" : "Show Games Currently Playing"}</button>
+      <button className={`${theme}`} onClick={() => {setAreGamesCurrentlyPlayingShowing(!areGamesCurrentlyPlayingShowing)} }>{areGamesCurrentlyPlayingShowing ? "Hide Games Currently Playing" : "Show Games Currently Playing"}</button>
       <br />
       <br />
       <ul>
@@ -93,7 +95,7 @@ function ProfilePage() {
       </ul>
       <br />
       <br />
-      <button onClick={() => {setIsWishlistShowing(!isWishlistShowing)} }>{isWishlistShowing ? "Hide Wishlist" : "Show Wishlist"}</button>
+      <button className={`${theme}`} onClick={() => {setIsWishlistShowing(!isWishlistShowing)} }>{isWishlistShowing ? "Hide Wishlist" : "Show Wishlist"}</button>
       <br />
       <br />
       <ul>

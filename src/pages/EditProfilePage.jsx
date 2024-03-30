@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import usersService from "../services/users.service";
+import { ThemeContext } from "../context/theme.context";
 
 function EditProfilePage() {
   const [email, setEmail] = useState("");
+  const { theme } = useContext(ThemeContext);
 
   const { userId } = useParams();
   const navigate = useNavigate();
@@ -34,7 +36,7 @@ function EditProfilePage() {
     <div className="EditProfilePage">
       <h3>Edit Email Address</h3>
       <Link to={`/profile/${userId}`}>
-        <button>Back to Profile</button>
+        <button className={`${theme}`}>Back to Profile</button>
       </Link>
 
       <form onSubmit={handleSubmit}>
@@ -46,7 +48,7 @@ function EditProfilePage() {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <button type="submit">Confirm Changes</button>
+        <button className={`${theme}`} type="submit">Confirm Changes</button>
       </form>
     </div>
   );

@@ -1,10 +1,13 @@
 import { useState } from "react";
 import gamesService from "../services/games.service";
+import { useContext } from "react";
+import { ThemeContext } from "../context/theme.context";
 
 function ToggleWishlist({ gameId }) {
   const [isOnList, setIsOnList] = useState(false);
   const [successMessage, setSuccessMessage] = useState(undefined);
-  
+  const { theme } = useContext(ThemeContext);
+
   const addToWishlist = () => {
     // Make an axios PUT request to append (push) to wishlist
     gamesService.addToWishlist(gameId)
@@ -32,7 +35,7 @@ function ToggleWishlist({ gameId }) {
 
   return (
     <div className="ToggleWishlist">
-      {!isOnList ? <button onClick={addToWishlist}>Add to Wishlist</button> : <button onClick={removeFromWishlist}>Remove from Wishlist</button>}
+      {!isOnList ? <button className={`${theme}`} onClick={addToWishlist}>Add to Wishlist</button> : <button className={`${theme}`} onClick={removeFromWishlist}>Remove from Wishlist</button>}
       
       {successMessage && <p className="success-message">{successMessage}</p>}
     </div>

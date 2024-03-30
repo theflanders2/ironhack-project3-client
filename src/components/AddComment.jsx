@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import commentsService from "../services/comments.service";
+import { ThemeContext } from "../context/theme.context";
 
 function AddComment({ gameId, refreshGame}) {
   const [content, setContent] = useState("");
+  const { theme } = useContext(ThemeContext);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +24,7 @@ function AddComment({ gameId, refreshGame}) {
   };
 
   return (
-    <div className="AddComment">
+    <div className={`AddComment ${theme}`}>
       <br />
       <h3>Add Comment</h3>
       <form onSubmit={handleSubmit}>
@@ -33,7 +36,7 @@ function AddComment({ gameId, refreshGame}) {
           onChange={(e) => setContent(e.target.value)}
         />
 
-        <button type="submit">Submit</button>
+        <button className={`${theme}`} type="submit">Submit</button>
       </form>
     </div>
   );

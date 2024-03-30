@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Search from "../components/Search";
 import AddGame from "../components/AddGame";
 import GameCard from "../components/GameCard";
 import gamesService from "../services/games.service";
+import { ThemeContext } from "../context/theme.context";
 
 function GamesListPage() {
   const [games, setGames] = useState([]);
   const [isFormShowing, setIsFormShowing] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+  const { theme } = useContext(ThemeContext);
 
   const getAllGames = () => {
     gamesService.getAllGames()
@@ -32,7 +34,7 @@ function GamesListPage() {
     <div className="GamesListPage">
       <h1>Games</h1>
       <Search searchInput={searchInput} setSearchInput={setSearchInput} />
-      <button onClick={() => {setIsFormShowing(!isFormShowing)} }>{isFormShowing ? "Hide Add Game Form" : "Show Add Game Form"}</button>
+      <button className={`${theme}`} onClick={() => {setIsFormShowing(!isFormShowing)} }>{isFormShowing ? "Hide Add Game Form" : "Show Add Game Form"}</button>
       {isFormShowing && <AddGame refreshGames={getAllGames} />}
       <br />
       <br />

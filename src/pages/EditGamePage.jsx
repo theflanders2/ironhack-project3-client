@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import gamesService from "../services/games.service";
+import { ThemeContext } from "../context/theme.context";
 
 function EditGamePage() {
   const [name, setName] = useState("");
@@ -9,7 +10,7 @@ function EditGamePage() {
   const [platform, setPlatform] = useState("");
   const [coverArtUrl, setCoverArtUrl] = useState("");
   const [isUploadingCoverArt, setIsUploadingCoverArt] = useState(false)
-
+  const { theme } = useContext(ThemeContext);
 
   const { gameId } = useParams();
   const navigate = useNavigate();
@@ -74,9 +75,9 @@ function EditGamePage() {
   // };
 
   return (
-    <div className="EditGamePage">
+    <div className={`EditGamePage ${theme}`}>
       <h3>Edit Game</h3>
-      <Link to={`/games/${gameId}`}><button>Back to game</button></Link>
+      <Link to={`/games/${gameId}`}><button className={`${theme}`}>Back to game</button></Link>
 
       <form onSubmit={handleSubmit}>
         <label>Name:</label>
@@ -120,11 +121,11 @@ function EditGamePage() {
         <label htmlFor="coverArtUrl">Cover Art:</label>
         <input className="coverArtUrl" type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
 
-        {!isUploadingCoverArt ? <button type="submit">Confirm Changes</button> : <button type="submit" disabled>Uploading cover art...</button>}
+        {!isUploadingCoverArt ? <button className={`${theme}`} type="submit">Confirm Changes</button> : <button className={`${theme}`} type="submit" disabled>Uploading cover art...</button>}
 
       </form>
 
-      {/* <button onClick={deleteGame}>Delete Game</button> */}
+      {/* <button className={`${theme}`} onClick={deleteGame}>Delete Game</button> */}
     </div>
   );
 }

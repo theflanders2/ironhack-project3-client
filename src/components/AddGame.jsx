@@ -1,5 +1,7 @@
 import { useState } from "react";
 import gamesService from "../services/games.service";
+import { useContext } from "react";
+import { ThemeContext } from "../context/theme.context";
 
 function AddGame({ refreshGames }) {
   const [name, setName] = useState("");
@@ -9,6 +11,7 @@ function AddGame({ refreshGames }) {
   const [coverArtUrl, setCoverArtUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isUploadingCoverArt, setIsUploadingCoverArt] = useState(false)
+  const { theme } = useContext(ThemeContext);
 
   const handleFileUpload = async (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -60,7 +63,7 @@ function AddGame({ refreshGames }) {
   };
 
   return (
-    <div className="AddGame">
+    <div className={`AddGame ${theme}`}>
       <h3>Add Game</h3>
 
       <form onSubmit={handleSubmit}>
@@ -113,7 +116,7 @@ function AddGame({ refreshGames }) {
         <label htmlFor="coverArtUrl">Cover Art:</label>
         <input className="coverArtUrl" type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
 
-        {!isUploadingCoverArt ? <button type="submit">Add Game</button> : <button type="submit" disabled>Uploading cover art...</button>}
+        {!isUploadingCoverArt ? <button className={`${theme}`} type="submit">Add Game</button> : <button className={`${theme}`} type="submit" disabled>Uploading cover art...</button>}
         
       </form>
 
