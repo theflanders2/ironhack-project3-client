@@ -26,7 +26,6 @@ Logged in users can:
 - Email authentication
 - Stripe (payment service for donation purposes)
 - React-Select for multi-select
-- Themes
 - Multilingual support
 
 ## Technologies Used
