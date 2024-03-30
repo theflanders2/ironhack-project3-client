@@ -171,6 +171,10 @@ input {
   height: 300px;
 }
 
+.GameDetailsPage img {
+  height: 350px;
+}
+
 .card a {
   text-decoration: none;
 }
