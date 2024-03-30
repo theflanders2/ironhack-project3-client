@@ -8,6 +8,7 @@ import { ThemeContext } from "../context/theme.context";
 function GamesListPage() {
   const [games, setGames] = useState([]);
   const [isFormShowing, setIsFormShowing] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("");
   const { theme } = useContext(ThemeContext);
 
@@ -24,6 +25,7 @@ function GamesListPage() {
   // by setting the empty dependency array - []
   useEffect(() => {
     getAllGames();
+    setIsLoading(false);
   }, []);
 
   let searchedContent = games.filter((game) =>
@@ -38,6 +40,7 @@ function GamesListPage() {
       {isFormShowing && <AddGame refreshGames={getAllGames} />}
       <br />
       <br />
+      {isLoading && <h1>Loading...</h1>}
       <ul>
         <li>
           {searchedContent.map((game) => {

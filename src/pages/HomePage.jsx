@@ -6,6 +6,7 @@ import gamesService from "../services/games.service";
 
 function HomePage() {
   const [games, setGames] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   
   const { isLoggedIn, user } = useContext(AuthContext);
 
@@ -20,6 +21,7 @@ function HomePage() {
 
   useEffect(() => {
     getLatestTenGamesAdded();
+    setIsLoading(false);
   }, []);
 
   return (
@@ -40,6 +42,7 @@ function HomePage() {
       )}
       <br />
       <br />
+      {isLoading && <h1>Loading...</h1>}
       <ul>
         <li>
           {games.map((game) => {
