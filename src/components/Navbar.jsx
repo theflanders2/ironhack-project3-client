@@ -23,24 +23,18 @@ function Navbar() {
         <>
           <NavLink to={`/profile/${user._id}`}>
             <button>
-              {language === "en-US"
-                ? englishContent.navBar[3]
-                : germanContent.navBar[3]}
+              {language === "en-US" ? englishContent.navBar[3] : germanContent.navBar[3]}
             </button>
           </NavLink>
 
           <NavLink to="/games">
             <button>
-              {language === "en-US"
-                ? englishContent.navBar[4]
-                : germanContent.navBar[4]}
+              {language === "en-US" ? englishContent.navBar[4] : germanContent.navBar[4]}
             </button>
           </NavLink>
           {/* <span>Logged in as {user.username}</span> */}
           <button onClick={logOutUser}>
-            {language === "en-US"
-              ? englishContent.navBar[5]
-              : germanContent.navBar[5]}{" "}
+            {language === "en-US" ? englishContent.navBar[5] : germanContent.navBar[5]}{" "}
             {user.username}
           </button>
         </>
@@ -50,17 +44,13 @@ function Navbar() {
         <>
           <NavLink to="/signup">
             <button>
-              {language === "en-US"
-                ? englishContent.navBar[1]
-                : germanContent.navBar[1]}
+              {language === "en-US" ? englishContent.navBar[1] : germanContent.navBar[1]}
             </button>
           </NavLink>
 
           <NavLink to="/login">
             <button>
-              {language === "en-US"
-                ? englishContent.navBar[2]
-                : germanContent.navBar[2]}
+              {language === "en-US" ? englishContent.navBar[2] : germanContent.navBar[2]}
             </button>
           </NavLink>
         </>
@@ -68,7 +58,7 @@ function Navbar() {
       <NavLink to="/about">
         <button>{language === "en-US" ? englishContent.navBar[6] : germanContent.navBar[6]}</button>
       </NavLink>
-      <select name="" id="" onChange={toggleTheme}>
+      {/* <select name="" id="" onChange={toggleTheme}>
         <option value="en-US">light</option>
         <option value="de-DE">dark</option>
       </select>
@@ -76,7 +66,7 @@ function Navbar() {
       <select name="" id="" onChange={toggleLanguage}>
         <option value="en-US">English</option>
         <option value="de-DE">Deutsch</option>
-      </select>
+      </select> */}
       </div>
     </nav>
   );
