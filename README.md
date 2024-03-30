@@ -29,14 +29,14 @@ Logged in users can:
 - Multilingual support
 
 ## Technologies Used
-Client
-HTML
-CSS
-React.js
-React Router: Browser Router, Routes, Route, Link, NavLink, useNavigate, useParams
-React: useState, useEffect, useContext, createContext
-Axios
-Netlify (deployment)
+- Client
+- HTML
+- CSS
+- React.js
+- React Router: Browser Router, Routes, Route, Link, NavLink, useNavigate, useParams
+- React: useState, useEffect, useContext, createContext
+- Axios
+- Netlify (deployment)
 
 ## Project Structure
 
