@@ -46,11 +46,17 @@ Netlify (deployment)
 - isPrivate
 
 ### Routes
-- Auth routes
-- Index routes
-- User routes
-- Game routes
-- Comment routes
+- "/"
+- "/about"
+- "/signup"
+- "/login"
+- "/profile/:userId"
+- "/profile/edit/:userId
+- "/users/:userId
+- "/games"
+- "/games/:gameId"
+- "/games/edit/:gameId"
+- "comments/edit/:commentId"
 
 ### Pages
 - AboutPage
