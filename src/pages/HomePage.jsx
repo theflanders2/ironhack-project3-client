@@ -31,7 +31,7 @@ function HomePage() {
           <h3 className="greeting">It feels good to welcome you back, <span>{user.username}</span>. Next time make sure not to stay away for so long!</h3>
         </>
       )}
-      <h4>Here are the top 10 most recently added games</h4>
+      <h4>Here are the 10 most recently added games</h4>
       {!isLoggedIn && (
         <>
           <p><Link to={"/login"}>Login</Link> to view the entire game catalog.</p>
