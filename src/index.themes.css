@@ -1,71 +1,71 @@
 /* -----DEFAULT THEME BEGIN----- */
 /* -----FOOTER STYLING----- */
-.Footer.Default {
+.Footer.Default-Theme {
   color: white;
   background-image: linear-gradient(to left, #4800ff, white);
 }
 
-.svgrepo-link.Default a,
-.svgrepo-link.Default {
+.svgrepo-link.Default-Theme a,
+.svgrepo-link.Default-Theme {
   color: red;
 }
 
-.theflanders-link.Default a,
-.theflanders-link.Default {
+.theflanders-link.Default-Theme a,
+.theflanders-link.Default-Theme {
   color: white;
 }
 
 /* -----BUTTON STYLING----- */
-button.Default {
+button.Default-Theme {
   color: white;
   font-weight: bold;
   background: silver;
   border-color: white;
 }
 
-button.Default:hover {
+button.Default-Theme:hover {
   background-color: gray;
 }
 
 /* -----NAVBAR STYLING----- */
-.Navbar.Default {
+.Navbar.Default-Theme {
   background-image: linear-gradient(to right, red, white);
   color: white;
   box-shadow: 0px 1px 2px gray;
 }
 
-.Navbar.Default li {
+.Navbar.Default-Theme li {
   color: white;
 }
 
-.nav-title.Default {
+.nav-title.Default-Theme {
   color: white;
   border: 3px solid white;
 }
 
-.Navbar.Default button {
+.Navbar.Default-Theme button {
   color: silver;
   background: white;
   border-color: lightgray;
 }
 
-.Navbar.Default button:hover {
+.Navbar.Default-Theme button:hover {
   color: red;
 }
 
 /* -----CARD STYLING----- */
-.card.Default {
+.card.Default-Theme {
   background-image: linear-gradient(to top, #4800ff, white);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card.Default:hover {
+.card.Default-Theme:hover {
   background-image: linear-gradient(to bottom, red, white);
 }
 
-.EditGamePage.Default,
-.AddGame.Default,
-.AddComment.Default {
+.EditGamePage.Default-Theme,
+.AddGame.Default-Theme,
+.AddComment.Default-Theme {
   background-image: linear-gradient(to top, #4800ff, white);
   box-shadow: 0px 2px 3px white;
 }
@@ -73,73 +73,146 @@ button.Default:hover {
 
 /* -----COTTON CANDY THEME BEGIN----- */
 /* -----FOOTER STYLING----- */
-.Footer.CottonCandy {
+.Footer.CottonCandy-Theme {
   color: white;
   background-image: linear-gradient(to left, #549ef7, white);
 }
 
-.svgrepo-link.CottonCandy a,
-.svgrepo-link.CottonCandy {
+.svgrepo-link.CottonCandy-Theme a,
+.svgrepo-link.CottonCandy-Theme {
   color: pink;
 }
 
-.theflanders-link.CottonCandy a,
-.theflanders-link.CottonCandy {
+.theflanders-link.CottonCandy-Theme a,
+.theflanders-link.CottonCandy-Theme {
   color: white;
 }
 
 /* -----BUTTON STYLING----- */
-button.CottonCandy {
+button.CottonCandy-Theme {
   color: white;
   font-weight: bold;
   background: silver;
   border-color: white;
 }
 
-button.CottonCandy:hover {
+button.CottonCandy-Theme:hover {
   background-color: gray;
 }
 
 /* -----NAVBAR STYLING----- */
-.Navbar.CottonCandy {
+.Navbar.CottonCandy-Theme {
   background-image: linear-gradient(to right, pink, white);
   color: white;
   box-shadow: 0px 1px 2px gray;
 }
 
-.Navbar.CottonCandy li {
+.Navbar.CottonCandy-Theme li {
   color: white;
 }
 
-.nav-title.CottonCandy {
+.nav-title.CottonCandy-Theme {
   color: white;
   border: 3px solid white;
 }
 
-.Navbar.CottonCandy button {
+.Navbar.CottonCandy-Theme button {
   color: silver;
   background: white;
   border-color: lightgray;
 }
 
-.Navbar.CottonCandy button:hover {
+.Navbar.CottonCandy-Theme button:hover {
   color: pink;
 }
 
 /* -----CARD STYLING----- */
-.card.CottonCandy {
+.card.CottonCandy-Theme {
   background-image: linear-gradient(to top, #549ef7, white);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card.CottonCandy:hover {
+.card.CottonCandy-Theme:hover {
   background-image: linear-gradient(to bottom, pink, white);
 }
 
-.EditGamePage.CottonCandy,
-.AddGame.CottonCandy,
-.AddComment.CottonCandy {
+.EditGamePage.CottonCandy-Theme,
+.AddGame.CottonCandy-Theme,
+.AddComment.CottonCandy-Theme {
   background-image: linear-gradient(to top, #549ef7, white);
   box-shadow: 0px 2px 3px white;
 }
 /* -----COTTON CANDY THEME END----- */
+
+/* -----ORANGE-GRAPEFRUIT THEME BEGIN----- */
+/* -----FOOTER STYLING----- */
+.Footer.OrangeGrapefruit-Theme {
+  color: white;
+  background-image: linear-gradient(to left, #660000, white);
+}
+
+.svgrepo-link.OrangeGrapefruit-Theme a,
+.svgrepo-link.OrangeGrapefruit-Theme {
+  color: #FF9000;
+}
+
+.theflanders-link.OrangeGrapefruit-Theme a,
+.theflanders-link.OrangeGrapefruit-Theme {
+  color: white;
+}
+
+/* -----BUTTON STYLING----- */
+button.OrangeGrapefruit-Theme {
+  color: white;
+  font-weight: bold;
+  background: silver;
+  border-color: white;
+}
+
+button.OrangeGrapefruit-Theme:hover {
+  background-color: gray;
+}
+
+/* -----NAVBAR STYLING----- */
+.Navbar.OrangeGrapefruit-Theme {
+  background-image: linear-gradient(to right, #FF9000, white);
+  color: white;
+  box-shadow: 0px 1px 2px gray;
+}
+
+.Navbar.OrangeGrapefruit-Theme li {
+  color: white;
+}
+
+.nav-title.OrangeGrapefruit-Theme {
+  color: white;
+  border: 3px solid white;
+}
+
+.Navbar.OrangeGrapefruit-Theme button {
+  color: silver;
+  background: white;
+  border-color: lightgray;
+}
+
+.Navbar.OrangeGrapefruit-Theme button:hover {
+  color: #FF9000;
+}
+
+/* -----CARD STYLING----- */
+.card.OrangeGrapefruit-Theme {
+  background-image: linear-gradient(to top, #660000, white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card.OrangeGrapefruit-Theme:hover {
+  background-image: linear-gradient(to bottom, #FF9000, white);
+}
+
+.EditGamePage.OrangeGrapefruit-Theme,
+.AddGame.OrangeGrapefruit-Theme,
+.AddComment.OrangeGrapefruit-Theme {
+  background-image: linear-gradient(to top, #660000, white);
+  box-shadow: 0px 2px 3px white;
+}
+/* -----ORANGE-GRAPEFRUIT THEME END----- */

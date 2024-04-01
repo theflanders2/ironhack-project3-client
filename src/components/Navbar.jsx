@@ -59,8 +59,8 @@ function Navbar() {
         <button className={`${theme}`}>{language === "en-US" ? englishContent.navBar[6] : germanContent.navBar[6]}</button>
       </NavLink>
       <select name="" id="" onChange={toggleTheme}>
-        <option>Default</option>
-        <option>CottonCandy</option>
+        <option>Default-Theme</option>
+        <option>CottonCandy-Theme</option>
       </select>
 
       {/* <select name="" id="" onChange={toggleLanguage}>
