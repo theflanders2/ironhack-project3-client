@@ -14,7 +14,7 @@ function Navbar() {
 
   return (
     <nav className={`Navbar ${theme}`}>
-      <div>
+      <div className="Logo">
         <NavLink className={`nav-title ${theme}`} to="/">Gameodex</NavLink>
       </div>
 

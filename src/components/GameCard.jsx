@@ -10,7 +10,7 @@ function GameCard({ _id, name, genre, platform, releaseYear, coverArtUrl }) {
     <div className={`GameCard card ${theme}`}>
       <Link to={`/games/${_id}`}>
         <img src={coverArtUrl} />
-        <h3>{name}</h3>
+        <h4>{name}</h4>
         <h5>
         {platform} | {genre} | {releaseYear}
         </h5>

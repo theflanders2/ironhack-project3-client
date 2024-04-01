@@ -1,6 +1,6 @@
 const Search = ({ searchInput, setSearchInput }) => {
   return (
-    <div>
+    <div className="Search">
       <input
         type="text"
         name="query"

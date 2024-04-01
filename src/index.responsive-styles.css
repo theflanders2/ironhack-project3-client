@@ -1,3 +1,118 @@
+@media (min-width: 390px) and (max-width: 429px) {
+  #root {
+    min-height: 844px;
+    width: 390px;
+    padding-top: 25px;
+  }
+
+  .GamesListPage,
+  .ProfilePage,
+  .GameDetailsPage,
+  .EditGamePage,
+  .LoginPage,
+  .SignupPage,
+  .EditCommentPage,
+  .EditProfilePage,
+  .HomePage,
+  .AboutPage {
+    margin-left: 120px;
+  }
+
+  input,
+  textarea {
+  width: 150px;
+  padding: 10px;
+  display: inline-block;
+  margin: 10px;
+}
+
+  .card {
+    width: 250px;
+    margin-left: 15px;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .GamesListPage,
+  .Search,
+  .AboutPage,
+  .LoginPage,
+  .SignupPage,
+  .HomePage,
+  .ProfilePage {
+    margin-right: 60px;
+  }
+
+  AddGame form {
+    margin-right: 20px;
+    width: 50px;
+  }
+
+  AddGame{
+    margin-right: 20px;
+  }
+
+  .Logo {
+    margin-right: 20px;
+  }
+
+  .Navbar {
+    padding: 0;
+    display: inline;
+  }
+
+}
+/* iPhone 14 Pro Max */
+@media (min-width:430px) {
+  #root {
+    min-height: 932px;
+    width: 430px;
+  }
+  
+  .GamesListPage,
+  .ProfilePage,
+  .GameDetailsPage,
+  .EditGamePage,
+  .LoginPage,
+  .SignupPage,
+  .EditCommentPage,
+  .EditProfilePage,
+  .HomePage,
+  .AboutPage {
+    margin-left: 60px;
+  }
+
+  .card {
+    width: 250px;
+    margin-left: 15px;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .GamesListPage,
+  .Search,
+  .AboutPage,
+  .LoginPage,
+  .SignupPage,
+  .HomePage,
+  .ProfilePage {
+    margin-right: 60px;
+  }
+
+  .Logo {
+    margin-right: 20px;
+  }
+
+  .Navbar {
+    padding: 0;
+    display: inline;
+  }
+}
+
 @media (max-width: 941px) {
   .GamesListPage,
   .ProfilePage,
