@@ -18,7 +18,6 @@
 /* -----BUTTON STYLING----- */
 button.Default-Theme {
   color: white;
-  font-weight: bold;
   background: silver;
   border-color: white;
 }
@@ -91,7 +90,6 @@ button.Default-Theme:hover {
 /* -----BUTTON STYLING----- */
 button.CottonCandy-Theme {
   color: white;
-  font-weight: bold;
   background: silver;
   border-color: white;
 }
@@ -164,7 +162,6 @@ button.CottonCandy-Theme:hover {
 /* -----BUTTON STYLING----- */
 button.OrangeGrapefruit-Theme {
   color: white;
-  font-weight: bold;
   background: silver;
   border-color: white;
 }
