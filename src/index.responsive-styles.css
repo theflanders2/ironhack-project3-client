@@ -1,9 +1,53 @@
-@media (min-width: 390px) and (max-width: 429px) {
-  #root {
-    min-height: 844px;
-    width: 390px;
-    padding-top: 25px;
+
+
+/* 375 x 667 iPhone SE */
+@media (min-width: 375px) and (max-width: 375px) {
+  /* .GamesListPage,
+  .ProfilePage,
+  .GameDetailsPage,
+  .EditGamePage,
+  .LoginPage,
+  .SignupPage,
+  .EditCommentPage,
+  .EditProfilePage,
+  .HomePage,
+  .AboutPage {
+    margin-left: 40px;
+  } */
+
+  .card {
+    width: 250px;
+    margin-left: 15px;
   }
+
+  .card img {
+    height: 200px;
+  }
+
+  /* .GamesListPage,
+  .Search,
+  .AboutPage,
+  .LoginPage,
+  .SignupPage,
+  .HomePage,
+  .ProfilePage {
+    margin-right: 60px;
+  } */
+
+  .Logo {
+    margin-right: 30px;
+  }
+
+  .Navbar {
+    padding: 5px 0;
+    display: inline;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 429px) {
+  /* #root {
+    padding-top: 25px;
+  } */
 
   .GamesListPage,
   .ProfilePage,
@@ -66,12 +110,7 @@
 }
 
 /* 430 x 932 iPhone 14 Pro Max */
-@media (min-width:430px) and (max-width:430px) {
-  #root {
-    min-height: 932px;
-    width: 430px;
-  }
-  
+@media (min-width:430px) and (max-width:430px) {  
   .GamesListPage,
   .ProfilePage,
   .GameDetailsPage,

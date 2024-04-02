@@ -5,17 +5,12 @@ const ThemeContext = createContext();
 function ThemeProviderWrapper(props) {
   const [theme, setTheme] = useState("Default-Theme");
 
-  const toggleTheme = () => {
-    if (theme === "Default-Theme") {
-      setTheme("CottonCandy-Theme");
-    }
-    else {
-      setTheme("Default-Theme");
-    }
+  const selectTheme = (selectedTheme) => {
+    setTheme(selectedTheme);
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, selectTheme }}>
       {props.children}
     </ThemeContext.Provider>
   );

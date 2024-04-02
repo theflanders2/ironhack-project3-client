@@ -10,7 +10,7 @@ import germanContent from "../de-DE.json";
 function Navbar() {
   const { language, toggleLanguage } = useContext(LanguageContext);
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, selectTheme } = useContext(ThemeContext);
 
   return (
     <nav className={`Navbar ${theme}`}>
@@ -58,9 +58,10 @@ function Navbar() {
       <NavLink to="/about">
         <button className={`${theme}`}>{language === "en-US" ? englishContent.navBar[6] : germanContent.navBar[6]}</button>
       </NavLink>
-      <select name="" id="" onChange={toggleTheme}>
-        <option>Default-Theme</option>
-        <option>CottonCandy-Theme</option>
+      <select onChange={(e) => selectTheme(e.target.value)} value={theme}>
+        <option value="Default-Theme">Default-Theme</option>
+        <option value="CottonCandy-Theme">CottonCandy-Theme</option>
+        <option value="OrangeGrapefruit-Theme">OrangeGrapefruit-Theme</option>
       </select>
 
       {/* <select name="" id="" onChange={toggleLanguage}>
