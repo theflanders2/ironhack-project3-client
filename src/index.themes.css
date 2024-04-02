@@ -142,74 +142,293 @@ button.CottonCandy-Theme:hover {
 }
 /* -----COTTON CANDY THEME END----- */
 
-/* -----ORANGE-GRAPEFRUIT THEME BEGIN----- */
+/* -----BLOOD ORANGE THEME BEGIN----- */
 /* -----FOOTER STYLING----- */
-.Footer.OrangeGrapefruit-Theme {
+.Footer.BloodOrange-Theme {
   color: white;
   background-image: linear-gradient(to left, #660000, white);
 }
 
-.svgrepo-link.OrangeGrapefruit-Theme a,
-.svgrepo-link.OrangeGrapefruit-Theme {
+.svgrepo-link.BloodOrange-Theme a,
+.svgrepo-link.BloodOrange-Theme {
   color: #FF9000;
 }
 
-.theflanders-link.OrangeGrapefruit-Theme a,
-.theflanders-link.OrangeGrapefruit-Theme {
+.theflanders-link.BloodOrange-Theme a,
+.theflanders-link.BloodOrange-Theme {
   color: white;
 }
 
 /* -----BUTTON STYLING----- */
-button.OrangeGrapefruit-Theme {
+button.BloodOrange-Theme {
   color: white;
   background: silver;
   border-color: white;
 }
 
-button.OrangeGrapefruit-Theme:hover {
+button.BloodOrange-Theme:hover {
   background-color: gray;
 }
 
 /* -----NAVBAR STYLING----- */
-.Navbar.OrangeGrapefruit-Theme {
+.Navbar.BloodOrange-Theme {
   background-image: linear-gradient(to right, #FF9000, white);
   color: white;
   box-shadow: 0px 1px 2px gray;
 }
 
-.Navbar.OrangeGrapefruit-Theme li {
+.Navbar.BloodOrange-Theme li {
   color: white;
 }
 
-.nav-title.OrangeGrapefruit-Theme {
+.nav-title.BloodOrange-Theme {
   color: white;
   border: 3px solid white;
 }
 
-.Navbar.OrangeGrapefruit-Theme button {
+.Navbar.BloodOrange-Theme button {
   color: silver;
   background: white;
   border-color: lightgray;
 }
 
-.Navbar.OrangeGrapefruit-Theme button:hover {
+.Navbar.BloodOrange-Theme button:hover {
   color: #FF9000;
 }
 
 /* -----CARD STYLING----- */
-.card.OrangeGrapefruit-Theme {
+.card.BloodOrange-Theme {
   background-image: linear-gradient(to top, #660000, white);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card.OrangeGrapefruit-Theme:hover {
+.card.BloodOrange-Theme:hover {
   background-image: linear-gradient(to bottom, #FF9000, white);
 }
 
-.EditGamePage.OrangeGrapefruit-Theme,
-.AddGame.OrangeGrapefruit-Theme,
-.AddComment.OrangeGrapefruit-Theme {
+.EditGamePage.BloodOrange-Theme,
+.AddGame.BloodOrange-Theme,
+.AddComment.BloodOrange-Theme {
   background-image: linear-gradient(to top, #660000, white);
   box-shadow: 0px 2px 3px white;
 }
-/* -----ORANGE-GRAPEFRUIT THEME END----- */
+/* -----BLOOD ORANGE THEME END----- */
+
+/* -----POKEMON THEME BEGIN----- */
+/* -----FOOTER STYLING----- */
+.Footer.Pokemon-Theme {
+  color: black;
+  background-image: linear-gradient(to left, yellow, white);
+}
+
+.svgrepo-link.Pokemon-Theme a,
+.svgrepo-link.Pokemon-Theme {
+  color: red;
+}
+
+.theflanders-link.Pokemon-Theme a,
+.theflanders-link.Pokemon-Theme {
+  color: black;
+}
+
+/* -----BUTTON STYLING----- */
+button.Pokemon-Theme {
+  color: white;
+  font-weight: bold;
+  background: silver;
+  border-color: white;
+}
+
+button.Pokemon-Theme:hover {
+  background-color: gray;
+}
+
+/* -----NAVBAR STYLING----- */
+.Navbar.Pokemon-Theme {
+  background-image: linear-gradient(to right, red, white);
+  color: white;
+  box-shadow: 0px 1px 2px gray;
+}
+
+.Navbar.Pokemon-Theme li {
+  color: white;
+}
+
+.nav-title.Pokemon-Theme {
+  color: white;
+  border: 3px solid white;
+}
+
+.Navbar.Pokemon-Theme button {
+  color: silver;
+  background: white;
+  border-color: lightgray;
+}
+
+.Navbar.Pokemon-Theme button:hover {
+  color: red;
+}
+
+/* -----CARD STYLING----- */
+.card.Pokemon-Theme {
+  background-image: linear-gradient(to top, yellow, white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card.Pokemon-Theme:hover {
+  background-image: linear-gradient(to bottom, red, white);
+}
+
+.EditGamePage.Pokemon-Theme,
+.AddGame.Pokemon-Theme,
+.AddComment.Pokemon-Theme {
+  background-image: linear-gradient(to top, yellow, white);
+  box-shadow: 0px 2px 3px white;
+}
+/* -----POKEMON THEME END----- */
+
+/* -----MUNICH RAVENS THEME BEGIN----- */
+/* -----FOOTER STYLING----- */
+.Footer.MunichRavens-Theme {
+  color: white;
+  background-image: linear-gradient(to left, #549ef7, white);
+}
+
+.svgrepo-link.MunichRavens-Theme a,
+.svgrepo-link.MunichRavens-Theme {
+  color: black;
+}
+
+.theflanders-link.MunichRavens-Theme a,
+.theflanders-link.MunichRavens-Theme {
+  color: white;
+}
+
+/* -----BUTTON STYLING----- */
+button.MunichRavens-Theme {
+  color: white;
+  font-weight: bold;
+  background: silver;
+  border-color: white;
+}
+
+button.MunichRavens-Theme:hover {
+  background-color: gray;
+}
+
+/* -----NAVBAR STYLING----- */
+.Navbar.MunichRavens-Theme {
+  background-image: linear-gradient(to right, black, white);
+  color: white;
+  box-shadow: 0px 1px 2px gray;
+}
+
+.Navbar.MunichRavens-Theme li {
+  color: white;
+}
+
+.nav-title.MunichRavens-Theme {
+  color: white;
+  border: 3px solid white;
+}
+
+.Navbar.MunichRavens-Theme button {
+  color: silver;
+  background: white;
+  border-color: lightgray;
+}
+
+.Navbar.MunichRavens-Theme button:hover {
+  color: black;
+}
+
+/* -----CARD STYLING----- */
+.card.MunichRavens-Theme {
+  background-image: linear-gradient(to top, #549ef7, white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card.MunichRavens-Theme:hover {
+  background-image: linear-gradient(to bottom, black, white);
+}
+
+.EditGamePage.MunichRavens-Theme,
+.AddGame.MunichRavens-Theme,
+.AddComment.MunichRavens-Theme {
+  background-image: linear-gradient(to top, #549ef7, white);
+  box-shadow: 0px 2px 3px white;
+}
+/* -----MUNICH RAVENS THEME END----- */
+
+/* -----JETS THEME BEGIN----- */
+/* -----FOOTER STYLING----- */
+.Footer.Jets-Theme {
+  color: white;
+  background-image: linear-gradient(to left, green, white);
+}
+
+.svgrepo-link.Jets-Theme a,
+.svgrepo-link.Jets-Theme {
+  color: silver;
+}
+
+.theflanders-link.Jets-Theme a,
+.theflanders-link.Jets-Theme {
+  color: white;
+}
+
+/* -----BUTTON STYLING----- */
+button.Jets-Theme {
+  color: white;
+  font-weight: bold;
+  background: silver;
+  border-color: white;
+}
+
+button.Jets-Theme:hover {
+  background-color: gray;
+}
+
+/* -----NAVBAR STYLING----- */
+.Navbar.Jets-Theme {
+  background-image: linear-gradient(to right, silver, white);
+  color: white;
+  box-shadow: 0px 1px 2px gray;
+}
+
+.Navbar.Jets-Theme li {
+  color: white;
+}
+
+.nav-title.Jets-Theme {
+  color: white;
+  border: 3px solid white;
+}
+
+.Navbar.Jets-Theme button {
+  color: silver;
+  background: white;
+  border-color: lightgray;
+}
+
+.Navbar.Jets-Theme button:hover {
+  color: silver;
+}
+
+/* -----CARD STYLING----- */
+.card.Jets-Theme {
+  background-image: linear-gradient(to top, green, white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card.Jets-Theme:hover {
+  background-image: linear-gradient(to bottom, silver, white);
+}
+
+.EditGamePage.Jets-Theme,
+.AddGame.Jets-Theme,
+.AddComment.Jets-Theme {
+  background-image: linear-gradient(to top, green, white);
+  box-shadow: 0px 2px 3px white;
+}
+/* -----JETS THEME END----- */

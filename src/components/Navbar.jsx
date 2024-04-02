@@ -61,7 +61,10 @@ function Navbar() {
       <select onChange={(e) => selectTheme(e.target.value)} value={theme}>
         <option value="Default-Theme">Default-Theme</option>
         <option value="CottonCandy-Theme">CottonCandy-Theme</option>
-        <option value="OrangeGrapefruit-Theme">OrangeGrapefruit-Theme</option>
+        <option value="BloodOrange-Theme">BloodOrange-Theme</option>
+        <option value="Pokemon-Theme">Pokemon-Theme</option>
+        <option value="MunichRavens-Theme">MunichRavens-Theme</option>
+        <option value="Jets-Theme">Jets-Theme</option>
       </select>
 
       {/* <select name="" id="" onChange={toggleLanguage}>
