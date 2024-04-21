@@ -3,7 +3,11 @@
 https://gameodex.netlify.app
 
 ## Description
-Gameodex is a site where you can create a personal index of Playstation console games you have played, are currently playing or would like to play. Along with keeping track of games, you can add games to the database, as well as leave comments on games that other members of the site can also see.
+Developed as part of the 24-week Ironhack Full-stack Web Development course using the MERN stack (MongoDB, Express.js, React.js, and Node.js), Gameodex is a single page application which allows site members to create their own personal index of Playstation console games they have played, are currently playing or would like to play.
+
+Along with keeping track of games, members can add new games to the library, as well as leave comments on games that other members can also see.
+
+Gameodex is equipped with full CRUD (create, read, update and delete) capabilities, as well as JSON Web Token (JWT) for authentication.
 
 ## Main Functionalities
 - User creation via sign up form
@@ -29,12 +33,12 @@ Logged in users can:
 - Multilingual support
 
 ## Technologies Used
-- Client
 - HTML
 - CSS
 - React.js
 - React Router: Browser Router, Routes, Route, Link, NavLink, useNavigate, useParams
 - React: useState, useEffect, useContext, createContext
+- React Burger Menu
 - Axios
 - Netlify (deployment)
 

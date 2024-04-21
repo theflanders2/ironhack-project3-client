@@ -1,65 +1,21 @@
 
 
-/* 375 x 667 iPhone SE */
-@media (min-width: 375px) and (max-width: 375px) {
-  /* .GamesListPage,
-  .ProfilePage,
-  .GameDetailsPage,
-  .EditGamePage,
-  .LoginPage,
-  .SignupPage,
-  .EditCommentPage,
-  .EditProfilePage,
-  .HomePage,
-  .AboutPage {
-    margin-left: 40px;
-  } */
-
-  .card {
-    width: 250px;
-    margin-left: 15px;
-  }
-
-  .card img {
-    height: 200px;
-  }
-
-  /* .GamesListPage,
-  .Search,
-  .AboutPage,
-  .LoginPage,
-  .SignupPage,
-  .HomePage,
-  .ProfilePage {
-    margin-right: 60px;
-  } */
-
-  .Logo {
-    margin-right: 30px;
-  }
-
-  .Navbar {
+@media (min-width: 280px) and (max-width: 280px) {
+  .Navbar{
+    display: inline-block;
     padding: 5px 0;
-    display: inline;
   }
-}
+  
+  h1 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 14px;
+  }
 
-@media (min-width: 390px) and (max-width: 429px) {
-  /* #root {
-    padding-top: 25px;
-  } */
-
-  .GamesListPage,
-  .ProfilePage,
-  .GameDetailsPage,
-  .EditGamePage,
-  .LoginPage,
-  .SignupPage,
-  .EditCommentPage,
-  .EditProfilePage,
-  .HomePage,
-  .AboutPage {
-    margin-left: 120px;
+  p {
+    font-size: 12px;
+    padding: 0 15px 0 5px;
   }
 
   input,
@@ -68,49 +24,98 @@
   padding: 10px;
   display: inline-block;
   margin: 10px;
-}
-
-  .card {
-    width: 250px;
-    margin-left: 15px;
   }
-  .AddGame.card {
-    width: 150px;
-    margin: 0;
+
+  .nav-menu {
+    display: none;
+  }
+
+  .Footer {
+    height: 65px;
+  }
+
+  .Footer-Title {
+    display: none;
+  }
+
+  .Footer ul {
     padding: 0;
-  }
-
-  .card img {
-    height: 200px;
-  }
-
-  .GamesListPage,
-  .AboutPage,
-  .LoginPage,
-  .SignupPage,
-  .HomePage,
-  .ProfilePage {
-    margin-right: 60px;
-  }
-
-  .AddGame form {
-    margin-right: 20px;
-    width: 50px;
   }
 
   .Logo {
-    margin-right: 20px;
+    margin-right: 30px;
   }
 
-  .Navbar {
-    padding: 0;
-    display: inline;
+  .card {
+    width: 242px;
+  }
+  
+  .card img {
+    /* height: 242px; */
+  }
+
+  .HomePage,
+  .AboutPage,
+  .SignupPage,
+  .LoginPage,
+  .ProfilePage,
+  .EditProfilePage,
+  .UserDetailsPage,
+  .GamesListPage,
+  .GameDetailsPage,
+  .EditGamePage,
+  .EditCommentPage {
+    
+  }
+  
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+    width: 100vw;
+  }
+  
+  .bm-menu {
+    padding-top: 2.5em;
+    margin-right: auto;
+    font-size: 1.15em;
+    background: white;
+  }
+
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 8px;
+    top: 6px;
+  }
+
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+    margin-right: 1.5em;
+  }
+
+  .bm-cross {
+    background: black;
+  }
+
+  .bm-burger-bars {
+    background: white;
+  }
+
+  .burger-nav-menu {
+    padding-right: 20px;
+  }
+
+  .burger-menu {
+    display: contents;
   }
 
 }
 
+
 /* 430 x 932 iPhone 14 Pro Max */
-@media (min-width:430px) and (max-width:430px) {  
+/* @media (min-width:430px) and (max-width:430px) {  
   .GamesListPage,
   .ProfilePage,
   .GameDetailsPage,
@@ -151,9 +156,9 @@
     padding: 0;
     display: inline;
   }
-}
+} */
 
-@media (max-width: 941px) {
+/* @media (max-width: 941px) {
   .GamesListPage,
   .ProfilePage,
   .GameDetailsPage,
@@ -166,9 +171,9 @@
   .AboutPage {
     margin-left: 60px;
   }
-}
+} */
 
-@media (min-width: 942px) {
+/* @media (min-width: 942px) {
   .GamesListPage,
   .ProfilePage,
   .GameDetailsPage,
@@ -181,4 +186,4 @@
   .AboutPage {
     margin: 0 auto;
   }
-}
+} */

@@ -74,6 +74,10 @@ button {
   padding-right: 10px;
 }
 
+.burger-menu {
+  display: none;
+}
+
 .Navbar li {
   list-style: none;
   font-size: 24px;
@@ -94,6 +98,11 @@ button {
 
 .nav-menu {
   padding-right: 10px;
+}
+
+.burger-nav-menu {
+  display: flex;
+  flex-direction: column;
 }
 
 .Navbar button {

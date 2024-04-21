@@ -52,6 +52,18 @@ button.Default-Theme:hover {
   color: red;
 }
 
+/* .bm-menu.Default-Theme {
+  background: white;
+}
+
+.bm-burger-bars.Default-Theme {
+  background: red;
+}
+
+.bm-cross.Default-Theme {
+  background: red;
+} */
+
 /* -----CARD STYLING----- */
 .card.Default-Theme {
   background-image: linear-gradient(to top, #4800ff, white);
@@ -124,6 +136,18 @@ button.CottonCandy-Theme:hover {
   color: pink;
 }
 
+/* .bm-menu.CottonCandy-Theme {
+  background: white;
+}
+
+.bm-burger-bars.CottonCandy-Theme {
+  background: pink;
+}
+
+.bm-cross.CottonCandy-Theme {
+  background: pink;
+} */
+
 /* -----CARD STYLING----- */
 .card.CottonCandy-Theme {
   background-image: linear-gradient(to top, #549ef7, white);
@@ -141,151 +165,6 @@ button.CottonCandy-Theme:hover {
   box-shadow: 0px 2px 3px white;
 }
 /* -----COTTON CANDY THEME END----- */
-
-/* -----BLOOD ORANGE THEME BEGIN----- */
-/* -----FOOTER STYLING----- */
-.Footer.BloodOrange-Theme {
-  color: white;
-  background-image: linear-gradient(to left, #660000, white);
-}
-
-.svgrepo-link.BloodOrange-Theme a,
-.svgrepo-link.BloodOrange-Theme {
-  color: #FF9000;
-}
-
-.theflanders-link.BloodOrange-Theme a,
-.theflanders-link.BloodOrange-Theme {
-  color: white;
-}
-
-/* -----BUTTON STYLING----- */
-button.BloodOrange-Theme {
-  color: white;
-  background: silver;
-  border-color: white;
-}
-
-button.BloodOrange-Theme:hover {
-  background-color: gray;
-}
-
-/* -----NAVBAR STYLING----- */
-.Navbar.BloodOrange-Theme {
-  background-image: linear-gradient(to right, #FF9000, white);
-  color: white;
-  box-shadow: 0px 1px 2px gray;
-}
-
-.Navbar.BloodOrange-Theme li {
-  color: white;
-}
-
-.nav-title.BloodOrange-Theme {
-  color: white;
-  border: 3px solid white;
-}
-
-.Navbar.BloodOrange-Theme button {
-  color: silver;
-  background: white;
-  border-color: lightgray;
-}
-
-.Navbar.BloodOrange-Theme button:hover {
-  color: #FF9000;
-}
-
-/* -----CARD STYLING----- */
-.card.BloodOrange-Theme {
-  background-image: linear-gradient(to top, #660000, white);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card.BloodOrange-Theme:hover {
-  background-image: linear-gradient(to bottom, #FF9000, white);
-}
-
-.EditGamePage.BloodOrange-Theme,
-.AddGame.BloodOrange-Theme,
-.AddComment.BloodOrange-Theme {
-  background-image: linear-gradient(to top, #660000, white);
-  box-shadow: 0px 2px 3px white;
-}
-/* -----BLOOD ORANGE THEME END----- */
-
-/* -----POKEMON THEME BEGIN----- */
-/* -----FOOTER STYLING----- */
-.Footer.Pokemon-Theme {
-  color: black;
-  background-image: linear-gradient(to left, yellow, white);
-}
-
-.svgrepo-link.Pokemon-Theme a,
-.svgrepo-link.Pokemon-Theme {
-  color: red;
-}
-
-.theflanders-link.Pokemon-Theme a,
-.theflanders-link.Pokemon-Theme {
-  color: black;
-}
-
-/* -----BUTTON STYLING----- */
-button.Pokemon-Theme {
-  color: white;
-  font-weight: bold;
-  background: silver;
-  border-color: white;
-}
-
-button.Pokemon-Theme:hover {
-  background-color: gray;
-}
-
-/* -----NAVBAR STYLING----- */
-.Navbar.Pokemon-Theme {
-  background-image: linear-gradient(to right, red, white);
-  color: white;
-  box-shadow: 0px 1px 2px gray;
-}
-
-.Navbar.Pokemon-Theme li {
-  color: white;
-}
-
-.nav-title.Pokemon-Theme {
-  color: white;
-  border: 3px solid white;
-}
-
-.Navbar.Pokemon-Theme button {
-  color: silver;
-  background: white;
-  border-color: lightgray;
-}
-
-.Navbar.Pokemon-Theme button:hover {
-  color: red;
-}
-
-/* -----CARD STYLING----- */
-.card.Pokemon-Theme {
-  background-image: linear-gradient(to top, yellow, white);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card.Pokemon-Theme:hover {
-  background-image: linear-gradient(to bottom, red, white);
-}
-
-.EditGamePage.Pokemon-Theme,
-.AddGame.Pokemon-Theme,
-.AddComment.Pokemon-Theme {
-  background-image: linear-gradient(to top, yellow, white);
-  box-shadow: 0px 2px 3px white;
-}
-/* -----POKEMON THEME END----- */
 
 /* -----MUNICH RAVENS THEME BEGIN----- */
 /* -----FOOTER STYLING----- */
@@ -342,6 +221,18 @@ button.MunichRavens-Theme:hover {
   color: black;
 }
 
+/* .bm-menu.MunichRavens-Theme {
+  background: white;
+}
+
+.bm-burger-bars.MunichRavens-Theme {
+  background: black;
+}
+
+.bm-cross.MunichRavens-Theme {
+  background: black;
+} */
+
 /* -----CARD STYLING----- */
 .card.MunichRavens-Theme {
   background-image: linear-gradient(to top, #549ef7, white);
@@ -360,75 +251,87 @@ button.MunichRavens-Theme:hover {
 }
 /* -----MUNICH RAVENS THEME END----- */
 
-/* -----JETS THEME BEGIN----- */
+/* -----FADED FOREST THEME BEGIN----- */
 /* -----FOOTER STYLING----- */
-.Footer.Jets-Theme {
+.Footer.FadedForest-Theme {
   color: white;
-  background-image: linear-gradient(to left, green, white);
+  background-image: linear-gradient(to left, #ccd5ae, white);
 }
 
-.svgrepo-link.Jets-Theme a,
-.svgrepo-link.Jets-Theme {
-  color: silver;
+.svgrepo-link.FadedForest-Theme a,
+.svgrepo-link.FadedForest-Theme {
+  color: #d4a373;
 }
 
-.theflanders-link.Jets-Theme a,
-.theflanders-link.Jets-Theme {
+.theflanders-link.FadedForest-Theme a,
+.theflanders-link.FadedForest-Theme {
   color: white;
 }
 
 /* -----BUTTON STYLING----- */
-button.Jets-Theme {
+button.FadedForest-Theme {
   color: white;
   font-weight: bold;
   background: silver;
   border-color: white;
 }
 
-button.Jets-Theme:hover {
+button.FadedForest-Theme:hover {
   background-color: gray;
 }
 
 /* -----NAVBAR STYLING----- */
-.Navbar.Jets-Theme {
-  background-image: linear-gradient(to right, silver, white);
+.Navbar.FadedForest-Theme {
+  background-image: linear-gradient(to right, #d4a373, white);
   color: white;
   box-shadow: 0px 1px 2px gray;
 }
 
-.Navbar.Jets-Theme li {
+.Navbar.FadedForest-Theme li {
   color: white;
 }
 
-.nav-title.Jets-Theme {
+.nav-title.FadedForest-Theme {
   color: white;
   border: 3px solid white;
 }
 
-.Navbar.Jets-Theme button {
+.Navbar.FadedForest-Theme button {
   color: silver;
   background: white;
   border-color: lightgray;
 }
 
-.Navbar.Jets-Theme button:hover {
-  color: silver;
+.Navbar.FadedForest-Theme button:hover {
+  color: #d4a373;
 }
 
+/* .bm-menu.FadedForest-Theme {
+  background: white;
+}
+
+.bm-burger-bars.FadedForest-Theme {
+  background: #d4a373;
+}
+
+.bm-cross.FadedForest-Theme {
+  background: #d4a373;
+} */
+
 /* -----CARD STYLING----- */
-.card.Jets-Theme {
-  background-image: linear-gradient(to top, green, white);
+.card.FadedForest-Theme {
+  background-image: linear-gradient(to top, #ccd5ae, white);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card.Jets-Theme:hover {
-  background-image: linear-gradient(to bottom, silver, white);
+.card.FadedForest-Theme:hover {
+  background-image: linear-gradient(to bottom, #d4a373, white);
 }
 
-.EditGamePage.Jets-Theme,
-.AddGame.Jets-Theme,
-.AddComment.Jets-Theme {
-  background-image: linear-gradient(to top, green, white);
+.EditGamePage.FadedForest-Theme,
+.AddGame.FadedForest-Theme,
+.AddComment.FadedForest-Theme {
+  background-image: linear-gradient(to top, #ccd5ae, white);
   box-shadow: 0px 2px 3px white;
 }
-/* -----JETS THEME END----- */
+/* -----FADED FOREST THEME END----- */

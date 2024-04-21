@@ -12,6 +12,7 @@ function LanguageProviderWrapper(props) {
       setLanguage("en-US");
     }
   };
+  
   return (
     <LanguageContext.Provider value={{ language, toggleLanguage }}>
       {props.children}

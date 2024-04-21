@@ -9,6 +9,9 @@ function AboutPage() {
         database, as well as leave comments on games that other members of the
         site can also see.
       </p>
+      <p>
+        This site was developed as a part of the 24-week Ironhack Full-stack Web Development course using the MERN stack (MongoDB, Express.js, React.js, and Node.js) and is equipped with full CRUD capabilities and JWT for authentication.
+      </p>
     </div>
   );
 }

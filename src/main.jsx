@@ -8,6 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { LanguageProviderWrapper } from "./context/language.context.jsx";
 import { AuthProviderWrapper } from "./context/auth.context";
 import { ThemeProviderWrapper } from "./context/theme.context.jsx";
+import { BurgerMenuProviderWrapper } from "./context/burgerMenu.context.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -15,7 +16,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <LanguageProviderWrapper>
         <AuthProviderWrapper>
           <ThemeProviderWrapper>
-            <App />
+            <BurgerMenuProviderWrapper>
+              <App />
+            </BurgerMenuProviderWrapper>
           </ThemeProviderWrapper>
         </AuthProviderWrapper>
       </LanguageProviderWrapper>
