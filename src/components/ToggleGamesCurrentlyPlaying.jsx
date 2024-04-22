@@ -35,7 +35,7 @@ function ToggleGamesCurrentlyPlaying({ gameId }) {
 
   return (
     <div className="ToggleGamesCurrentlyPlaying">
-      {!isOnList ? <button className={`${theme}`} onClick={addToGamesCurrentlyPlayingList}>Add to Games Currently Playing List</button> : <button className={`${theme}`} onClick={removeFromGamesCurrentlyPlayingList}>Remove from Games Currently Playing List</button>}
+      {!isOnList ? <button className={`${theme}`} onClick={addToGamesCurrentlyPlayingList}>+ Currently Playing</button> : <button className={`${theme}`} onClick={removeFromGamesCurrentlyPlayingList}>- Currently Playing</button>}
       
       {successMessage && <p className="success-message">{successMessage}</p>}
     </div>

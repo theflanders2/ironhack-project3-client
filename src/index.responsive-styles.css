@@ -1,6 +1,6 @@
 
 
-@media (min-width: 280px) and (max-width: 280px) {
+@media (min-width: 280px) and (max-width: 768px) {
   .Navbar{
     display: inline-block;
     padding: 5px 0;
@@ -11,6 +11,11 @@
   }
   h3 {
     font-size: 14px;
+    padding: 0 5px;
+  }
+
+  h4 {
+    padding: 0 3px;
   }
 
   p {
@@ -39,7 +44,7 @@
   }
 
   .Footer ul {
-    padding: 0;
+    padding: 5px 0 0 0;
   }
 
   .Logo {
@@ -47,31 +52,43 @@
   }
 
   .card {
-    width: 242px;
-  }
-  
-  .card img {
-    /* height: 242px; */
+    min-width: 175px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .HomePage,
-  .AboutPage,
-  .SignupPage,
-  .LoginPage,
-  .ProfilePage,
-  .EditProfilePage,
-  .UserDetailsPage,
-  .GamesListPage,
-  .GameDetailsPage,
+  .ToggleWishlist button,
+  .ToggleGamesCurrentlyPlaying button,
+  .ToggleGamesPlayed button {
+    font-size: 14px;
+    min-width: 170px;
+    margin-bottom: 15px;
+  }
+
+  .ToggleLists-GameDetailsPage {
+    flex-direction: column;
+    padding: 0 0 50px 0;
+  }
+
   .EditGamePage,
-  .EditCommentPage {
-    
+  .AddGame,
+  .AddComment {
+    width: 225px;
+    margin: 20px auto;
+  }
+
+  .EditCommentPage textarea {
+    min-width: 80vw;
+    min-height: 15vh;
+  }
+
+  .CommentCard-GameDetailsPage {
+    display: inline;
   }
   
   .bm-menu-wrap {
     position: fixed;
     height: 100%;
-    width: 100vw;
   }
   
   .bm-menu {
@@ -111,79 +128,10 @@
     display: contents;
   }
 
+  .burger-menu button,
+  .burger-menu select {
+    min-width: 170px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 }
-
-
-/* 430 x 932 iPhone 14 Pro Max */
-/* @media (min-width:430px) and (max-width:430px) {  
-  .GamesListPage,
-  .ProfilePage,
-  .GameDetailsPage,
-  .EditGamePage,
-  .LoginPage,
-  .SignupPage,
-  .EditCommentPage,
-  .EditProfilePage,
-  .HomePage,
-  .AboutPage {
-    margin-left: 60px;
-  }
-
-  .card {
-    width: 250px;
-    margin-left: 15px;
-  }
-
-  .card img {
-    height: 200px;
-  }
-
-  .GamesListPage,
-  .Search,
-  .AboutPage,
-  .LoginPage,
-  .SignupPage,
-  .HomePage,
-  .ProfilePage {
-    margin-right: 60px;
-  }
-
-  .Logo {
-    margin-right: 20px;
-  }
-
-  .Navbar {
-    padding: 0;
-    display: inline;
-  }
-} */
-
-/* @media (max-width: 941px) {
-  .GamesListPage,
-  .ProfilePage,
-  .GameDetailsPage,
-  .EditGamePage,
-  .LoginPage,
-  .SignupPage,
-  .EditCommentPage,
-  .EditProfilePage,
-  .HomePage,
-  .AboutPage {
-    margin-left: 60px;
-  }
-} */
-
-/* @media (min-width: 942px) {
-  .GamesListPage,
-  .ProfilePage,
-  .GameDetailsPage,
-  .EditGamePage,
-  .LoginPage,
-  .SignupPage,
-  .EditCommentPage,
-  .EditProfilePage,
-  .HomePage,
-  .AboutPage {
-    margin: 0 auto;
-  }
-} */

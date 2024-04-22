@@ -27,12 +27,13 @@ function HomePage() {
   return (
     <div className="HomePage">
       <h1 className="header">Welcome to Gameodex</h1>
-
+      <br />
       {isLoggedIn && (
         <>
           <h3 className="greeting">It feels good to welcome you back, <span>{user.username}</span>. Next time make sure not to stay away for so long!</h3>
         </>
       )}
+      <br />
       <h4>Here are the 10 most recently added games</h4>
       {!isLoggedIn && (
         <>

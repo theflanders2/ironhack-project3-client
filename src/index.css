@@ -142,9 +142,9 @@ input {
 /* -----CARD STYLING----- */
 .card {
   border-radius: 8px;
-  margin: 0 10px 20px 0;
+  margin: 0 auto 20px auto;
   overflow: hidden;
-  width: 175px;
+  width: 200px;
 }
 
 .card img {
@@ -168,6 +168,12 @@ input {
   padding: 0 5px;
   text-align: left;
 }
+
+.CommentCard.card {
+  min-width: 15vw;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* -----END CARD STYLING----- */
 
 .GamesListPage ul li,
@@ -182,7 +188,7 @@ input {
 .ToggleLists-GameDetailsPage {
   display: flex;
   justify-content: space-between;
-  padding: 0px 20px 50px 20px;
+  padding: 0px 100px 50px 100px;
 }
 
 .EditGamePage,
@@ -233,4 +239,6 @@ input {
 .HomePage,
 .AboutPage {
   padding: 100px 0;
+  margin-left: auto;
+  margin-right: auto;
 }

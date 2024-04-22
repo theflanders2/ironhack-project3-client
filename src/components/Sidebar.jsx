@@ -16,7 +16,8 @@ const Sidebar = () => {
   const { isMenuOpen, toggleMenu, stateChangeHandler } = useContext(BurgerMenuContext);
 
   return (
-    <BurgerMenu isOpen={isMenuOpen}
+    <BurgerMenu
+      isOpen={isMenuOpen}
       onStateChange={(state) => stateChangeHandler(state)}
       >
       <div className={`burger-nav-menu`}>
@@ -33,7 +34,6 @@ const Sidebar = () => {
               {language === "en-US" ? englishContent.navBar[4] : germanContent.navBar[4]}
             </button>
           </NavLink>
-          {/* <span>Logged in as {user.username}</span> */}
           <button className={`${theme}`} onClick={() => { logOutUser(); toggleMenu(); }}>
             {language === "en-US" ? englishContent.navBar[5] : germanContent.navBar[5]}
           </button>
@@ -57,6 +57,9 @@ const Sidebar = () => {
       )}
       <NavLink to="/about">
         <button onClick={toggleMenu} className={`${theme}`}>{language === "en-US" ? englishContent.navBar[6] : germanContent.navBar[6]}</button>
+      </NavLink>
+      <NavLink to="/">
+        <button onClick={toggleMenu} className={`${theme}`}>{language === "en-US" ? englishContent.navBar[0] : germanContent.navBar[0]}</button>
       </NavLink>
       
       <select onChange={(e) => selectTheme(e.target.value)} value={theme}>

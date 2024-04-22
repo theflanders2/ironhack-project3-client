@@ -35,7 +35,7 @@ function ToggleWishlist({ gameId }) {
 
   return (
     <div className="ToggleWishlist">
-      {!isOnList ? <button className={`${theme}`} onClick={addToWishlist}>Add to Wishlist</button> : <button className={`${theme}`} onClick={removeFromWishlist}>Remove from Wishlist</button>}
+      {!isOnList ? <button className={`${theme}`} onClick={addToWishlist}>+ Wishlist</button> : <button className={`${theme}`} onClick={removeFromWishlist}>- Wishlist</button>}
       
       {successMessage && <p className="success-message">{successMessage}</p>}
     </div>

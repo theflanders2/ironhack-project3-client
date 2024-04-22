@@ -13,18 +13,18 @@ Gameodex is equipped with full CRUD (create, read, update and delete) capabiliti
 - User creation via sign up form
 - Authentication using JSON Web Token (JWT)
 - Registered users can log in
-Logged in users can:
-- Add game, including cover art, to database
-- Added games are automatically added to user’s “games contributed” list
-- Edit game information including picture
-- Add game to “games played” list
-- Add game to “currently playing” list
-- Add game to “wishlist”
-- Leave a comment on a game
-- View comment of another user
-- Edit own comments
-- Delete own comments
-- Edit profile
+- Logged in users can:
+    - Add game, including cover art, to database
+    - Added games are automatically added to user’s “games contributed” list
+    - Edit game information including picture
+    - Add game to “games played” list
+    - Add game to “currently playing” list
+    - Add game to “wishlist”
+    - Leave a comment on a game
+    - View comment of another user
+    - Edit own comments
+    - Delete own comments
+    - Edit profile
 
 ## Backlog
 - Email authentication

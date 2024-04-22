@@ -35,7 +35,7 @@ function ToggleGamesPlayed({ gameId }) {
 
   return (
     <div className="ToggleGamesPlayed">
-      {!isOnList ? <button className={`${theme}`} onClick={addToGamesPlayedList}>Add to Games Played List</button> : <button className={`${theme}`} onClick={removeFromGamesPlayedList}>Remove from Games Played List</button>}
+      {!isOnList ? <button className={`${theme}`} onClick={addToGamesPlayedList}>+ Games Played</button> : <button className={`${theme}`} onClick={removeFromGamesPlayedList}>- Games Played</button>}
       
       {successMessage && <p className="success-message">{successMessage}</p>}
     </div>
