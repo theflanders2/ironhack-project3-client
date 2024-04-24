@@ -43,7 +43,7 @@ function GameDetailsPage() {
           <ul>
             <li>Release Year: {game.releaseYear}</li>
             <li>Genre: {game.genre}</li>
-            <li>Platform: {game.platform}</li>
+            <li>Platform: {game.platform.join(', ')}</li>
             <li>Contributed by User: {game.contributedByUser}</li>
           </ul>
         </>

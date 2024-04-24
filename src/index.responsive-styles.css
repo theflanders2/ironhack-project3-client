@@ -1,6 +1,6 @@
 
 
-@media (min-width: 280px) and (max-width: 768px) {
+@media (min-width: 255px) and (max-width: 768px) {
   .Navbar{
     display: inline-block;
     padding: 5px 0;
