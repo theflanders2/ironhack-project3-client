@@ -4,17 +4,13 @@ const LanguageContext = createContext();
 
 function LanguageProviderWrapper(props) {
   const [language, setLanguage] = useState("en-US");
-
-  const toggleLanguage = () => {
-    if (language === "en-US") {
-      setLanguage("de-DE");
-    } else {
-      setLanguage("en-US");
-    }
-  };
   
+  const selectLanguage = (selectedLanguage) => {
+    setLanguage(selectedLanguage);
+  };
+
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage }}>
+    <LanguageContext.Provider value={{ language, selectLanguage }}>
       {props.children}
     </LanguageContext.Provider>
   );

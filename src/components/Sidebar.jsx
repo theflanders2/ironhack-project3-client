@@ -10,7 +10,7 @@ import englishContent from "../en-US.json";
 import germanContent from "../de-DE.json";
 
 const Sidebar = () => {
-  const { language, toggleLanguage } = useContext(LanguageContext);
+  const { language, selectLanguage } = useContext(LanguageContext);
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const { theme, selectTheme } = useContext(ThemeContext);
   const { isMenuOpen, toggleMenu, stateChangeHandler } = useContext(BurgerMenuContext);
@@ -69,7 +69,7 @@ const Sidebar = () => {
         <option value="MunichRavens-Theme">MunichRavens-Theme</option>
       </select>
 
-      <select name="" id="" onChange={toggleLanguage}>
+      <select onChange={(e) => selectLanguage(e.target.value)} value={language}>
         <option value="en-US">English</option>
         <option value="de-DE">Deutsch</option>
       </select>
