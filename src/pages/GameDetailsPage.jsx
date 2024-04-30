@@ -7,11 +7,17 @@ import ToggleGamesCurrentlyPlaying from "../components/ToggleGamesCurrentlyPlayi
 import ToggleWishlist from "../components/ToggleWishlist";
 import gamesService from "../services/games.service";
 import { ThemeContext } from "../context/theme.context";
+import { LanguageContext } from "../context/language.context";
+
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
 
 function GameDetailsPage() {
   const [game, setGame] = useState(null);
   const { gameId } = useParams();
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
 
   const getGame = () => {
     gamesService.getGame(gameId)
@@ -41,10 +47,18 @@ function GameDetailsPage() {
           <img src={game.coverArtUrl} />
           <h1>{game.name}</h1>
           <ul>
-            <li>Release Year: {game.releaseYear}</li>
-            <li>Genre: {game.genre}</li>
-            <li>Platform: {game.platform.join(', ')}</li>
-            <li>Contributed by User: {game.contributedByUser}</li>
+            <li>
+            {language === "en-US" ? englishContent.gameDetailsPage[0] : germanContent.gameDetailsPage[0]}: {game.releaseYear}
+            </li>
+            <li>
+            {language === "en-US" ? englishContent.gameDetailsPage[1] : germanContent.gameDetailsPage[1]}: {game.genre}
+            </li>
+            <li>
+            {language === "en-US" ? englishContent.gameDetailsPage[2] : germanContent.gameDetailsPage[2]}: {game.platform.join(', ')}
+            </li>
+            <li>
+            {language === "en-US" ? englishContent.gameDetailsPage[3] : germanContent.gameDetailsPage[3]}: {game.contributedByUser}
+            </li>
           </ul>
         </>
       )}
@@ -59,11 +73,15 @@ function GameDetailsPage() {
       </ul>
 
       <Link to="/games">
-        <button className={`${theme}`}>Back to Games</button>
+        <button className={`${theme}`}>
+        {language === "en-US" ? englishContent.gameDetailsPage[4] : germanContent.gameDetailsPage[4]}
+        </button>
       </Link>
 
       <Link to={`/games/edit/${gameId}`}>
-        <button className={`${theme}`}>Edit Game</button>
+        <button className={`${theme}`}>
+        {language === "en-US" ? englishContent.gameDetailsPage[5] : germanContent.gameDetailsPage[5]}
+        </button>
       </Link>
     </div>
   );

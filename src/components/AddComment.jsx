@@ -1,10 +1,17 @@
 import { useState, useContext } from "react";
 import commentsService from "../services/comments.service";
 import { ThemeContext } from "../context/theme.context";
+import { LanguageContext } from "../context/language.context";
+
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
 
 function AddComment({ gameId, refreshGame}) {
   const [content, setContent] = useState("");
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
+
 
 
   const handleSubmit = (e) => {
@@ -26,9 +33,13 @@ function AddComment({ gameId, refreshGame}) {
   return (
     <div className={`AddComment ${theme}`}>
       <br />
-      <h3>Add Comment</h3>
+      <h3>
+      {language === "en-US" ? englishContent.addCommentComponent[0] : germanContent.addCommentComponent[0]}
+      </h3>
       <form onSubmit={handleSubmit}>
-        <label>Comment:</label>
+        <label>
+        {language === "en-US" ? englishContent.addCommentComponent[1] : germanContent.addCommentComponent[1]}
+        </label>
         <textarea
           type="text"
           name="content"
@@ -36,7 +47,9 @@ function AddComment({ gameId, refreshGame}) {
           onChange={(e) => setContent(e.target.value)}
         />
 
-        <button className={`${theme}`} type="submit">Submit</button>
+        <button className={`${theme}`} type="submit">
+        {language === "en-US" ? englishContent.addCommentComponent[2] : germanContent.addCommentComponent[2]}
+        </button>
       </form>
     </div>
   );

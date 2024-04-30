@@ -1,5 +1,11 @@
 {
     "navBar": ["Home", "Registrieren", "Anmelden", "Profil", "Spiele", "Abmelden", "Über uns"],
-    "homePageTitle": "Welcome to...",
-    "gamesPageTitle": "Spiele"
+    "homePageTitle": ["Welcome to..."],
+    "gamesPageTitle": ["Spiele"],
+    "addCommentComponent": ["Kommentar hinzufügen", "Kommentar", "Abgeben"],
+    "gameDetailsPage": ["Erscheinungsjahr", "Genre", "Plattform", "Beitragende", "Zurück", "Spiel Bearbeiten"],
+    "toggleGamesPlayed": ["+ Schon gespielt", "- Schon gespielt"],
+    "toggleCurrentlyPlaying": ["+ Spiele gerade", "- Spiele gerade"],
+    "toggleWishlist": ["+ Wunschzettel", "- Wunschzettel"]
+
 }

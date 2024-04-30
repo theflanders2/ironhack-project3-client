@@ -1,5 +1,10 @@
 {
     "navBar": ["Home", "Sign Up", "Log In", "Profile", "Games", "Log Out", "About"],
-    "homePageTitle": "Welcome to...",
-    "gamesPageTitle": "Games"
+    "homePage": ["Welcome to..."],
+    "gamesListPage": ["Games"],
+    "addCommentComponent": ["Add Comment", "Comment", "Submit"],
+    "gameDetailsPage": ["Release Year", "Genre", "Platform", "Contributor", "Back", "Edit Game"],
+    "toggleGamesPlayed": ["+ Games Played", "- Games Played"],
+    "toggleCurrentlyPlaying": ["+ Currently Playing", "- Currently Playing"],
+    "toggleWishlist": ["+ Wishlist", "- Wishlist"]
 }
