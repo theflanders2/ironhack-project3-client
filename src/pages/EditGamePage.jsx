@@ -2,6 +2,10 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import gamesService from "../services/games.service";
 import { ThemeContext } from "../context/theme.context";
+import { LanguageContext } from "../context/language.context";
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
 
 function EditGamePage() {
   const [name, setName] = useState("");
@@ -11,6 +15,7 @@ function EditGamePage() {
   const [coverArtUrl, setCoverArtUrl] = useState("");
   const [isUploadingCoverArt, setIsUploadingCoverArt] = useState(false)
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
 
   const { gameId } = useParams();
   const navigate = useNavigate();
@@ -76,11 +81,17 @@ function EditGamePage() {
 
   return (
     <div className={`EditGamePage ${theme}`}>
-      <h3>Edit Game</h3>
-      <Link to={`/games/${gameId}`}><button className={`${theme}`}>Back to game</button></Link>
+      <h3>
+        {language === "en-US" ? englishContent.editGamePage[0] : germanContent.editGamePage[0]}
+      </h3>
+      <Link to={`/games/${gameId}`}><button className={`${theme}`}>
+        {language === "en-US" ? englishContent.editGamePage[1] : germanContent.editGamePage[1]}
+      </button></Link>
 
       <form onSubmit={handleSubmit}>
-        <label>Name:</label>
+        <label>
+          {language === "en-US" ? englishContent.editGamePage[2] : germanContent.editGamePage[2]}:
+        </label>
         <input
           type="text"
           name="name"
@@ -88,7 +99,9 @@ function EditGamePage() {
           onChange={(e) => setName(e.target.value)}
         />
 
-        <label>Release Year:</label>
+        <label>
+          {language === "en-US" ? englishContent.editGamePage[3] : germanContent.editGamePage[3]}:
+        </label>
         <input
           type="number"
           name="releaseYear"
@@ -96,7 +109,9 @@ function EditGamePage() {
           onChange={(e) => setReleaseYear(e.target.value)}
         />
 
-        <label>Genre:</label>
+        <label>
+          {language === "en-US" ? englishContent.editGamePage[4] : germanContent.editGamePage[4]}:
+        </label>
         <input
           type="text"
           name="genre"
@@ -104,7 +119,9 @@ function EditGamePage() {
           onChange={(e) => setGenre(e.target.value)}
         />
 
-        <label>Platform:</label>
+        <label>
+          {language === "en-US" ? englishContent.editGamePage[5] : germanContent.editGamePage[5]}:
+        </label>
         <select
           name="platform"
           value={platform}
@@ -118,10 +135,19 @@ function EditGamePage() {
           <option>PS5</option>
         </select>
 
-        <label htmlFor="coverArtUrl">Cover Art:</label>
+        <label htmlFor="coverArtUrl">
+          {language === "en-US" ? englishContent.editGamePage[6] : germanContent.editGamePage[6]}:
+        </label>
         <input className="coverArtUrl" type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
 
-        {!isUploadingCoverArt ? <button className={`${theme}`} type="submit">Confirm Changes</button> : <button className={`${theme}`} type="submit" disabled>Uploading cover art...</button>}
+        {!isUploadingCoverArt ? (
+          <button className={`${theme}`} type="submit">
+          {language === "en-US" ? englishContent.editGamePage[7] : germanContent.editGamePage[7]}
+          </button>
+          ) : (
+          <button className={`${theme}`} type="submit" disabled>
+          {language === "en-US" ? englishContent.editGamePage[8] : germanContent.editGamePage[8]}
+          </button>)}
 
       </form>
 

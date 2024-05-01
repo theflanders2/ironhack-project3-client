@@ -63,7 +63,9 @@ function GameDetailsPage() {
         </>
       )}
       <AddComment refreshGame={getGame} gameId={gameId} />
-      <h2>Comments</h2>
+      <h2>
+      {language === "en-US" ? englishContent.gameDetailsPage[4] : germanContent.gameDetailsPage[4]}
+      </h2>
       <ul className="CommentCard-GameDetailsPage">
         <li>
           {game && game.comments.map((comment) => (
@@ -74,13 +76,13 @@ function GameDetailsPage() {
 
       <Link to="/games">
         <button className={`${theme}`}>
-        {language === "en-US" ? englishContent.gameDetailsPage[4] : germanContent.gameDetailsPage[4]}
+        {language === "en-US" ? englishContent.gameDetailsPage[5] : germanContent.gameDetailsPage[5]}
         </button>
       </Link>
 
       <Link to={`/games/edit/${gameId}`}>
         <button className={`${theme}`}>
-        {language === "en-US" ? englishContent.gameDetailsPage[5] : germanContent.gameDetailsPage[5]}
+        {language === "en-US" ? englishContent.gameDetailsPage[6] : germanContent.gameDetailsPage[6]}
         </button>
       </Link>
     </div>

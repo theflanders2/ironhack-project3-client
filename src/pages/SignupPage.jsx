@@ -2,6 +2,10 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../services/auth.service";
 import { ThemeContext } from "../context/theme.context";
+import { LanguageContext } from "../context/language.context";
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
 
 function SignupPage() {
   const [username, setUsername] = useState("");
@@ -9,6 +13,7 @@ function SignupPage() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
 
   const navigate = useNavigate();
 
@@ -32,49 +37,61 @@ function SignupPage() {
 
   return (
     <div className="SignupPage">
-      <h1>Sign Up</h1>
+      <h1>
+        {language === "en-US" ? englishContent.signupPage[0] : germanContent.signupPage[0]}
+      </h1>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">
+          {language === "en-US" ? englishContent.signupPage[1] : germanContent.signupPage[1]}:
+        </label>
         <input
           type="text"
           name="username"
           id="username"
           value={username}
-          placeholder="Username"
+          placeholder={language === "en-US" ? englishContent.signupPage[1] : germanContent.signupPage[1]}
           required
           onChange={(e) => setUsername(e.target.value)}
         />
 
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">
+          {language === "en-US" ? englishContent.signupPage[2] : germanContent.signupPage[2]}:
+        </label>
         <input
           type="email"
           name="email"
           id="email"
           value={email}
-          placeholder="Email"
+          placeholder={language === "en-US" ? englishContent.signupPage[2] : germanContent.signupPage[2]}
           required
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">
+          {language === "en-US" ? englishContent.signupPage[3] : germanContent.signupPage[3]}:
+        </label>
         <input
           type="password"
           name="password"
           id="password"
           value={password}
-          placeholder="Password"
+          placeholder={language === "en-US" ? englishContent.signupPage[3] : germanContent.signupPage[3]}
           required
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className={`${theme}`} type="submit">Sign Up</button>
+        <button className={`${theme}`} type="submit">
+          {language === "en-US" ? englishContent.signupPage[0] : germanContent.signupPage[0]}
+        </button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have an account?</p>
-      <Link to={"/login"}>Login</Link>
+      <p>{language === "en-US" ? englishContent.signupPage[4] : germanContent.signupPage[4]}</p>
+      <Link to={"/login"}>
+        {language === "en-US" ? englishContent.signupPage[5] : germanContent.signupPage[5]}
+      </Link>
     </div>
   );
 }

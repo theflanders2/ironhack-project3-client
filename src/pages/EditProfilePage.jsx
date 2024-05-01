@@ -2,10 +2,15 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import usersService from "../services/users.service";
 import { ThemeContext } from "../context/theme.context";
+import { LanguageContext } from "../context/language.context";
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
 
 function EditProfilePage() {
   const [email, setEmail] = useState("");
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
 
   const { userId } = useParams();
   const navigate = useNavigate();
@@ -34,13 +39,19 @@ function EditProfilePage() {
 
   return (
     <div className="EditProfilePage">
-      <h3>Edit Email Address</h3>
+      <h3>
+        {language === "en-US" ? englishContent.editProfilePage[0] : germanContent.editProfilePage[0]}
+      </h3>
       <Link to={`/profile/${userId}`}>
-        <button className={`${theme}`}>Back to Profile</button>
+        <button className={`${theme}`}>
+          {language === "en-US" ? englishContent.editProfilePage[1] : germanContent.editProfilePage[1]}
+        </button>
       </Link>
 
       <form onSubmit={handleSubmit}>
-        <label>Email:</label>
+        <label>
+          {language === "en-US" ? englishContent.editProfilePage[2] : germanContent.editProfilePage[2]}:
+        </label>
         <input
           type="text"
           name="email"
@@ -48,7 +59,9 @@ function EditProfilePage() {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <button className={`${theme}`} type="submit">Confirm Changes</button>
+        <button className={`${theme}`} type="submit">
+          {language === "en-US" ? englishContent.editProfilePage[3] : germanContent.editProfilePage[3]}
+        </button>
       </form>
     </div>
   );

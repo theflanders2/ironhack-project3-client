@@ -17,8 +17,14 @@ function ToggleGamesCurrentlyPlaying({ gameId }) {
     gamesService.addToGamesCurrentlyPlayingList(gameId)
       .then(() => {
         setIsOnList(true);
-        const successDescription =
-          "Game successfully added to Games Currently Playing list.";
+        const successDescription = () => {
+          if (language === "en-US") {
+          return englishContent.toggleCurrentlyPlaying[0]
+        }
+          else {
+          return germanContent.toggleCurrentlyPlaying[0]
+        }
+      }
         setSuccessMessage(successDescription);
       })
       .catch((error) => {
@@ -29,12 +35,17 @@ function ToggleGamesCurrentlyPlaying({ gameId }) {
 
   const removeFromGamesCurrentlyPlayingList = () => {
     // Make an axios PUT request to remove (pull) from gamesPlayed list
-    gamesService
-      .removeFromGamesCurrentlyPlayingList(gameId)
+    gamesService.removeFromGamesCurrentlyPlayingList(gameId)
       .then(() => {
         setIsOnList(false);
-        const successDescription =
-          "Game successfully removed from Games Currently Playing list.";
+        const successDescription = () => {
+          if (language === "en-US") {
+            return englishContent.toggleCurrentlyPlaying[1]
+          }
+          else {
+            return germanContent.toggleCurrentlyPlaying[1]
+          }
+        }
         setSuccessMessage(successDescription);
       })
       .catch((error) => console.log(error));
@@ -44,11 +55,11 @@ function ToggleGamesCurrentlyPlaying({ gameId }) {
     <div className="ToggleGamesCurrentlyPlaying">
       {!isOnList ? (
         <button className={`${theme}`} onClick={addToGamesCurrentlyPlayingList}>
-        {language === "en-US" ? englishContent.toggleCurrentlyPlaying[0] : germanContent.toggleCurrentlyPlaying[0]}
+        {language === "en-US" ? englishContent.toggleCurrentlyPlaying[2] : germanContent.toggleCurrentlyPlaying[2]}
         </button>
       ) : (
         <button className={`${theme}`} onClick={removeFromGamesCurrentlyPlayingList}>
-         {language === "en-US" ? englishContent.toggleCurrentlyPlaying[1] : germanContent.toggleCurrentlyPlaying[1]}
+         {language === "en-US" ? englishContent.toggleCurrentlyPlaying[3] : germanContent.toggleCurrentlyPlaying[3]}
         </button>
       )}
 

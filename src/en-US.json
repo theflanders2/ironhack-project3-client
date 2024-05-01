@@ -1,10 +1,137 @@
 {
-    "navBar": ["Home", "Sign Up", "Log In", "Profile", "Games", "Log Out", "About"],
-    "homePage": ["Welcome to..."],
-    "gamesListPage": ["Games"],
-    "addCommentComponent": ["Add Comment", "Comment", "Submit"],
-    "gameDetailsPage": ["Release Year", "Genre", "Platform", "Contributor", "Back", "Edit Game"],
-    "toggleGamesPlayed": ["+ Games Played", "- Games Played"],
-    "toggleCurrentlyPlaying": ["+ Currently Playing", "- Currently Playing"],
-    "toggleWishlist": ["+ Wishlist", "- Wishlist"]
+  "aboutPage": [
+    "About Gameodex",
+    "Developed as part of the 24-week Ironhack Full-stack Web Development course using the MERN stack (MongoDB, Express.js, React.js, and Node.js), Gameodex is a single page application which allows site members to create their own personal index of Playstation console games they have played, are currently playing or would like to play.",
+    "Along with keeping track of games, members can add new games to the library, as well as leave comments on games that other members can also see.",
+    "Gameodex is equipped with full CRUD (create, read, update and delete) capabilities, as well as JSON Web Token (JWT) for authentication."
+  ],
+  "addCommentComponent": ["Add Comment", "Comment", "Submit"],
+  "addGame": [
+    "Add Game",
+    "Name",
+    "Release Year",
+    "Genre",
+    "Platform",
+    "Cover Art",
+    "Uploading..."
+  ],
+  "editCommentPage": [
+    "Edit Comment",
+    "Back",
+    "Comment",
+    "Accept Changes",
+    "Delete"
+  ],
+  "editGamePage": [
+    "Edit Game",
+    "Back",
+    "Name",
+    "Release Year",
+    "Genre",
+    "Platform",
+    "Cover Art",
+    "Accept Changes",
+    "Uploading..."
+  ],
+  "editProfilePage": ["Edit Email Address", "Back", "Email", "Accept Changes"],
+  "footer": ["Vectors and icons by", "Built and designed by"],
+  "gamesListPage": [
+    "Games",
+    "Hide Add Game Form",
+    "Show Add Game Form",
+    "Loading..."
+  ],
+  "gameDetailsPage": [
+    "Release Year",
+    "Genre",
+    "Platform",
+    "Contributor",
+    "Comments",
+    "Back",
+    "Edit Game"
+  ],
+  "homePage": [
+    "Welcome to Gameodex",
+    "It feels good to welcome you back,",
+    "Next time make sure not to stay away for so long!",
+    "Here are the 10 most recently added games",
+    "Login",
+    "to view the entire game catalog",
+    "If you do not have an account yet, you can create your account",
+    "here",
+    "Loading..."
+  ],
+  "isAnon": ["Loading..."],
+  "isPrivate": ["Loading..."],
+  "loginPage": [
+    "Login",
+    "Email",
+    "Password",
+    "Log In",
+    "If you do not have an account yet, you",
+    "can create your account",
+    "here"
+  ],
+  "navBar": [
+    "Home",
+    "Sign Up",
+    "Log In",
+    "Profile",
+    "Games",
+    "Log Out",
+    "About"
+  ],
+  "profilePage": [
+    "Profile",
+    "Edit Email Address",
+    "Email",
+    "Hide Comments",
+    "Show Comments",
+    "Hide Contributions",
+    "Show Contributions",
+    "Hide Games Played",
+    "Show Games Played",
+    "Hide Currently Playing",
+    "Show Currently Playing",
+    "Hide Wishlist",
+    "Show Wishlist"
+  ],
+  "search": ["Search..."],
+  "signupPage": [
+    "Sign Up",
+    "Username",
+    "Email",
+    "Password",
+    "Already have an account?",
+    "Login"
+  ],
+  "toggleCurrentlyPlaying": [
+    "Game successfully added.",
+    "Game successfully removed.",
+    "+ Currently Playing",
+    "- Currently Playing"
+  ],
+  "toggleGamesPlayed": [
+    "Game successfully added.",
+    "Game successfully removed.",
+    "+ Games Played",
+    "- Games Played"
+  ],
+  "toggleWishlist": [
+    "Game successfully added.",
+    "Game successfully removed.",
+    "+ Wishlist",
+    "- Wishlist"
+  ],
+  "userCommentCard": ["Edit Comment"],
+  "userDetailsPage": [
+    "Profile",
+    "Email",
+    "Prestige Level",
+    "Comments",
+    "Contributions",
+    "Games Played",
+    "Currently Playing",
+    "Wishlist"
+  ]
 }

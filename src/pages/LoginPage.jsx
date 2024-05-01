@@ -3,6 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import authService from "../services/auth.service";
 import { ThemeContext } from "../context/theme.context";
+import { LanguageContext } from "../context/language.context";
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -10,6 +14,7 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { theme } = useContext(ThemeContext);
   const { storeToken, authenticateUser } = useContext(AuthContext);
+  const { language } = useContext(LanguageContext);
 
   const navigate = useNavigate();
 
@@ -35,38 +40,46 @@ function Login() {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
+      <h1>
+        {language === "en-US" ? englishContent.loginPage[0] : germanContent.loginPage[0]}
+      </h1>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">
+          {language === "en-US" ? englishContent.loginPage[1] : germanContent.loginPage[1]}:
+        </label>
         <input
           type="email"
           name="email"
           id="email"
           value={email}
-          placeholder="Email"
+          placeholder={language === "en-US" ? englishContent.loginPage[1] : germanContent.loginPage[1]}
           required
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">
+          {language === "en-US" ? englishContent.loginPage[2] : germanContent.loginPage[2]}:
+        </label>
         <input
           type="password"
           name="password"
           id="password"
           value={password}
-          placeholder="Password"
+          placeholder={language === "en-US" ? englishContent.loginPage[2] : germanContent.loginPage[2]}
           required
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className={`${theme}`} type="submit">Log In</button>
+        <button className={`${theme}`} type="submit">
+          {language === "en-US" ? englishContent.loginPage[3] : germanContent.loginPage[3]}
+        </button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>If you do not have an account yet, you</p>
-      <p>can create your account <Link to={"/signup"}>here</Link></p>
+      <p>{language === "en-US" ? englishContent.loginPage[4] : germanContent.loginPage[4]}</p>
+      <p>{language === "en-US" ? englishContent.loginPage[5] : germanContent.loginPage[5]} <Link to={"/signup"}>{language === "en-US" ? englishContent.loginPage[6] : germanContent.loginPage[6]}</Link></p>
     </div>
   );
 }

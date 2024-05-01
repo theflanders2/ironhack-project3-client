@@ -2,6 +2,10 @@ import { useState } from "react";
 import gamesService from "../services/games.service";
 import { useContext } from "react";
 import { ThemeContext } from "../context/theme.context";
+import { LanguageContext } from "../context/language.context";
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
 
 function AddGame({ refreshGames }) {
   const [name, setName] = useState("");
@@ -12,6 +16,7 @@ function AddGame({ refreshGames }) {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isUploadingCoverArt, setIsUploadingCoverArt] = useState(false)
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
 
   const handleFileUpload = async (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -64,10 +69,14 @@ function AddGame({ refreshGames }) {
 
   return (
     <div className={`AddGame ${theme}`}>
-      <h3>Add Game</h3>
+      <h3>
+        {language === "en-US" ? englishContent.addGame[0] : germanContent.addGame[0]}
+      </h3>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name">
+        {language === "en-US" ? englishContent.addGame[1] : germanContent.addGame[1]}:
+        </label>
         <input
           type="text"
           name="name"
@@ -77,7 +86,9 @@ function AddGame({ refreshGames }) {
           onChange={(e) => setName(e.target.value)}
         />
 
-        <label htmlFor="releaseYear">Release Year:</label>
+        <label htmlFor="releaseYear">
+          {language === "en-US" ? englishContent.addGame[2] : germanContent.addGame[2]}:
+        </label>
         <input
           type="number"
           name="releaseYear"
@@ -88,7 +99,9 @@ function AddGame({ refreshGames }) {
           onChange={(e) => setReleaseYear(e.target.value)}
         />
 
-        <label htmlFor="genre">Genre:</label>
+        <label htmlFor="genre">
+          {language === "en-US" ? englishContent.addGame[3] : germanContent.addGame[3]}:
+        </label>
         <input
           type="text"
           name="genre"
@@ -98,7 +111,9 @@ function AddGame({ refreshGames }) {
           onChange={(e) => setGenre(e.target.value)}
         />
 
-        <label htmlFor="platform">Platform:</label>
+        <label htmlFor="platform">
+          {language === "en-US" ? englishContent.addGame[4] : germanContent.addGame[4]}:
+        </label>
         <select
           name="platform"
           id="platform"
@@ -113,10 +128,19 @@ function AddGame({ refreshGames }) {
           <option>PS5</option>
         </select>
 
-        <label htmlFor="coverArtUrl">Cover Art:</label>
+        <label htmlFor="coverArtUrl">
+        {language === "en-US" ? englishContent.addGame[5] : germanContent.addGame[5]}:
+        </label>
         <input className="coverArtUrl" type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
 
-        {!isUploadingCoverArt ? <button className={`${theme}`} type="submit">Add Game</button> : <button className={`${theme}`} type="submit" disabled>Uploading cover art...</button>}
+        {!isUploadingCoverArt ? (
+          <button className={`${theme}`} type="submit">
+            {language === "en-US" ? englishContent.addGame[0] : germanContent.addGame[0]}
+          </button>
+        ) : (
+          <button className={`${theme}`} type="submit" disabled>
+            {language === "en-US" ? englishContent.addGame[6] : germanContent.addGame[6]}:
+          </button>)}
         
       </form>
 

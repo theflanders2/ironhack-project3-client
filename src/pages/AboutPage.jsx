@@ -1,22 +1,25 @@
+import { useContext } from "react";
+import { LanguageContext } from "../context/language.context";
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
+
 function AboutPage() {
+  const { language } = useContext(LanguageContext);
+
   return (
     <div className="AboutPage">
-      <h1 className>About Gameodex</h1>
+      <h1>
+        {language === "en-US" ? englishContent.aboutPage[0] : germanContent.aboutPage[0]}
+      </h1>
       <p>
-        Developed as part of the 24-week Ironhack Full-stack Web Development
-        course using the MERN stack (MongoDB, Express.js, React.js, and
-        Node.js), Gameodex is a single page application which allows site
-        members to create their own personal index of Playstation console games
-        they have played, are currently playing or would like to play.
+        {language === "en-US" ? englishContent.aboutPage[1] : germanContent.aboutPage[1]}
       </p>
       <p>
-        Along with keeping track of games, members can add new games to the
-        library, as well as leave comments on games that other members can also
-        see.
+        {language === "en-US" ? englishContent.aboutPage[2] : germanContent.aboutPage[2]}
       </p>
       <p>
-        Gameodex is equipped with full CRUD (create, read, update and delete)
-        capabilities, as well as JSON Web Token (JWT) for authentication.
+        {language === "en-US" ? englishContent.aboutPage[3] : germanContent.aboutPage[3]}
       </p>
     </div>
   );

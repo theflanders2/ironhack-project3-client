@@ -1,11 +1,137 @@
 {
-    "navBar": ["Home", "Registrieren", "Anmelden", "Profil", "Spiele", "Abmelden", "Über uns"],
-    "homePageTitle": ["Welcome to..."],
-    "gamesPageTitle": ["Spiele"],
-    "addCommentComponent": ["Kommentar hinzufügen", "Kommentar", "Abgeben"],
-    "gameDetailsPage": ["Erscheinungsjahr", "Genre", "Plattform", "Beitragende", "Zurück", "Spiel Bearbeiten"],
-    "toggleGamesPlayed": ["+ Schon gespielt", "- Schon gespielt"],
-    "toggleCurrentlyPlaying": ["+ Spiele gerade", "- Spiele gerade"],
-    "toggleWishlist": ["+ Wunschzettel", "- Wunschzettel"]
-
+  "aboutPage": [
+    "Über Gameodex",
+    "Gameodex wurde im Rahmen des 24-wöchigen Ironhack-Kurses Full-Stack Web Development unter Verwendung des MERN-Stacks (MongoDB, Express.js, React.js und Node.js) entwickelt und ist eine einseitige Anwendung (Single Page App), mit der die Mitglieder der Website ihren eigenen persönlichen Index der Playstation-Konsolenspiele erstellen können, die sie gespielt haben, gerade spielen oder gerne spielen würden.",
+    "Neben der Übersicht über die Spiele können die Mitglieder auch neue Spiele zur Bibliothek hinzufügen und Kommentare zu Spielen hinterlassen, die andere Mitglieder ebenfalls sehen können.",
+    "Gameodex verfügt über vollständige CRUD-Funktionen (Erstellen, Lesen, Aktualisieren und Löschen) sowie über JSON Web Token (JWT) zur Authentifizierung."
+  ],
+  "addCommentComponent": ["Kommentar hinzufügen", "Kommentar", "Abgeben"],
+  "addGame": [
+    "Spiel hinzufügen",
+    "Titel",
+    "Erscheinungsjahr",
+    "Genre",
+    "Plattform",
+    "Titelbild",
+    "Wird hochgeladen..."
+  ],
+  "editCommentPage": [
+    "Kommentar bearbeiten",
+    "Zurück",
+    "Kommentar",
+    "Änderungen annehmen",
+    "Löschen"
+  ],
+  "editGamePage": [
+    "Spiel Bearbeiten",
+    "Zurück",
+    "Titel",
+    "Erscheinungsjahr",
+    "Genre",
+    "Plattform",
+    "Titelbild",
+    "Änderungen annehmen",
+    "Wird hochgeladen..."
+  ],
+  "editProfilePage": ["Mail-Adresse bearbeiten", "Zurück", "Email", "Änderungen annehmen"],
+  "footer": ["Vektoren und Icons von", "Gebaut und entworfen von"],
+  "gamesListPage": [
+    "Spiele",
+    "Spielformular ausblenden",
+    "Spielformular einblenden",
+    "Loading..."
+  ],
+  "gameDetailsPage": [
+    "Erscheinungsjahr",
+    "Genre",
+    "Plattform",
+    "Beitragende",
+    "Kommentare",
+    "Zurück",
+    "Spiel Bearbeiten"
+  ],
+  "homePage": [
+    "Willkommen bei Gameodex",
+    "Es freut mich, Dich wieder willkommen zu heißen,",
+    "Das nächste Mal solltest du nicht so lange wegbleiben!",
+    "Das sind die 10 zuletzt hinzugefügten Spiele",
+    "Melde Dich an,",
+    "um den gesamten Spielekatalog anzusehen",
+    "Wenn Du noch keinen Account hast, kannst Du einen erstellen",
+    "wenn Du hier klickst",
+    "Lädt..."
+  ],
+  "isAnon": ["Lädt..."],
+  "isPrivate": ["Lädt..."],
+  "loginPage": [
+    "Anmelden",
+    "Email",
+    "Passwort",
+    "Anmelden",
+    "Wenn Du noch keinen Account hast,",
+    "kannst Du einen erstellen",
+    "wenn Du hier klickst"
+  ],
+  "navBar": [
+    "Home",
+    "Registrieren",
+    "Anmelden",
+    "Profil",
+    "Spiele",
+    "Abmelden",
+    "Über Gameodex"
+  ],
+  "profilePage": [
+    "Profil",
+    "Mail-Adresse bearbeiten",
+    "Email",
+    "Kommentare ausblenden",
+    "Kommentare einblenden",
+    "Hinzugefügte Spiele ausblenden",
+    "Hinzugefügte Spiele einblenden",
+    "Schon gespielt ausblenden",
+    "Schon gespielt einblenden",
+    "Spiele gerade ausblenden",
+    "Spiele gerade einblenden",
+    "Wunschzettel ausblenden",
+    "Wunschzettel einblenden"
+  ],
+  "search": ["Suchen..."],
+  "signupPage": [
+    "Registrieren",
+    "Benutzername",
+    "Email",
+    "Passwort",
+    "Du hast schon einen Account?",
+    "Anmelden"
+  ],
+  "toggleCurrentlyPlaying": [
+    "Spiel erfolgreich hinzugefügt.",
+    "Spiel erfolgreich entfernt.",
+    "+ Spiele gerade",
+    "- Spiele gerade"
+  ],
+  "toggleGamesPlayed": [
+    "Spiel erfolgreich hinzugefügt.",
+    "Spiel erfolgreich entfernt.",
+    "+ Schon gespielt",
+    "- Schon gespielt"
+  ],
+  "toggleWishlist": [
+    "Spiel erfolgreich hinzugefügt.",
+    "Spiel erfolgreich entfernt.",
+    "+ Wunschzettel",
+    "- Wunschzettel"
+  ],
+  "userCommentCard": ["Kommentar bearbeiten"],
+  "userDetailsPage": [
+    "Profil",
+    "Email",
+    "Prestigestufe",
+    "Kommentare",
+    "Beiträge",
+    "Schon gespielt",
+    "Spielt gerade",
+    "Wunschzettel"
+  ]
 }

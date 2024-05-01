@@ -1,19 +1,30 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import gamesService from "../services/games.service";
-import { useContext } from "react";
 import { ThemeContext } from "../context/theme.context";
+import { LanguageContext } from "../context/language.context";
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
 
 function ToggleGamesPlayed({ gameId }) {
   const [isOnList, setIsOnList] = useState(false);
   const [successMessage, setSuccessMessage] = useState(undefined);
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
 
   const addToGamesPlayedList = () => {
     // Make an axios PUT request to append (push) to gamesPlayed list
     gamesService.addToGamesPlayedList(gameId)
       .then(() => {
         setIsOnList(true);
-        const successDescription = "Game successfully added to Games Played list."
+        const successDescription = () => {
+          if (language === "en-US") {
+          return englishContent.toggleGamesPlayed[0]
+        }
+        else {
+          return germanContent.toggleGamesPlayed[0]
+        }
+      }
         setSuccessMessage(successDescription)
       })
       .catch((error) => {
@@ -27,7 +38,14 @@ function ToggleGamesPlayed({ gameId }) {
     gamesService.removeFromGamesPlayedList(gameId)
       .then(() => {
         setIsOnList(false);
-        const successDescription = "Game successfully removed from Games Played list."
+        const successDescription = () => {
+          if (language === "en-US") {
+          return englishContent.toggleGamesPlayed[1]
+        }
+        else {
+          return germanContent.toggleGamesPlayed[1]
+        }
+      }
         setSuccessMessage(successDescription)
       })
       .catch((error) => console.log(error));
@@ -35,7 +53,14 @@ function ToggleGamesPlayed({ gameId }) {
 
   return (
     <div className="ToggleGamesPlayed">
-      {!isOnList ? <button className={`${theme}`} onClick={addToGamesPlayedList}>+ Games Played</button> : <button className={`${theme}`} onClick={removeFromGamesPlayedList}>- Games Played</button>}
+      {!isOnList ? (
+        <button className={`${theme}`} onClick={addToGamesPlayedList}>
+          {language === "en-US" ? englishContent.toggleGamesPlayed[2] : germanContent.toggleGamesPlayed[2]}
+        </button>
+        ) : (
+          <button className={`${theme}`} onClick={removeFromGamesPlayedList}>
+          {language === "en-US" ? englishContent.toggleGamesPlayed[3] : germanContent.toggleGamesPlayed[3]}
+           </button>)}
       
       {successMessage && <p className="success-message">{successMessage}</p>}
     </div>

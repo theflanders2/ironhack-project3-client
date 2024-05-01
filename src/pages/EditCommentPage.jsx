@@ -2,11 +2,16 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import commentsService from "../services/comments.service";
 import { ThemeContext } from "../context/theme.context";
+import { LanguageContext } from "../context/language.context";
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
 
 function EditCommentPage() {
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
 
   const { commentId } = useParams();
   const navigate = useNavigate();
@@ -46,13 +51,19 @@ function EditCommentPage() {
 
   return (
     <div className="EditCommentPage">
-      <h3>Edit Comment</h3>
+      <h3>
+        {language === "en-US" ? englishContent.editCommentPage[0] : germanContent.editCommentPage[0]}
+      </h3>
       <Link to={`/profile/${author}`}>
-        <button className={`${theme}`}>Back to Profile</button>
+        <button className={`${theme}`}>
+          {language === "en-US" ? englishContent.editCommentPage[1] : germanContent.editCommentPage[1]}
+        </button>
       </Link>
 
       <form onSubmit={handleSubmit}>
-        <label>Comment:</label>
+        <label>
+          {language === "en-US" ? englishContent.editCommentPage[2] : germanContent.editCommentPage[2]}:
+        </label>
         <textarea
           type="text"
           name="content"
@@ -60,8 +71,12 @@ function EditCommentPage() {
           onChange={(e) => setContent(e.target.value)}
         />
 
-        <button className={`${theme}`} type="submit">Confirm Changes</button>
-        <button className={`${theme}`} onClick={deleteComment}>Delete Comment</button>
+        <button className={`${theme}`} type="submit">
+          {language === "en-US" ? englishContent.editCommentPage[3] : germanContent.editCommentPage[3]}
+        </button>
+        <button className={`${theme}`} onClick={deleteComment}>
+          {language === "en-US" ? englishContent.editCommentPage[4] : germanContent.editCommentPage[4]}
+        </button>
 
 
       </form>

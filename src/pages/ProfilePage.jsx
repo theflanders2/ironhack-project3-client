@@ -4,6 +4,10 @@ import usersService from "../services/users.service";
 import UserCommentCard from "../components/UserCommentCard";
 import GameCard from "../components/GameCard";
 import { ThemeContext } from "../context/theme.context";
+import { LanguageContext } from "../context/language.context";
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
 
 function ProfilePage() {
   const [user, setUser] = useState(null);
@@ -14,6 +18,7 @@ function ProfilePage() {
   const [isWishlistShowing, setIsWishlistShowing] = useState(false);
   const { userId } = useParams();
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
 
   const getUser = () => {
     usersService.getUser(userId)
@@ -27,23 +32,31 @@ function ProfilePage() {
 
   return (
     <div className="ProfilePage">
-      <h1>Profile Page</h1>
+      <h1>
+       {language === "en-US" ? englishContent.profilePage[0] : germanContent.profilePage[0]}
+      </h1>
       <Link to={`/profile/edit/${userId}`}>
-        <button className={`${theme}`}>Edit Email Address</button>
+        <button className={`${theme}`}>
+          {language === "en-US" ? englishContent.profilePage[1] : germanContent.profilePage[1]}
+        </button>
       </Link>
       {user && (
         <>
           <img src={user.user.avatarUrl} />
           <h1>{user.user.username}</h1>
           <ul>
-            <li>Email: {user.user.email}</li>
+            <li>
+              {language === "en-US" ? englishContent.profilePage[2] : germanContent.profilePage[2]}: {user.user.email}
+            </li>
             {/* <li>Prestige Level: {user.user.prestigeLevel}</li> */}
           </ul>
         </>
       )}
       <br/>
       <br/>
-      <button className={`${theme}`} onClick={() => {setAreCommentsShowing(!areCommentsShowing)} }>{areCommentsShowing ? "Hide Comments" : "Show Comments"}</button>
+      <button className={`${theme}`} onClick={() => {setAreCommentsShowing(!areCommentsShowing)} }>
+      {areCommentsShowing && language === "en-US" ? englishContent.profilePage[3] : areCommentsShowing && language !== "en-US" ? germanContent.profilePage[3] : !areCommentsShowing && language === "en-US" ? englishContent.profilePage[4] : germanContent.profilePage[4]}
+        </button>
       <br />
       <br />
       <ul>
@@ -56,7 +69,9 @@ function ProfilePage() {
       </ul>
       <br />
       <br />
-      <button className={`${theme}`} onClick={() => {setAreGamesContributedShowing(!areGamesContributedShowing)} }>{areGamesContributedShowing ? "Hide Games Contributed" : "Show Games Contributed"}</button>
+      <button className={`${theme}`} onClick={() => {setAreGamesContributedShowing(!areGamesContributedShowing)} }>
+      {areGamesContributedShowing && language === "en-US" ? englishContent.profilePage[5] : areGamesContributedShowing && language !== "en-US" ? germanContent.profilePage[5] : !areGamesContributedShowing && language === "en-US" ? englishContent.profilePage[6] : germanContent.profilePage[6]}
+      </button>
       <br />
       <br />
       <ul>
@@ -69,7 +84,9 @@ function ProfilePage() {
       </ul>
       <br />
       <br />
-      <button className={`${theme}`} onClick={() => {setAreGamesPlayedShowing(!areGamesPlayedShowing)} }>{areGamesPlayedShowing ? "Hide Games Played" : "Show Games Played"}</button>
+      <button className={`${theme}`} onClick={() => {setAreGamesPlayedShowing(!areGamesPlayedShowing)} }>
+      {areGamesPlayedShowing && language === "en-US" ? englishContent.profilePage[7] : areGamesPlayedShowing && language !== "en-US" ? germanContent.profilePage[7] : !areGamesPlayedShowing && language === "en-US" ? englishContent.profilePage[8] : germanContent.profilePage[8]}
+      </button>
       <br />
       <br />
       <ul>
@@ -82,7 +99,9 @@ function ProfilePage() {
       </ul>
       <br />
       <br />
-      <button className={`${theme}`} onClick={() => {setAreGamesCurrentlyPlayingShowing(!areGamesCurrentlyPlayingShowing)} }>{areGamesCurrentlyPlayingShowing ? "Hide Games Currently Playing" : "Show Games Currently Playing"}</button>
+      <button className={`${theme}`} onClick={() => {setAreGamesCurrentlyPlayingShowing(!areGamesCurrentlyPlayingShowing)} }>
+      {areGamesCurrentlyPlayingShowing && language === "en-US" ? englishContent.profilePage[9] : areGamesCurrentlyPlayingShowing && language !== "en-US" ? germanContent.profilePage[9] : !areGamesCurrentlyPlayingShowing && language === "en-US" ? englishContent.profilePage[10] : germanContent.profilePage[10]}
+      </button>
       <br />
       <br />
       <ul>
@@ -95,7 +114,9 @@ function ProfilePage() {
       </ul>
       <br />
       <br />
-      <button className={`${theme}`} onClick={() => {setIsWishlistShowing(!isWishlistShowing)} }>{isWishlistShowing ? "Hide Wishlist" : "Show Wishlist"}</button>
+      <button className={`${theme}`} onClick={() => {setIsWishlistShowing(!isWishlistShowing)} }>
+      {isWishlistShowing && language === "en-US" ? englishContent.profilePage[11] : isWishlistShowing && language !== "en-US" ? germanContent.profilePage[11] : !isWishlistShowing && language === "en-US" ? englishContent.profilePage[12] : germanContent.profilePage[12]}
+      </button>
       <br />
       <br />
       <ul>

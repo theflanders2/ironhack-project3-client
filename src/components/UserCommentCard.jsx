@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../context/theme.context";
+import { LanguageContext } from "../context/language.context";
+
+import englishContent from "../en-US.json";
+import germanContent from "../de-DE.json";
 
 function UserCommentCard({ _id, game, content, createdAt }) {
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
 
   return (
     <div className={`UserCommentCard card ${theme}`}>
       <Link to={`/comments/edit/${_id}`}>
-        <button className={`${theme}`}>Edit Comment</button>
+        <button className={`${theme}`}>
+          {language === "en-US" ? englishContent.userCommentCard[0] : germanContent.userCommentCard[0]}
+        </button>
       </Link>
       <br />
       <br />
