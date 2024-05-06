@@ -50,19 +50,19 @@ Gameodex is equipped with full CRUD (create, read, update and delete) capabiliti
 - isPrivate
 
 ### Routes
-| Path                      | Page                           | Permissions                 | Behavior                                                      |
-| ------------------------- | ------------------------------ | --------------------------- | ------------------------------------------------------------- |
-| `/`                       | HomePage                       | public `<Route>`            | GET Home page                                                 |
-| `/about`                  | AboutPage                      | public `<Route>`            | GET About page                                                |
-| `/signup`                 | SignupPage                     | anon only `<AnonRoute>`     | POST Signup form, link to login, navigate to login after      |
-| `/login`                  | LoginPage                      | anon only `<AnonRoute>`     | POST Login form, link to signup, navigate to homepage after   |
-| `/profile/:userId`        | ProfilePage                    | user only `<PrivateRoute>`  | GET User, get logged in user's profile page                   |
-| `/profile/edit/:userId`   | EditProfilePage                | user only `<PrivateRoute>`  | PUT User, edit logged in user's profile                       |
-| `/users/:userId`          | UserDetailsPage                | user only `<PrivateRoute>`  | GET User, get clicked on user's profile                       |
-| `/games`                  | GamesListPage                  | user only `<PrivateRoute>`  | GET Games, get all games stored in the database               |
-| `/games/:gameId`          | GameDetailsPage                | user only `<PrivateRoute>`  | GET Game, get retrieve the clicked on game from the database  |
-| `/games/edit/:gameId`     | EditGamePage                   | user only `<PrivateRoute>`  | PUT Game, edit the selected game                              |
-| `/comments/edit/:commentId`| EditCommentPage               | user only `<PrivateRoute>`  | PUT Comment, edit the selected comment                        |
+| Path                       | Page                           | Permissions                 | Behavior                                                      |
+| -------------------------- | ------------------------------ | --------------------------- | ------------------------------------------------------------- |
+| `/`                        | HomePage                       | public `<Route>`            | GET Home page                                                 |
+| `/about`                   | AboutPage                      | public `<Route>`            | GET About page                                                |
+| `/signup`                  | SignupPage                     | anon only `<AnonRoute>`     | POST Signup form, link to login, navigate to login after      |
+| `/login`                   | LoginPage                      | anon only `<AnonRoute>`     | POST Login form, link to signup, navigate to homepage after   |
+| `/profile/:userId`         | ProfilePage                    | user only `<PrivateRoute>`  | GET User, get logged in user's profile page                   |
+| `/profile/edit/:userId`    | EditProfilePage                | user only `<PrivateRoute>`  | PUT User, edit logged in user's profile                       |
+| `/users/:userId`           | UserDetailsPage                | user only `<PrivateRoute>`  | GET User, get clicked on user's profile                       |
+| `/games`                   | GamesListPage                  | user only `<PrivateRoute>`  | GET Games, get all games stored in the database               |
+| `/games/:gameId`           | GameDetailsPage                | user only `<PrivateRoute>`  | GET Game, get retrieve the clicked on game from the database  |
+| `/games/edit/:gameId`      | EditGamePage                   | user only `<PrivateRoute>`  | PUT Game, edit the selected game                              |
+| `/comments/edit/:commentId`| EditCommentPage                | user only `<PrivateRoute>`  | PUT Comment, edit the selected comment                        |
 
 ### Components
 - AddComment
