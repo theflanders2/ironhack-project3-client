@@ -86,7 +86,7 @@ Gameodex is equipped with full CRUD (create, read, update and delete) capabiliti
 - language.context
 - theme.context
 
-### Supported Languages
+### Localization
 - de-DE, Deutsch (Deutschland)
 - en-US, English (US)
 
