@@ -40,6 +40,7 @@ Gameodex is equipped with full CRUD (create, read, update and delete) capabiliti
 - React Router: Browser Router, Routes, Route, Link, NavLink, useNavigate, useParams
 - React: useState, useEffect, useContext, createContext
 - React Burger Menu
+- React Select
 - Axios
 - Netlify (deployment)
 
@@ -74,6 +75,7 @@ Gameodex is equipped with full CRUD (create, read, update and delete) capabiliti
 - IsPrivate
 - Navbar
 - Search
+- SelectGenre
 - Sidebar
 - ToggleGamesCurrentlyPlaying
 - ToggleGamesPlayed

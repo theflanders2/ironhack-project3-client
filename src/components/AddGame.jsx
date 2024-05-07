@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import gamesService from "../services/games.service";
-import { useContext } from "react";
 import { ThemeContext } from "../context/theme.context";
 import { LanguageContext } from "../context/language.context";
+import SelectGenre from "./SelectGenre";
+import SelectPlatform from "./SelectPlatform";
 
 import englishContent from "../en-US.json";
 import germanContent from "../de-DE.json";
@@ -95,21 +96,21 @@ function AddGame({ refreshGames }) {
           value={releaseYear}
           id="releaseYear"
           min={1995}
-          max={2030}
+          max={2040}
           onChange={(e) => setReleaseYear(e.target.value)}
         />
 
         <label htmlFor="genre">
           {language === "en-US" ? englishContent.addGame[3] : germanContent.addGame[3]}:
         </label>
-        <input
-          type="text"
+        <select
           name="genre"
           id="genre"
           value={genre}
-          placeholder="ex. First-person shooter, Action-Adventure"
           onChange={(e) => setGenre(e.target.value)}
-        />
+        >
+          <SelectGenre />
+        </select>
 
         <label htmlFor="platform">
           {language === "en-US" ? englishContent.addGame[4] : germanContent.addGame[4]}:
@@ -120,12 +121,7 @@ function AddGame({ refreshGames }) {
           value={platform}
           onChange={(e) => setPlatform(e.target.value)}
         >
-          <option></option>
-          <option>PSOne</option>
-          <option>PS2</option>
-          <option>PS3</option>
-          <option>PS4</option>
-          <option>PS5</option>
+          <SelectPlatform />
         </select>
 
         <label htmlFor="coverArtUrl">
@@ -150,3 +146,4 @@ function AddGame({ refreshGames }) {
 }
 
 export default AddGame;
+

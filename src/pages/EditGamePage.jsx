@@ -3,6 +3,8 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import gamesService from "../services/games.service";
 import { ThemeContext } from "../context/theme.context";
 import { LanguageContext } from "../context/language.context";
+import SelectGenre from "../components/SelectGenre";
+import SelectPlatform from "../components/SelectPlatform";
 
 import englishContent from "../en-US.json";
 import germanContent from "../de-DE.json";
@@ -112,12 +114,13 @@ function EditGamePage() {
         <label>
           {language === "en-US" ? englishContent.editGamePage[4] : germanContent.editGamePage[4]}:
         </label>
-        <input
-          type="text"
+        <select
           name="genre"
           value={genre}
           onChange={(e) => setGenre(e.target.value)}
-        />
+        >
+          <SelectGenre />
+        </select>
 
         <label>
           {language === "en-US" ? englishContent.editGamePage[5] : germanContent.editGamePage[5]}:
@@ -127,12 +130,7 @@ function EditGamePage() {
           value={platform}
           onChange={(e) => setPlatform(e.target.value)}
         >
-          <option></option>
-          <option>PSOne</option>
-          <option>PS2</option>
-          <option>PS3</option>
-          <option>PS4</option>
-          <option>PS5</option>
+          <SelectPlatform />
         </select>
 
         <label htmlFor="coverArtUrl">
