@@ -51,7 +51,7 @@ function GameDetailsPage() {
             {language === "en-US" ? englishContent.gameDetailsPage[0] : germanContent.gameDetailsPage[0]}: {game.releaseYear}
             </li>
             <li>
-            {language === "en-US" ? englishContent.gameDetailsPage[1] : germanContent.gameDetailsPage[1]}: {game.genre}
+            {language === "en-US" ? englishContent.gameDetailsPage[1] : germanContent.gameDetailsPage[1]}: {game.genre.join(', ')}
             </li>
             <li>
             {language === "en-US" ? englishContent.gameDetailsPage[2] : germanContent.gameDetailsPage[2]}: {game.platform.join(', ')}

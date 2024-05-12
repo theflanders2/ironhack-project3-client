@@ -12,7 +12,7 @@ function GameCard({ _id, name, genre, platform, releaseYear, coverArtUrl }) {
         <img src={coverArtUrl} />
         <h4>{name}</h4>
         <h5>
-        {platform} | {genre} | {releaseYear}
+        {platform.join(', ')} | {genre.join(', ')} | {releaseYear}
         </h5>
       </Link>
     </div>
