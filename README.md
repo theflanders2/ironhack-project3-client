@@ -76,6 +76,7 @@ Gameodex is equipped with full CRUD (create, read, update and delete) capabiliti
 - Navbar
 - Search
 - SelectGenre
+- SelectPlatform
 - Sidebar
 - ToggleGamesCurrentlyPlaying
 - ToggleGamesPlayed
