@@ -51,6 +51,8 @@ const SelectGenre = () => {
       <option value="Casual">Casual</option>
       <option value="Fighting">Fighting</option>
       <option value="FPS">FPS</option>
+      <option value="Horror">Horror</option>
+      <option value="Interactive Film">Interactive Film</option>
       <option value="MMO">MMO</option>
       <option value="Multiplayer">Multiplayer</option>
       <option value="Multiplayer online">Multiplayer online</option>
@@ -67,6 +69,8 @@ const SelectGenre = () => {
       <option value="Strategy">Strategy</option>
       <option value="Survival">Survival</option>
       <option value="Tactical RPG">Tactical RPG</option>
+      <option value="Tactical Shooter">Tactical Shooter</option>
+      <option value="Third-person Shooter">Third-person Shooter</option>
     </>
   );
 };
