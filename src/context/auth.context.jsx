@@ -1,89 +1,62 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useCallback } from "react";
 import authService from "../services/auth.service";
 
 const AuthContext = createContext();
 
-function AuthProviderWrapper(props) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState(null);
+function AuthProviderWrapper({ children }) {
+  const [authState, setAuthState] = useState({
+    isLoggedIn: false,
+    isLoading: true,
+    user: null,
+  });
 
-  const storeToken = (token) => {
+  const storeToken = useCallback((token) => {
     localStorage.setItem("authToken", token);
-  };
-
-  const authenticateUser = () => {
-    // update the authentication state variables according to whether
-    // there's a token in localStorage or not
-    // if there's a token ---> validate the token ---> update the state variables
-    // else ---> update the state variables accordingly
-    const storedToken = localStorage.getItem("authToken"); // --> uwgdugdgwgaidg || undefined
-
-    // If the token exists in the localStorage
-    if (storedToken) {
-      // We must send the JWT token in the request's "Authorization" Headers
-      /* axios // no longer needed due to authService
-        .get(`${API_URL}/auth/verify`, {
-          headers: { Authorization: `Bearer ${storedToken}` }
-        }) */
-      authService.verifyToken()
-        .then((response) => {
-          // If the server verifies that the JWT token is valid
-          const user = response.data;
-          // Update state variables
-          setIsLoggedIn(true);
-          setIsLoading(false);
-          setUser(user);
-        })
-        .catch((error) => {
-          // If the server sends an error response (invalid token)
-          // Update state variables
-          setIsLoggedIn(false);
-          setIsLoading(false);
-          setUser(null);
-          console.log("error", error);
-        });
-    } else {
-      // If the token is not available (or is removed)
-      setIsLoggedIn(false);
-      setIsLoading(false);
-      setUser(null);
-    }
-  };
-
-  const removeToken = () => {
-    // Upon logout, remove the token from the localStorage
-    localStorage.removeItem("authToken");
-  };
-
-  const logOutUser = () => {
-    // To log out the user, remove the token
-    removeToken();
-    // and update the state variables
-    authenticateUser();
-  };
-
-  useEffect(() => {
-    authenticateUser(); // after the page loads, check if there's a token in localStorage
-    // ---> update the state variables accordingly
   }, []);
 
+  const authenticateUser = useCallback(async () => {
+    const storedToken = localStorage.getItem("authToken")
+
+    if (storedToken) {
+      try {
+        const { data : user } = await authService.verifyToken();
+        setAuthState({ isLoggedIn: true, isLoading: false, user });
+      }
+      catch (error) {
+        console.error("Authentication failed", error);
+        setAuthState({ isLoggedIn: false, isLoading: false, user: null});
+      }
+    }
+    else {
+      setAuthState({ isLoggedIn: false, isLoading: false, user: null});
+    }
+  }, []);
+
+  const removeToken = useCallback(() => {
+    localStorage.removeItem("authToken");
+  }, []);
+
+  const logOutUser = useCallback(() => {
+    removeToken();
+    authenticateUser();
+  }, [removeToken, authenticateUser]);
+
+  useEffect(() => {
+    authenticateUser();
+  }, [authenticateUser]);
+
   return (
-    <div>
       <AuthContext.Provider
         value={{
-          isLoggedIn,
-          isLoading,
-          user,
+          ...authState,
           storeToken,
           authenticateUser,
           removeToken,
           logOutUser,
         }}
       >
-        {props.children}
+        {children}
       </AuthContext.Provider>
-    </div>
   );
 }
 
