@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useCallback } from "react";
+// implemented React hook `useCallback` to memoize functions and improve code
 import authService from "../services/auth.service";
 
 const AuthContext = createContext();
@@ -9,6 +10,10 @@ function AuthProviderWrapper({ children }) {
     isLoading: true,
     user: null,
   });
+  // Combined `isLoggedIn`, `isLoading`, `user` into
+  // a single state object to reduce number of `useState`
+  // calls and ensure related state values are updated together.
+
 
   const storeToken = useCallback((token) => {
     localStorage.setItem("authToken", token);
@@ -48,10 +53,9 @@ function AuthProviderWrapper({ children }) {
   return (
       <AuthContext.Provider
         value={{
-          ...authState,
+          ...authState, //Spread `authState` directly into the `AuthContext.Provider`'s `value` prop
           storeToken,
           authenticateUser,
-          removeToken,
           logOutUser,
         }}
       >
