@@ -1,47 +1,8 @@
-// import { useState } from 'react';
-// import Select from 'react-select';
 
-// const options = [
-//   { label: "Action", value: "Action" },
-//   { label: "Adventure", value: "Adventure" },
-//   { label: "Arcade", value: "Arcade" },
-//   { label: "Battle royale", value: "Battle royale" },
-//   { label: "Casual", value: "Casual" },
-//   { label: "Fighting", value: "Fighting" },
-//   { label: "First-person shooter (FPS)", value: "First-person shooter (FPS)" },
-//   { label: "Horror", value: "Horror" },
-//   { label: "Massively Multiplayer Online (MMO)", value: "Massively Multiplayer Online (MMO)" },
-//   { label: "Multiplayer", value: "Multiplayer" },
-//   { label: "Multiplayer online", value: "Multiplayer online" },
-//   { label: "Multiplayer online battle arena (MOBA)", value: "Multiplayer online battle arena (MOBA)" },
-//   { label: "Platformer", value: "Platformer" },
-//   { label: "Puzzle", value: "Puzzle" },
-//   { label: "Racing", value: "Racing" },
-//   { label: "Role-playing game (RPG)", value: "Role-playing game (RPG)" },
-//   { label: "Sandbox", value: "Sandbox" },
-//   { label: "Shooter", value: "Shooter" },
-//   { label: "Simulation", value: "Simulation" },
-//   { label: "Sports", value: "Sports" },
-//   { label: "Stealth", value: "Stealth" },
-//   { label: "Strategy", value: "Strategy" },
-//   { label: "Survival", value: "Survival" },
-//   { label: "Tactical role-playing game (RPG)", value: "Tactical role-playing game (RPG)" }
-// ];
 
-const SelectGenre = () => {
-  // const [selectedOptions, setSelectedOptions] = useState([]);
-
-  // const handleChange = (selectedOptions) => {
-  //   setSelectedOptions(selectedOptions);
-  // };
+function SelectGenre () {
 
   return (
-    // <Select
-    //   options={options}
-    //   isMulti
-    //   value={selectedOptions}
-    //   onChange={handleChange}
-    // />
     <>
       <option></option>
       <option value="Action">Action</option>
@@ -73,6 +34,6 @@ const SelectGenre = () => {
       <option value="Third-person Shooter">Third-person Shooter</option>
     </>
   );
-};
+}
 
 export default SelectGenre;
