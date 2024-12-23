@@ -15,55 +15,55 @@ function EditCommentPage() {
 
   const { commentId } = useParams();
   const navigate = useNavigate();
+
+  const pageContent = language === "en-US" ? englishContent.editCommentPage : germanContent.editCommentPage;
   
+  // Fetch comment data
   useEffect(() => {
-    commentsService.getComment(commentId)
-      .then((response) => {
+    const fetchComment = async () => {
+      try {
+        const response = await commentsService.getComment(commentId);
         setContent(response.data.content)
         setAuthor(response.data.author)
-        console.log(response.data)
-      })
-        // Update the state with the game data coming from the response.
-        // This way the inputs show the actual current details of the game
-      .catch((error) => console.log(error));
+      } catch (error) {
+        console.error("Error fetching comment:", error);
+      }
+    };
+    fetchComment();
   }, [commentId]);
 
-  const handleSubmit = (e) => {
+  // Handle form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Create an object representing the request body
-    const requestBody = { content };
-
-    // Make an axios PUT request to the API to update game
-    commentsService.updateComment(commentId, requestBody)
-      .then(() => navigate(`/profile/${author}`));
-    // Once the request is resolved successfully and the game's details
-    // are updated, navigate back to the user's profile page
+    const requestBody = { content }; // Create an object representing the request body
+    try {
+      await commentsService.updateComment(commentId, requestBody);
+      navigate(`/profile/${author}`);
+    } catch (error) {
+      console.error("Error updating comment:", error);
+    }
   };
 
-  const deleteComment = () => {
-    // Make an axios DELETE request to delete the game
-    commentsService.deleteComment(commentId)
-      .then(() => navigate(`/profile/${author}`))
-      // Once the delete request is resolved successfully
-      // navigate back to the user's profile page
-      .catch((err) => console.log(err));
+  // Handle delete action
+  const deleteComment = async () => {
+    try {
+      await commentsService.deleteComment(commentId);
+      navigate(`/profile/${author}`);
+    } catch (error) {
+      console.error("Error deleting comment:", error);
+    }
   };
 
   return (
     <div className="EditCommentPage">
-      <h3>
-        {language === "en-US" ? englishContent.editCommentPage[0] : germanContent.editCommentPage[0]}
-      </h3>
+      <h3>{pageContent[0]}</h3>
+
       <Link to={`/profile/${author}`}>
-        <button className={`${theme}`}>
-          {language === "en-US" ? englishContent.editCommentPage[1] : germanContent.editCommentPage[1]}
-        </button>
+        <button className={`${theme}`}>{pageContent[1]}</button>
       </Link>
 
       <form onSubmit={handleSubmit}>
-        <label>
-          {language === "en-US" ? englishContent.editCommentPage[2] : germanContent.editCommentPage[2]}:
-        </label>
+        <label>{pageContent[2]}:</label>
         <textarea
           type="text"
           name="content"
@@ -71,14 +71,8 @@ function EditCommentPage() {
           onChange={(e) => setContent(e.target.value)}
         />
 
-        <button className={`${theme}`} type="submit">
-          {language === "en-US" ? englishContent.editCommentPage[3] : germanContent.editCommentPage[3]}
-        </button>
-        <button className={`${theme}`} onClick={deleteComment}>
-          {language === "en-US" ? englishContent.editCommentPage[4] : germanContent.editCommentPage[4]}
-        </button>
-
-
+        <button className={`${theme}`} type="submit">{pageContent[3]}</button>
+        <button className={`${theme}`} type="button" onClick={deleteComment}>{pageContent[4]}</button>
       </form>
     </div>
   );
