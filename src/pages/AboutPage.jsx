@@ -8,12 +8,12 @@ function AboutPage() {
   const { language } = useContext(LanguageContext);
 
   // Map language to corresponding content dynamically
-  const content = language === "en-US" ? englishContent.aboutPage : germanContent.aboutPage;
+  const pageContent = language === "en-US" ? englishContent.aboutPage : germanContent.aboutPage;
 
   return (
     <div className="AboutPage">
-      <h1>{content[0]}</h1>
-      {content.slice(1).map((paragraph, index) => (
+      <h1>{pageContent[0]}</h1>
+      {pageContent.slice(1).map((paragraph, index) => (
         <p key={index}>{paragraph}</p>
       ))}
     </div>
