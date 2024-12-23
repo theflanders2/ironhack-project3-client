@@ -1,6 +1,6 @@
 
 
-const SelectPlatform = () => {
+function SelectPlatform () {
 
   return (
     <>
@@ -12,6 +12,6 @@ const SelectPlatform = () => {
       <option>PS5</option>
     </>
   );
-};
+}
 
 export default SelectPlatform;
