@@ -7,20 +7,15 @@ import germanContent from "../de-DE.json";
 function AboutPage() {
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
+  const content = language === "en-US" ? englishContent.aboutPage : germanContent.aboutPage;
+
   return (
     <div className="AboutPage">
-      <h1>
-        {language === "en-US" ? englishContent.aboutPage[0] : germanContent.aboutPage[0]}
-      </h1>
-      <p>
-        {language === "en-US" ? englishContent.aboutPage[1] : germanContent.aboutPage[1]}
-      </p>
-      <p>
-        {language === "en-US" ? englishContent.aboutPage[2] : germanContent.aboutPage[2]}
-      </p>
-      <p>
-        {language === "en-US" ? englishContent.aboutPage[3] : germanContent.aboutPage[3]}
-      </p>
+      <h1>{content[0]}</h1>
+      {content.slice(1).map((paragraph, index) => (
+        <p key={index}>{paragraph}</p>
+      ))}
     </div>
   );
 }
