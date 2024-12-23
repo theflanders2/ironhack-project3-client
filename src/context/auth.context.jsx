@@ -28,7 +28,7 @@ function AuthProviderWrapper({ children }) {
         setAuthState({ isLoggedIn: true, isLoading: false, user });
       }
       catch (error) {
-        console.error("Authentication failed", error);
+        console.log("Authentication failed", error);
         setAuthState({ isLoggedIn: false, isLoading: false, user: null});
       }
     }
