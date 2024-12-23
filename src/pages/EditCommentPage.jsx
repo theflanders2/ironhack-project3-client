@@ -26,7 +26,7 @@ function EditCommentPage() {
         setContent(response.data.content)
         setAuthor(response.data.author)
       } catch (error) {
-        console.error("Error fetching comment:", error);
+        console.log("Error fetching comment:", error);
       }
     };
     fetchComment();
@@ -40,7 +40,7 @@ function EditCommentPage() {
       await commentsService.updateComment(commentId, requestBody);
       navigate(`/profile/${author}`);
     } catch (error) {
-      console.error("Error updating comment:", error);
+      console.log("Error updating comment:", error);
     }
   };
 
@@ -50,7 +50,7 @@ function EditCommentPage() {
       await commentsService.deleteComment(commentId);
       navigate(`/profile/${author}`);
     } catch (error) {
-      console.error("Error deleting comment:", error);
+      console.log("Error deleting comment:", error);
     }
   };
 
