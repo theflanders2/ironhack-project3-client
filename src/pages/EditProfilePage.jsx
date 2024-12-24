@@ -16,7 +16,7 @@ function EditProfilePage() {
   const { userId } = useParams();
   const navigate = useNavigate();
 
-  const pageContent = language === "en-US" ? englishContent.editCommentPage : germanContent.editCommentPage;
+  const pageContent = language === "en-US" ? englishContent.editProfilePage : germanContent.editProfilePage;
 
   // Fetch user data
   useEffect(() => {
