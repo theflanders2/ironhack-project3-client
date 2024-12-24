@@ -10,6 +10,7 @@ import germanContent from "../de-DE.json";
 function EditCommentPage() {
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
+  
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
