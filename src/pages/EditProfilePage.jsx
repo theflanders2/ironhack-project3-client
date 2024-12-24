@@ -9,49 +9,49 @@ import germanContent from "../de-DE.json";
 
 function EditProfilePage() {
   const [email, setEmail] = useState("");
+
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
   const { userId } = useParams();
   const navigate = useNavigate();
 
+  const pageContent = language === "en-US" ? englishContent.editCommentPage : germanContent.editCommentPage;
+
+  // Fetch user data
   useEffect(() => {
-    usersService.getUser(userId)
-      .then((foundUser) => {
-        // Update the state with the game data coming from the response.
-        // This way the inputs show the actual current details of the game
+    const fetchUser = async () => {
+      try {
+        const foundUser = await usersService.getUser(userId);
         setEmail(foundUser.data.user.email);
-      })
-      .catch((error) => console.log(error));
+      } catch (error) {
+        console.log("Error fetching user:", error);
+      }
+    };
+    fetchUser();
   }, [userId]);
 
-  const handleSubmit = (e) => {
+  // Handle form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Create an object representing the request body
-    const requestBody = { email };
-
-    // Make an axios PUT request to the API to update game
-    usersService.updateUser(userId, requestBody)
-      .then(() => navigate(`/profile/${userId}`));
-    // Once the request is resolved successfully and the game's details
-    // are updated, navigate back to the details page
+    const requestBody = { email }; // Create an object representing the request body
+    try {
+      await usersService.updateUser(userId, requestBody)
+      navigate(`/profile/${userId}`);
+    } catch (error) {
+      console.log("Error updating user profile:", error);
+    }
   };
 
   return (
     <div className="EditProfilePage">
-      <h3>
-        {language === "en-US" ? englishContent.editProfilePage[0] : germanContent.editProfilePage[0]}
-      </h3>
+      <h3>{pageContent[0]}</h3>
       <Link to={`/profile/${userId}`}>
-        <button className={`${theme}`}>
-          {language === "en-US" ? englishContent.editProfilePage[1] : germanContent.editProfilePage[1]}
-        </button>
+        <button className={`${theme}`}>{pageContent[1]}</button>
       </Link>
 
       <form onSubmit={handleSubmit}>
-        <label>
-          {language === "en-US" ? englishContent.editProfilePage[2] : germanContent.editProfilePage[2]}:
-        </label>
+        <label>{pageContent[2]}:</label>
         <input
           type="text"
           name="email"
@@ -59,9 +59,7 @@ function EditProfilePage() {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <button className={`${theme}`} type="submit">
-          {language === "en-US" ? englishContent.editProfilePage[3] : germanContent.editProfilePage[3]}
-        </button>
+        <button className={`${theme}`} type="submit">{pageContent[3]}</button>
       </form>
     </div>
   );
