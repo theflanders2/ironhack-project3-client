@@ -16,17 +16,18 @@ function AddGame({ refreshGames }) {
   const [coverArtUrl, setCoverArtUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isUploadingCoverArt, setIsUploadingCoverArt] = useState(false)
+  
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
+
+  const pageContent = language === "en-US" ? englishContent.addGame : germanContent.addGame;
 
   const handleFileUpload = async (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
     const uploadedCoverArt = new FormData();
-
+    uploadedCoverArt.append("coverArtUrl", e.target.files[0]);
     // coverArtUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new game in '/api/games' POST route
-    uploadedCoverArt.append("coverArtUrl", e.target.files[0]);
-
     try {
       setIsUploadingCoverArt(true)
       const response = await gamesService.uploadCoverArt(uploadedCoverArt)
@@ -35,49 +36,34 @@ function AddGame({ refreshGames }) {
     } catch (error) {
       console.log("Error while uploading the file: ", error)
     }
-      // .then((response) => {
-      //   console.log("response.data.coverArtUrl is: ", response.data.coverArtUrl);
-      //   // response carries "coverArtUrl" which we can use to update the state
-      //   setCoverArtUrl(response.data.coverArtUrl);
-      // })
-      // .catch((err) => console.log("Error while uploading the file: ", err));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Create an object representing the request body
     const requestBody = { name, releaseYear, genre, platform, coverArtUrl };
+    try {
+      await gamesService.addGame(requestBody)
+      // Refresh the state
+      setName("");
+      setReleaseYear(0);
+      setGenre("");
+      setPlatform("");
+      setCoverArtUrl("");
 
-    // Make an axios request to the API
-    // If the POST request is successful, refresh the states and GamesListPage
-    // If the request resolves with an error, set the error message in the state
-    gamesService.addGame(requestBody)
-      .then(() => {
-        // Refresh the state
-        setName("");
-        setReleaseYear(0);
-        setGenre("");
-        setPlatform("");
-        setCoverArtUrl("");
-
-        refreshGames();
-      })
-      .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
+      refreshGames();
+    } catch (error){
+      const errorDescription = error.response.data.message;
+      setErrorMessage(errorDescription);
+    }
   };
 
   return (
     <div className={`AddGame ${theme}`}>
-      <h3>
-        {language === "en-US" ? englishContent.addGame[0] : germanContent.addGame[0]}
-      </h3>
+      <h3>{pageContent[0]}</h3>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">
-        {language === "en-US" ? englishContent.addGame[1] : germanContent.addGame[1]}:
-        </label>
+        <label htmlFor="name">{pageContent[1]}:</label>
         <input
           type="text"
           name="name"
@@ -88,7 +74,7 @@ function AddGame({ refreshGames }) {
         />
 
         <label htmlFor="releaseYear">
-          {language === "en-US" ? englishContent.addGame[2] : germanContent.addGame[2]}:
+          {pageContent[2]}:
         </label>
         <input
           type="number"
@@ -101,7 +87,7 @@ function AddGame({ refreshGames }) {
         />
 
         <label htmlFor="genre">
-          {language === "en-US" ? englishContent.addGame[3] : germanContent.addGame[3]}:
+          {pageContent[3]}:
         </label>
         <select
           name="genre"
@@ -113,7 +99,7 @@ function AddGame({ refreshGames }) {
         </select>
 
         <label htmlFor="platform">
-          {language === "en-US" ? englishContent.addGame[4] : germanContent.addGame[4]}:
+          {pageContent[4]}:
         </label>
         <select
           name="platform"
@@ -125,19 +111,18 @@ function AddGame({ refreshGames }) {
         </select>
 
         <label htmlFor="coverArtUrl">
-        {language === "en-US" ? englishContent.addGame[5] : germanContent.addGame[5]}:
+        {pageContent[5]}:
         </label>
         <input className="coverArtUrl" type="file" name="coverArtUrl" id="coverArtUrl" onChange={(e) => handleFileUpload(e)} />
 
         {!isUploadingCoverArt ? (
           <button className={`${theme}`} type="submit">
-            {language === "en-US" ? englishContent.addGame[0] : germanContent.addGame[0]}
+            {pageContent[0]}
           </button>
         ) : (
           <button className={`${theme}`} type="submit" disabled>
-            {language === "en-US" ? englishContent.addGame[6] : germanContent.addGame[6]}:
+            {pageContent[6]}:
           </button>)}
-        
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

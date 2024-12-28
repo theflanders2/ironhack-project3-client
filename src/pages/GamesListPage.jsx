@@ -14,20 +14,21 @@ function GamesListPage() {
   const [isFormShowing, setIsFormShowing] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("");
+
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
-  const getAllGames = () => {
-    gamesService.getAllGames()
-      .then((response) => {
-        const allGames = response.data;
-        setGames(allGames);
-      })
-      .catch((error) => console.log(error));
+  const pageContent = language === "en-US" ? englishContent.gamesListPage : germanContent.gamesListPage;
+
+  const getAllGames = async () => {
+    try {
+      const allGames = await gamesService.getAllGames();
+      setGames(allGames.data);
+    } catch (error) {
+      console.log("Error fetching all games:", error);
+    }
   };
 
-  // We set this effect will run only once, after the initial render
-  // by setting the empty dependency array - []
   useEffect(() => {
     getAllGames();
     setIsLoading(false);
@@ -39,12 +40,10 @@ function GamesListPage() {
 
   return (
     <div className="GamesListPage">
-      <h1>
-        {language === "en-US" ? englishContent.gamesListPage[0] : germanContent.gamesListPage[0]}
-      </h1>
+      <h1>{pageContent[0]}</h1>
       <Search searchInput={searchInput} setSearchInput={setSearchInput} />
       <button className={`${theme}`} onClick={() => {setIsFormShowing(!isFormShowing)} }>
-        {isFormShowing && language === "en-US" ? englishContent.gamesListPage[1] : isFormShowing && language !== "en-US" ? germanContent.gamesListPage[1] : !isFormShowing && language === "en-US" ? englishContent.gamesListPage[2] : germanContent.gamesListPage[2]}
+        {isFormShowing ? pageContent[1] : pageContent[2]}
       </button>
       
       {isFormShowing && <AddGame refreshGames={getAllGames} />}
