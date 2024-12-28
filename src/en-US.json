@@ -37,8 +37,8 @@
   "footer": ["Vectors and icons by", "Built and designed by"],
   "gamesListPage": [
     "Games",
-    "Hide Add Game Form",
-    "Show Add Game Form",
+    "Hide Form",
+    "+ Add Game",
     "Loading..."
   ],
   "gameDetailsPage": [
