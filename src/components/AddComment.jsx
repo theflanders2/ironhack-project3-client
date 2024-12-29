@@ -9,47 +9,40 @@ import germanContent from "../de-DE.json";
 
 function AddComment({ gameId, refreshGame}) {
   const [content, setContent] = useState("");
+
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
+  const pageContent = language === "en-US" ? englishContent.addCommentComponent : germanContent.addCommentComponent;
 
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // Create an object representing the request body
     // Comment's author will be retrieved from payload on back end
     const requestBody = { content, gameId };
-
-    commentsService.createComment(requestBody)
-      .then(() => {
-        // Reset the state to clear the inputs
-        setContent("");
+    try {
+      await commentsService.createComment(requestBody)
+      setContent("");
         
-        refreshGame();
-      })
-      .catch((error) => console.log(error));
+      refreshGame();
+    } catch (error) {
+      console.log("Error while adding comment:", error);
+    }
   };
 
   return (
     <div className={`AddComment ${theme}`}>
       <br />
-      <h3>
-      {language === "en-US" ? englishContent.addCommentComponent[0] : germanContent.addCommentComponent[0]}
-      </h3>
+      <h3>{pageContent[0]}</h3>
       <form onSubmit={handleSubmit}>
-        <label>
-        {language === "en-US" ? englishContent.addCommentComponent[1] : germanContent.addCommentComponent[1]}
-        </label>
+        <label>{pageContent[1]}</label>
         <textarea
           type="text"
           name="content"
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-
-        <button className={`${theme}`} type="submit">
-        {language === "en-US" ? englishContent.addCommentComponent[2] : germanContent.addCommentComponent[2]}
-        </button>
+        <button className={`${theme}`} type="submit">{pageContent[2]}</button>
       </form>
     </div>
   );

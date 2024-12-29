@@ -9,57 +9,45 @@ import germanContent from "../de-DE.json";
 function ToggleWishlist({ gameId }) {
   const [isOnList, setIsOnList] = useState(false);
   const [successMessage, setSuccessMessage] = useState(undefined);
+
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
-  const addToWishlist = () => {
-    // Make an axios PUT request to append (push) to wishlist
-    gamesService.addToWishlist(gameId)
-      .then(() => {
-        setIsOnList(true);
-        const successDescription = () => {
-          if (language === "en-US") {
-          return englishContent.toggleWishlist[0]
-        }
-        else {
-          return germanContent.toggleWishlist[0]
-        }
-      }
-        setSuccessMessage(successDescription)
-      })
-      .catch((error) => {
-        console.log(error);
-        setIsOnList(true);
-      });
+  const pageContent = language === "en-US" ? englishContent.toggleWishlist : germanContent.toggleWishlist;
+
+  const addToWishlist = async () => {
+    try {
+      await gamesService.addToWishlist(gameId)
+      setIsOnList(true);
+      const successDescription = pageContent[0];
+      setSuccessMessage(successDescription)
+    } catch(error) {
+      console.log(error);
+      setIsOnList(true);
+    }
   };
 
-  const removeFromWishlist = () => {
-    // Make an axios PUT request to remove (pull) from wishlist
-    gamesService.removeFromWishlist(gameId)
-      .then(() => {
-        setIsOnList(false);
-        const successDescription = () => {
-          if (language === "en-US") {
-          return englishContent.toggleWishlist[1]
-        }
-        else {
-          return germanContent.toggleWishlist[1]
-        }
-      }
-        setSuccessMessage(successDescription)
-      })
-      .catch((error) => console.log(error));
+  const removeFromWishlist = async () => {
+    try {
+      await gamesService.removeFromWishlist(gameId)
+      setIsOnList(false);
+      const successDescription = pageContent[1];
+      setSuccessMessage(successDescription)
+    } catch(error) {
+      console.log(error);
+      setIsOnList(false);
+    }
   };
 
   return (
     <div className="ToggleWishlist">
       {!isOnList ? (
         <button className={`${theme}`} onClick={addToWishlist}>
-        {language === "en-US" ? englishContent.toggleWishlist[2] : germanContent.toggleWishlist[2]}
+        {pageContent[2]}
         </button>
       ) : (
         <button className={`${theme}`} onClick={removeFromWishlist}>
-         {language === "en-US" ? englishContent.toggleWishlist[3] : germanContent.toggleWishlist[3]}
+         {pageContent[3]}
         </button>
       )}
 
