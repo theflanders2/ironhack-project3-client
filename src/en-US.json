@@ -86,15 +86,15 @@
     "Edit Email Address",
     "Email",
     "Hide Comments",
-    "Show Comments",
+    "Comments",
     "Hide Contributions",
-    "Show Contributions",
+    "Contributions",
     "Hide Games Played",
-    "Show Games Played",
+    "Games Played",
     "Hide Currently Playing",
-    "Show Currently Playing",
+    "Currently Playing",
     "Hide Wishlist",
-    "Show Wishlist"
+    "Wishlist"
   ],
   "search": ["Search..."],
   "signupPage": [
@@ -128,10 +128,15 @@
     "Profile",
     "Email",
     "Prestige Level",
+    "Hide Comments",
     "Comments",
+    "Hide Contributions",
     "Contributions",
+    "Hide Games Played",
     "Games Played",
+    "Hide Currently Playing",
     "Currently Playing",
+    "Hide Wishlist",
     "Wishlist"
   ]
 }
