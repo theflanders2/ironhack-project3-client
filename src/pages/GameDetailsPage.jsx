@@ -22,6 +22,7 @@ function GameDetailsPage() {
 
   const pageContent = language === "en-US" ? englishContent.gameDetailsPage : germanContent.gameDetailsPage;
 
+  // Fetch game
   const getGame = async () => {
     try {
       const foundGame = await gamesService.getGame(gameId);

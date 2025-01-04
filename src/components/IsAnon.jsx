@@ -11,8 +11,10 @@ function IsAnon( { children } ) {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
   const { language } = useContext(LanguageContext);
 
+  const pageContent = language === "en-US" ? englishContent.isAnon : germanContent.isAnon;
+
   // If the authentication is still loading 
-  if (isLoading) return <p>{language === "en-US" ? englishContent.isAnon[0] : germanContent.isAnon[0]}</p>;
+  if (isLoading) return <p>{pageContent[0]}</p>;
 
   if (isLoggedIn) {
     // If the user is logged in, navigate to the home page     

@@ -13,6 +13,8 @@ function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const { theme, selectTheme } = useContext(ThemeContext);
 
+  const pageContent = language === "en-US" ? englishContent.navBar : germanContent.navBar;
+
   return (
     <nav className={`Navbar ${theme}`}>
       <div className="Logo">
@@ -23,40 +25,29 @@ function Navbar() {
       {isLoggedIn && (
         <>
           <NavLink to={`/profile/${user._id}`}>
-            <button className={`${theme}`}>
-              {language === "en-US" ? englishContent.navBar[3] : germanContent.navBar[3]}
-            </button>
+            <button className={`${theme}`}>{pageContent[3]}</button>
           </NavLink>
 
           <NavLink to="/games">
-            <button className={`${theme}`}>
-              {language === "en-US" ? englishContent.navBar[4] : germanContent.navBar[4]}
-            </button>
+            <button className={`${theme}`}>{pageContent[4]}</button>
           </NavLink>
-          {/* <span>Logged in as {user.username}</span> */}
-          <button className={`${theme}`} onClick={logOutUser}>
-            {language === "en-US" ? englishContent.navBar[5] : germanContent.navBar[5]}
-          </button>
+          <button className={`${theme}`} onClick={logOutUser}>{pageContent[5]}</button>
         </>
       )}
 
       {!isLoggedIn && (
         <>
           <NavLink to="/signup">
-            <button className={`${theme}`}>
-              {language === "en-US" ? englishContent.navBar[1] : germanContent.navBar[1]}
-            </button>
+            <button className={`${theme}`}>{pageContent[1]}</button>
           </NavLink>
 
           <NavLink to="/login">
-            <button className={`${theme}`}>
-              {language === "en-US" ? englishContent.navBar[2] : germanContent.navBar[2]}
-            </button>
+            <button className={`${theme}`}>{pageContent[2]}</button>
           </NavLink>
         </>
       )}
       <NavLink to="/about">
-        <button className={`${theme}`}>{language === "en-US" ? englishContent.navBar[6] : germanContent.navBar[6]}</button>
+        <button className={`${theme}`}>{pageContent[6]}</button>
       </NavLink>
       
       <select onChange={(e) => selectTheme(e.target.value)} value={theme}>

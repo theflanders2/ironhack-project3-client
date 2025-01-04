@@ -11,8 +11,10 @@ function IsPrivate( { children } ) {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
   const { language } = useContext(LanguageContext);
 
+  const pageContent = language === "en-US" ? englishContent.isPrivate : germanContent.isPrivate;
+
   // If the authentication is still loading 
-  if (isLoading) return <p>{language === "en-US" ? englishContent.isPrivate[0] : germanContent.isPrivate[0]}</p>;
+  if (isLoading) return <p>{pageContent[0]}</p>;
 
   if (!isLoggedIn) {
   // If the user is not logged in 

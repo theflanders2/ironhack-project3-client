@@ -15,51 +15,45 @@ const Sidebar = () => {
   const { theme, selectTheme } = useContext(ThemeContext);
   const { isMenuOpen, toggleMenu, stateChangeHandler } = useContext(BurgerMenuContext);
 
+  const pageContent = language === "en-US" ? englishContent.navBar : germanContent.navBar;
+
   return (
     <BurgerMenu
       isOpen={isMenuOpen}
       onStateChange={(state) => stateChangeHandler(state)}
       >
       <div className={`burger-nav-menu`}>
+      <NavLink to="/">
+        <button onClick={toggleMenu} className={`${theme}`}>{pageContent[0]}</button>
+      </NavLink>
+      
       {isLoggedIn && (
         <>
           <NavLink to={`/profile/${user._id}`}>
-            <button onClick={toggleMenu} className={`${theme}`}>
-              {language === "en-US" ? englishContent.navBar[3] : germanContent.navBar[3]}
-            </button>
+            <button onClick={toggleMenu} className={`${theme}`}>{pageContent[3]}</button>
           </NavLink>
 
           <NavLink to="/games">
-            <button onClick={toggleMenu} className={`${theme}`}>
-              {language === "en-US" ? englishContent.navBar[4] : germanContent.navBar[4]}
-            </button>
+            <button onClick={toggleMenu} className={`${theme}`}>{pageContent[4]}</button>
           </NavLink>
-          <button className={`${theme}`} onClick={() => { logOutUser(); toggleMenu(); }}>
-            {language === "en-US" ? englishContent.navBar[5] : germanContent.navBar[5]}
-          </button>
+          <button className={`${theme}`} onClick={() => { logOutUser(); toggleMenu(); }}>{pageContent[5]}</button>
         </>
       )}
 
       {!isLoggedIn && (
         <>
           <NavLink to="/signup">
-            <button onClick={toggleMenu} className={`${theme}`}>
-              {language === "en-US" ? englishContent.navBar[1] : germanContent.navBar[1]}
-            </button>
+            <button onClick={toggleMenu} className={`${theme}`}>{pageContent[1]}</button>
           </NavLink>
 
           <NavLink to="/login">
-            <button onClick={toggleMenu} className={`${theme}`}>
-              {language === "en-US" ? englishContent.navBar[2] : germanContent.navBar[2]}
-            </button>
+            <button onClick={toggleMenu} className={`${theme}`}>{pageContent[2]}</button>
           </NavLink>
         </>
       )}
+
       <NavLink to="/about">
-        <button onClick={toggleMenu} className={`${theme}`}>{language === "en-US" ? englishContent.navBar[6] : germanContent.navBar[6]}</button>
-      </NavLink>
-      <NavLink to="/">
-        <button onClick={toggleMenu} className={`${theme}`}>{language === "en-US" ? englishContent.navBar[0] : germanContent.navBar[0]}</button>
+        <button onClick={toggleMenu} className={`${theme}`}>{pageContent[6]}</button>
       </NavLink>
       
       <select onChange={(e) => selectTheme(e.target.value)} value={theme}>

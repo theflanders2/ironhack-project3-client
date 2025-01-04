@@ -16,53 +16,54 @@ function ProfilePage() {
   const [areGamesPlayedShowing, setAreGamesPlayedShowing] = useState(false);
   const [areGamesCurrentlyPlayingShowing, setAreGamesCurrentlyPlayingShowing] = useState(false);
   const [isWishlistShowing, setIsWishlistShowing] = useState(false);
+
   const { userId } = useParams();
+
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
-  const getUser = () => {
-    usersService.getUser(userId)
-      .then((response) => setUser(response.data))
-      .catch((error) => console.log(error));
-  };
+  const pageContent = language === "en-US" ? englishContent.profilePage : germanContent.profilePage;
 
+  // Fetch user
   useEffect(() => {
+    const getUser = async () => {
+      try {
+        const response = await usersService.getUser(userId);
+        setUser(response.data);
+      }
+      catch(error) {
+        console.log("Error retrieving user profile", error);
+      }
+    };
     getUser();
-  }, []);
+  }, [userId]);
 
   return (
     <div className="ProfilePage">
-      <h1>
-       {language === "en-US" ? englishContent.profilePage[0] : germanContent.profilePage[0]}
-      </h1>
-      <Link to={`/profile/edit/${userId}`}>
-        <button className={`${theme}`}>
-          {language === "en-US" ? englishContent.profilePage[1] : germanContent.profilePage[1]}
-        </button>
-      </Link>
+      <h1>{pageContent[0]}</h1>
+      <br />
       {user && (
         <>
-          <img src={user.user.avatarUrl} />
           <h1>{user.user.username}</h1>
           <ul>
-            <li>
-              {language === "en-US" ? englishContent.profilePage[2] : germanContent.profilePage[2]}: {user.user.email}
-            </li>
-            {/* <li>Prestige Level: {user.user.prestigeLevel}</li> */}
+            <li>{pageContent[2]}: {user.user.email}</li>
           </ul>
         </>
       )}
-      <br/>
-      <br/>
+      <Link to={`/profile/edit/${userId}`}>
+        <button className={`${theme}`}>{pageContent[1]}</button>
+      </Link>
+      <br />
+      <br />
+      <br />
       <button className={`${theme}`} onClick={() => {setAreCommentsShowing(!areCommentsShowing)} }>
-      {areCommentsShowing && language === "en-US" ? englishContent.profilePage[3] : areCommentsShowing && language !== "en-US" ? germanContent.profilePage[3] : !areCommentsShowing && language === "en-US" ? englishContent.profilePage[4] : germanContent.profilePage[4]}
-        </button>
+        {areCommentsShowing ? pageContent[3] : pageContent[4]}
+      </button>
       <br />
       <br />
       <ul>
         <li className="AllUserStats-ProfilePage">
-          {user && areCommentsShowing &&
-          user.user.comments.map((comment) => (
+          {user && areCommentsShowing && user.user.comments.map((comment) => (
             <UserCommentCard key={comment._id} {...comment} />
           ))}
         </li>
@@ -70,14 +71,13 @@ function ProfilePage() {
       <br />
       <br />
       <button className={`${theme}`} onClick={() => {setAreGamesContributedShowing(!areGamesContributedShowing)} }>
-      {areGamesContributedShowing && language === "en-US" ? englishContent.profilePage[5] : areGamesContributedShowing && language !== "en-US" ? germanContent.profilePage[5] : !areGamesContributedShowing && language === "en-US" ? englishContent.profilePage[6] : germanContent.profilePage[6]}
+        {areGamesContributedShowing ? pageContent[5] : pageContent[6]}
       </button>
       <br />
       <br />
       <ul>
         <li className="AllUserStats-ProfilePage">
-          {user && areGamesContributedShowing &&
-          user.user.gamesContributed.map((game) => (
+          {user && areGamesContributedShowing && user.user.gamesContributed.map((game) => (
             <GameCard key={game._id} {...game} />
           ))}
         </li>
@@ -85,14 +85,13 @@ function ProfilePage() {
       <br />
       <br />
       <button className={`${theme}`} onClick={() => {setAreGamesPlayedShowing(!areGamesPlayedShowing)} }>
-      {areGamesPlayedShowing && language === "en-US" ? englishContent.profilePage[7] : areGamesPlayedShowing && language !== "en-US" ? germanContent.profilePage[7] : !areGamesPlayedShowing && language === "en-US" ? englishContent.profilePage[8] : germanContent.profilePage[8]}
+        {areGamesPlayedShowing ? pageContent[7] : pageContent[8]}
       </button>
       <br />
       <br />
       <ul>
         <li className="AllUserStats-ProfilePage">
-          {user && areGamesPlayedShowing &&
-          user.user.gamesPlayed.map((game) => (
+          {user && areGamesPlayedShowing && user.user.gamesPlayed.map((game) => (
             <GameCard key={game._id} {...game} />
           ))}
         </li>
@@ -100,14 +99,13 @@ function ProfilePage() {
       <br />
       <br />
       <button className={`${theme}`} onClick={() => {setAreGamesCurrentlyPlayingShowing(!areGamesCurrentlyPlayingShowing)} }>
-      {areGamesCurrentlyPlayingShowing && language === "en-US" ? englishContent.profilePage[9] : areGamesCurrentlyPlayingShowing && language !== "en-US" ? germanContent.profilePage[9] : !areGamesCurrentlyPlayingShowing && language === "en-US" ? englishContent.profilePage[10] : germanContent.profilePage[10]}
+        {areGamesCurrentlyPlayingShowing ? pageContent[9] : pageContent[10]}
       </button>
       <br />
       <br />
       <ul>
         <li className="AllUserStats-ProfilePage">
-          {user && areGamesCurrentlyPlayingShowing &&
-          user.user.gamesCurrentlyPlaying.map((game) => (
+          {user && areGamesCurrentlyPlayingShowing && user.user.gamesCurrentlyPlaying.map((game) => (
             <GameCard key={game._id} {...game} />
           ))}
         </li>
@@ -115,14 +113,13 @@ function ProfilePage() {
       <br />
       <br />
       <button className={`${theme}`} onClick={() => {setIsWishlistShowing(!isWishlistShowing)} }>
-      {isWishlistShowing && language === "en-US" ? englishContent.profilePage[11] : isWishlistShowing && language !== "en-US" ? germanContent.profilePage[11] : !isWishlistShowing && language === "en-US" ? englishContent.profilePage[12] : germanContent.profilePage[12]}
+        {isWishlistShowing ? pageContent[11] : pageContent[12]}
       </button>
       <br />
       <br />
       <ul>
         <li className="AllUserStats-ProfilePage">
-          {user && isWishlistShowing &&
-          user.user.wishlist.map((game) => (
+          {user && isWishlistShowing && user.user.wishlist.map((game) => (
             <GameCard key={game._id} {...game} />
           ))}
         </li>

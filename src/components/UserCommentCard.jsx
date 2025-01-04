@@ -10,12 +10,12 @@ function UserCommentCard({ _id, game, content, createdAt }) {
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
+  const pageContent = language === "en-US" ? englishContent.userCommentCard : germanContent.userCommentCard;
+
   return (
     <div className={`UserCommentCard card ${theme}`}>
       <Link to={`/comments/edit/${_id}`}>
-        <button className={`${theme}`}>
-          {language === "en-US" ? englishContent.userCommentCard[0] : germanContent.userCommentCard[0]}
-        </button>
+        <button className={`${theme}`}>{pageContent[0]}</button>
       </Link>
       <br />
       <br />
