@@ -13,6 +13,7 @@ function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const { theme, selectTheme } = useContext(ThemeContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.navBar : germanContent.navBar;
 
   return (

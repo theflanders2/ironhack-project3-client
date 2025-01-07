@@ -22,6 +22,7 @@ function UserDetailsPage() {
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.userDetailsPage : germanContent.userDetailsPage;
 
   // Fetch user

@@ -19,6 +19,7 @@ function Login() {
 
   const navigate = useNavigate();
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.loginPage : germanContent.loginPage;
 
   const handleSubmit = async (e) => {

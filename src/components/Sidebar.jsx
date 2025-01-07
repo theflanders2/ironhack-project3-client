@@ -15,6 +15,7 @@ const Sidebar = () => {
   const { theme, selectTheme } = useContext(ThemeContext);
   const { isMenuOpen, toggleMenu, stateChangeHandler } = useContext(BurgerMenuContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.navBar : germanContent.navBar;
 
   return (

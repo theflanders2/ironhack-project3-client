@@ -17,6 +17,7 @@ function EditCommentPage() {
   const { commentId } = useParams();
   const navigate = useNavigate();
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.editCommentPage : germanContent.editCommentPage;
   
   // Fetch comment data

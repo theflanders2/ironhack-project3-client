@@ -20,6 +20,7 @@ function AddGame({ refreshGames }) {
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.addGame : germanContent.addGame;
 
   const handleFileUpload = async (e) => {

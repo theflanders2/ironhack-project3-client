@@ -13,6 +13,7 @@ function ToggleGamesCurrentlyPlaying({ gameId }) {
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.toggleCurrentlyPlaying : germanContent.toggleCurrentlyPlaying;
 
   const addToGamesCurrentlyPlayingList = async () => {

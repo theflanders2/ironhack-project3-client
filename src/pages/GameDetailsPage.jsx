@@ -20,6 +20,7 @@ function GameDetailsPage() {
 
   const { gameId } = useParams();
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.gameDetailsPage : germanContent.gameDetailsPage;
 
   // Fetch game

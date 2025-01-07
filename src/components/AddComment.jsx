@@ -13,6 +13,7 @@ function AddComment({ gameId, refreshGame}) {
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.addCommentComponent : germanContent.addCommentComponent;
 
   const handleSubmit = async (e) => {
@@ -23,7 +24,6 @@ function AddComment({ gameId, refreshGame}) {
     try {
       await commentsService.createComment(requestBody)
       setContent("");
-        
       refreshGame();
     } catch (error) {
       console.log("Error while adding comment:", error);

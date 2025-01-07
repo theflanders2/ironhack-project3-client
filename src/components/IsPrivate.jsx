@@ -11,6 +11,7 @@ function IsPrivate( { children } ) {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.isPrivate : germanContent.isPrivate;
 
   // If the authentication is still loading 

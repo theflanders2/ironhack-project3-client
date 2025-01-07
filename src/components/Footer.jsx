@@ -9,6 +9,7 @@ function Footer() {
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.footer : germanContent.footer;
 
   return (

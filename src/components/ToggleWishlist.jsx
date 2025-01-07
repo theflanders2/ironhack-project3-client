@@ -13,6 +13,7 @@ function ToggleWishlist({ gameId }) {
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.toggleWishlist : germanContent.toggleWishlist;
 
   const addToWishlist = async () => {

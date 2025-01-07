@@ -10,6 +10,7 @@ function UserCommentCard({ _id, game, content, createdAt }) {
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.userCommentCard : germanContent.userCommentCard;
 
   return (

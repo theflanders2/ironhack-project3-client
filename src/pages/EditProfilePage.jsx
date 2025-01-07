@@ -16,6 +16,7 @@ function EditProfilePage() {
   const { userId } = useParams();
   const navigate = useNavigate();
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.editProfilePage : germanContent.editProfilePage;
 
   // Fetch user data

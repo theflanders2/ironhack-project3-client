@@ -15,6 +15,7 @@ function HomePage() {
   const { isLoggedIn, user } = useContext(AuthContext);
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.homePage : germanContent.homePage;
 
   // Fetch recently added games

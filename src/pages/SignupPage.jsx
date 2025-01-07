@@ -18,6 +18,7 @@ function SignupPage() {
 
   const navigate = useNavigate();
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.signupPage : germanContent.signupPage;
 
   const handleSubmit = async (e) => {

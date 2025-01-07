@@ -8,6 +8,7 @@ import germanContent from "../de-DE.json";
 function Search ({ searchInput, setSearchInput }) {
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.search : germanContent.search;
 
   return (

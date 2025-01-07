@@ -11,6 +11,7 @@ function IsAnon( { children } ) {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
   const { language } = useContext(LanguageContext);
 
+  // Map language to corresponding content dynamically
   const pageContent = language === "en-US" ? englishContent.isAnon : germanContent.isAnon;
 
   // If the authentication is still loading 
