@@ -37,8 +37,8 @@
   "footer": ["Vektoren und Icons von", "Gebaut und entworfen von"],
   "gamesListPage": [
     "Spiele",
-    "Spielformular ausblenden",
-    "Spielformular einblenden",
+    "Formular ausblenden",
+    "+ Spiel hinzufügen",
     "Loading..."
   ],
   "gameDetailsPage": [
@@ -54,7 +54,7 @@
     "Willkommen bei Gameodex",
     "Schön, Dich wieder willkommen zu heißen",
     "Das nächste Mal solltest du nicht so lange wegbleiben!",
-    "Das sind die 20 zuletzt hinzugefügten Spiele",
+    "Zuletzt hinzugefügte Spiele",
     "Melde Dich an,",
     "um den gesamten Spielekatalog anzusehen",
     "Wenn Du noch keinen Account hast, kannst Du einen erstellen",
@@ -128,10 +128,15 @@
     "Profil",
     "Email",
     "Prestigestufe",
-    "Kommentare",
-    "Beiträge",
-    "Schon gespielt",
-    "Spielt gerade",
-    "Wunschzettel"
+    "Kommentare ausblenden",
+    "Kommentare einblenden",
+    "Hinzugefügte Spiele ausblenden",
+    "Hinzugefügte Spiele einblenden",
+    "Schon gespielt ausblenden",
+    "Schon gespielt einblenden",
+    "Spiele gerade ausblenden",
+    "Spiele gerade einblenden",
+    "Wunschzettel ausblenden",
+    "Wunschzettel einblenden"
   ]
 }

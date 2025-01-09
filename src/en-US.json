@@ -54,7 +54,7 @@
     "Welcome to Gameodex",
     "It feels good to welcome you back,",
     "Next time make sure not to stay away for so long!",
-    "Here are the 20 most recently added games",
+    "Most recently added games",
     "Login",
     "to view the entire game catalog",
     "If you do not have an account yet, you can create your account",
@@ -86,15 +86,15 @@
     "Edit Email Address",
     "Email",
     "Hide Comments",
-    "Comments",
+    "Show Comments",
     "Hide Contributions",
-    "Contributions",
+    "Show Contributions",
     "Hide Games Played",
-    "Games Played",
+    "Show Games Played",
     "Hide Currently Playing",
-    "Currently Playing",
+    "Show Currently Playing",
     "Hide Wishlist",
-    "Wishlist"
+    "Show Wishlist"
   ],
   "search": ["Search..."],
   "signupPage": [
@@ -129,14 +129,14 @@
     "Email",
     "Prestige Level",
     "Hide Comments",
-    "Comments",
+    "Show Comments",
     "Hide Contributions",
-    "Contributions",
+    "Show Contributions",
     "Hide Games Played",
-    "Games Played",
+    "Show Games Played",
     "Hide Currently Playing",
-    "Currently Playing",
+    "Show Currently Playing",
     "Hide Wishlist",
-    "Wishlist"
+    "Show Wishlist"
   ]
 }
