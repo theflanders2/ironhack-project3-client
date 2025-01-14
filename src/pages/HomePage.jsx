@@ -19,9 +19,9 @@ function HomePage() {
   const pageContent = language === "en-US" ? englishContent.homePage : germanContent.homePage;
 
   // Fetch recently added games
-  const getLatestTenGamesAdded = async () => {
+  const getLatestGames = async () => {
     try {
-      const response = await gamesService.getLatestTenGamesAdded()
+      const response = await gamesService.getLatestGames()
       setGames(response.data);
     } catch(error) {
       console.log("Error fetching most recently added games", error);
@@ -29,7 +29,7 @@ function HomePage() {
   };
 
   useEffect(() => {
-    getLatestTenGamesAdded();
+    getLatestGames();
     setIsLoading(false);
   }, []);
 

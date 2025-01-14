@@ -31,7 +31,7 @@ class GamesService {
   };
 
   // Retrieves latest games added to db
-  getLatestTenGamesAdded = () => {
+  getLatestGames = () => {
     return this.api.get("/");
   };
 
